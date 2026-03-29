@@ -6,3 +6,6 @@ dist/
 .ralph/
 .env
 .env.local
+.vercel
+.playwright-mcp/
+*.png
