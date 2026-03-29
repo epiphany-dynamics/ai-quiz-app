@@ -1,0 +1,32 @@
+# .ralphrc - Ralph project configuration
+# Project: AI Quiz App — Fix blank page + brand kit retheme
+
+# Project identification
+PROJECT_NAME="ai-quiz-app"
+PROJECT_TYPE="typescript"
+
+# Claude Code CLI command
+CLAUDE_CODE_CMD="claude"
+
+# Loop settings
+MAX_CALLS_PER_HOUR=80
+CLAUDE_TIMEOUT_MINUTES=20
+CLAUDE_OUTPUT_FORMAT="json"
+
+# Tool permissions — includes Playwright for visual verification
+ALLOWED_TOOLS="Write,Read,Edit,Bash,Glob,Grep,mcp__plugin_playwright_playwright__browser_navigate,mcp__plugin_playwright_playwright__browser_resize,mcp__plugin_playwright_playwright__browser_take_screenshot,mcp__plugin_playwright_playwright__browser_snapshot,mcp__plugin_playwright_playwright__browser_evaluate,mcp__plugin_playwright_playwright__browser_click,mcp__plugin_playwright_playwright__browser_close"
+
+# Session management
+SESSION_CONTINUITY=true
+SESSION_EXPIRY_HOURS=24
+
+# Task sources
+TASK_SOURCES="local"
+
+# Circuit breaker thresholds
+CB_NO_PROGRESS_THRESHOLD=3
+CB_SAME_ERROR_THRESHOLD=5
+CB_OUTPUT_DECLINE_THRESHOLD=70
+
+# Auto-update Claude CLI at startup
+CLAUDE_AUTO_UPDATE=false

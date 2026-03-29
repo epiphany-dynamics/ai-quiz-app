@@ -1,0 +1,682 @@
+{
+  "track": "business",
+  "version": "2.0.0",
+  "description": "Track A \u2014 Business Owner / Entrepreneur path. 8\u201310 adaptive questions. Produces an AI Readiness Score (0\u2013100) and tier label. Doubles as a soft lead funnel without feeling like a sales form.",
+  "result_type": "ai_readiness_score",
+  "questions": [
+    {
+      "id": "A5",
+      "type": "single_select",
+      "layout": "list",
+      "question": "How would you describe your current use of AI tools?",
+      "tags": [
+        "scoring",
+        "personalization_token:ai_usage"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 25
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "Never used AI in my business",
+          "tag": "none",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "I use Claude or ChatGPT occasionally for writing stuff",
+          "tag": "casual",
+          "score": 5
+        },
+        {
+          "value": "C",
+          "label": "I have a couple of AI tools integrated into my workflow",
+          "tag": "moderate",
+          "score": 18
+        },
+        {
+          "value": "D",
+          "label": "AI is already deeply embedded in how we operate",
+          "tag": "advanced",
+          "score": 25
+        }
+      ],
+      "track": "business"
+    },
+    {
+      "id": "A1",
+      "type": "single_select",
+      "layout": "grid",
+      "question": "What kind of business do you run?",
+      "tags": [
+        "context",
+        "personalization_token:industry"
+      ],
+      "scoring": false,
+      "options": [
+        {
+          "value": "A",
+          "label": "Med spa / wellness / aesthetics",
+          "tag": "medspa"
+        },
+        {
+          "value": "B",
+          "label": "Dental or healthcare practice",
+          "tag": "dental"
+        },
+        {
+          "value": "C",
+          "label": "Home services (plumbing, HVAC, landscaping, etc.)",
+          "tag": "home_services"
+        },
+        {
+          "value": "D",
+          "label": "Restaurant / food & beverage",
+          "tag": "restaurant"
+        },
+        {
+          "value": "E",
+          "label": "Professional services (legal, accounting, consulting)",
+          "tag": "professional"
+        },
+        {
+          "value": "F",
+          "label": "E-commerce / retail",
+          "tag": "ecommerce"
+        },
+        {
+          "value": "G",
+          "label": "Other",
+          "tag": "other",
+          "follow_up": {
+            "type": "free_text",
+            "placeholder": "Tell us more (optional)",
+            "max_chars": 40,
+            "required": false,
+            "captured_as": "metadata.industry_other"
+          }
+        }
+      ],
+      "track": "business"
+    },
+    {
+      "id": "A2",
+      "type": "single_select",
+      "layout": "list",
+      "question": "How many people work in your business (including you)?",
+      "tags": [
+        "context",
+        "personalization_token:team_size"
+      ],
+      "scoring": false,
+      "options": [
+        {
+          "value": "A",
+          "label": "Just me",
+          "tag": "solo"
+        },
+        {
+          "value": "B",
+          "label": "2\u20135",
+          "tag": "small"
+        },
+        {
+          "value": "C",
+          "label": "6\u201320",
+          "tag": "medium"
+        },
+        {
+          "value": "D",
+          "label": "21+",
+          "tag": "large"
+        }
+      ],
+      "track": "business"
+    },
+    {
+      "id": "A_TECH",
+      "type": "single_select",
+      "layout": "list",
+      "question": "How does your business handle day-to-day operations right now?",
+      "tags": [
+        "scoring",
+        "tech_sophistication"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 20
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "Pen-and-paper, spreadsheets, or it's all in my head",
+          "tag": "manual",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "Basic tools \u2014 Google Calendar, email, maybe a simple website",
+          "tag": "basic",
+          "score": 4
+        },
+        {
+          "value": "C",
+          "label": "Real software \u2014 CRM, scheduling platform, accounting tool",
+          "tag": "organized",
+          "score": 14
+        },
+        {
+          "value": "D",
+          "label": "Systems are connected \u2014 automations, integrations, everything talks to each other",
+          "tag": "automated",
+          "score": 22
+        }
+      ],
+      "track": "business"
+    },
+    {
+      "id": "A4",
+      "type": "multi_select",
+      "layout": "list",
+      "question": "What's eating the most time in your business right now? (Pick up to 3)",
+      "max_selections": 3,
+      "tags": [
+        "scoring",
+        "pain_points"
+      ],
+      "scoring": {
+        "method": "count",
+        "max_points": 10,
+        "default_if_skipped": 3,
+        "scale": [
+          {
+            "selections": 0,
+            "points": 0
+          },
+          {
+            "selections": 1,
+            "points": 3
+          },
+          {
+            "selections": 2,
+            "points": 6
+          },
+          {
+            "selections": 3,
+            "points": 10
+          }
+        ]
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "Answering the same questions from leads/clients over and over"
+        },
+        {
+          "value": "B",
+          "label": "Scheduling, rescheduling, no-shows"
+        },
+        {
+          "value": "C",
+          "label": "Following up with leads who go cold"
+        },
+        {
+          "value": "D",
+          "label": "Onboarding new clients or staff"
+        },
+        {
+          "value": "E",
+          "label": "Manual data entry or reporting"
+        },
+        {
+          "value": "F",
+          "label": "Social media / content creation"
+        },
+        {
+          "value": "G",
+          "label": "I don't know \u2014 that's kind of the problem"
+        }
+      ],
+      "track": "business"
+    },
+    {
+      "id": "A6a",
+      "type": "single_select",
+      "layout": "list",
+      "question": "What's held you back from trying AI in your business?",
+      "show_if": {
+        "A5": "A"
+      },
+      "tags": [
+        "context",
+        "barrier"
+      ],
+      "scoring": false,
+      "options": [
+        {
+          "value": "A",
+          "label": "I don't know where to start"
+        },
+        {
+          "value": "B",
+          "label": "I'm worried about the cost"
+        },
+        {
+          "value": "C",
+          "label": "I'm not sure it's right for my type of business"
+        },
+        {
+          "value": "D",
+          "label": "I tried it once and it didn't work well"
+        },
+        {
+          "value": "E",
+          "label": "Honestly, I just haven't had time to figure it out"
+        }
+      ],
+      "track": "business"
+    },
+    {
+      "id": "A7",
+      "type": "single_select",
+      "layout": "scenario_cards",
+      "question": "Which of these wins would get you most excited?",
+      "subtitle": "Scenarios are personalized to your business type.",
+      "show_if": {
+        "A5": {
+          "not": "D"
+        }
+      },
+      "tags": [
+        "context",
+        "opportunity_signal"
+      ],
+      "scoring": false,
+      "variants": {
+        "medspa": {
+          "options": [
+            {
+              "value": "A",
+              "label": "A patient calls at 11pm, books themselves, and you wake up to a full calendar"
+            },
+            {
+              "value": "B",
+              "label": "Every lead who ghosted after the first inquiry gets a smart follow-up that brings them back"
+            },
+            {
+              "value": "C",
+              "label": "Your front desk handles 80% of FAQs without involving a single staff member"
+            },
+            {
+              "value": "D",
+              "label": "You get a weekly AI-generated report showing which services are actually driving revenue"
+            }
+          ]
+        },
+        "dental": {
+          "options": [
+            {
+              "value": "A",
+              "label": "New patients schedule, get reminders, and receive post-care instructions \u2014 all before your staff arrives"
+            },
+            {
+              "value": "B",
+              "label": "Overdue patients get personalized reactivation messages that bring them back without a phone call"
+            },
+            {
+              "value": "C",
+              "label": "Insurance and intake paperwork gets handled automatically, so your chair time is 100% patient time"
+            },
+            {
+              "value": "D",
+              "label": "You see exactly which services drive the most revenue per chair-hour before the month ends"
+            }
+          ]
+        },
+        "home_services": {
+          "options": [
+            {
+              "value": "A",
+              "label": "A homeowner finds you on Google at midnight and books a quote without calling"
+            },
+            {
+              "value": "B",
+              "label": "Your follow-up texts go out automatically \u2014 no more chasing down cold leads"
+            },
+            {
+              "value": "C",
+              "label": "New crew members get onboarded with an AI assistant that answers their questions"
+            },
+            {
+              "value": "D",
+              "label": "You know exactly which job types are most profitable before the month ends"
+            }
+          ]
+        },
+        "restaurant": {
+          "options": [
+            {
+              "value": "A",
+              "label": "Reservations, waitlist, and catering inquiries handled 24/7 \u2014 no phone tag"
+            },
+            {
+              "value": "B",
+              "label": "Every Google review gets a smart, personalized response within minutes"
+            },
+            {
+              "value": "C",
+              "label": "Your regulars get personalized outreach when their usual order is on special"
+            },
+            {
+              "value": "D",
+              "label": "You see your most profitable menu items and peak-margin shifts at a glance every week"
+            }
+          ]
+        },
+        "professional": {
+          "options": [
+            {
+              "value": "A",
+              "label": "Prospective clients book discovery calls, fill intake forms, and get pre-consult docs \u2014 before you've had coffee"
+            },
+            {
+              "value": "B",
+              "label": "Every proposal you send gets a smart follow-up sequence that re-engages without being pushy"
+            },
+            {
+              "value": "C",
+              "label": "Client communications are drafted in seconds \u2014 consistent, polished, on-brand every time"
+            },
+            {
+              "value": "D",
+              "label": "You know exactly which service lines have the best close rate and margin \u2014 without a spreadsheet"
+            }
+          ]
+        },
+        "ecommerce": {
+          "options": [
+            {
+              "value": "A",
+              "label": "Customer support tickets \u2014 returns, order status, FAQs \u2014 handled automatically without you"
+            },
+            {
+              "value": "B",
+              "label": "Cart abandoners get personalized recovery sequences that bring back 10\u201315% of lost sales"
+            },
+            {
+              "value": "C",
+              "label": "Product descriptions, ads, and emails write themselves based on your catalog data"
+            },
+            {
+              "value": "D",
+              "label": "You see which SKUs, channels, and campaigns are actually profitable \u2014 updated daily"
+            }
+          ]
+        },
+        "other": {
+          "options": [
+            {
+              "value": "A",
+              "label": "Leads book themselves 24/7 without you touching the calendar"
+            },
+            {
+              "value": "B",
+              "label": "Ghosted leads come back on their own via smart follow-up sequences"
+            },
+            {
+              "value": "C",
+              "label": "Customer questions get answered instantly, any time of day"
+            },
+            {
+              "value": "D",
+              "label": "You get clear data on what's actually working in your business \u2014 without building spreadsheets"
+            }
+          ]
+        }
+      },
+      "track": "business"
+    },
+    {
+      "id": "A_COMPETE",
+      "type": "single_select",
+      "layout": "list",
+      "question": "Do you think your competitors are using AI right now?",
+      "tags": [
+        "scoring",
+        "competitive_awareness"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 15
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "I have no idea \u2014 I haven't thought about it",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "Probably not \u2014 my industry is pretty old-school",
+          "score": 3
+        },
+        {
+          "value": "C",
+          "label": "Some of them probably are, but I'm not sure how",
+          "score": 10
+        },
+        {
+          "value": "D",
+          "label": "Definitely \u2014 and I'm worried about falling behind",
+          "score": 17
+        }
+      ],
+      "track": "business"
+    },
+    {
+      "id": "A_TRUST",
+      "type": "single_select",
+      "layout": "list",
+      "question": "Would you trust AI to handle a customer interaction without a human checking first?",
+      "tags": [
+        "scoring",
+        "delegation_readiness"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 20
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "Absolutely not \u2014 a human needs to be involved every time",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "Maybe for simple stuff \u2014 confirming appointments, answering FAQs",
+          "score": 4
+        },
+        {
+          "value": "C",
+          "label": "Yes, for most routine interactions \u2014 I'd review edge cases only",
+          "score": 15
+        },
+        {
+          "value": "D",
+          "label": "Totally \u2014 if it's trained on my business, I'd trust it to run unsupervised",
+          "score": 22
+        }
+      ],
+      "track": "business"
+    },
+    {
+      "id": "A8",
+      "type": "single_select",
+      "layout": "list",
+      "question": "If an AI tool could reliably solve one of those problems \u2014 what kind of resources would you put behind it?",
+      "tags": [
+        "scoring",
+        "budget"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 15
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "I'd try a free version first to see if it works",
+          "score": 1
+        },
+        {
+          "value": "B",
+          "label": "Under $200/month if it saves real time",
+          "score": 4
+        },
+        {
+          "value": "C",
+          "label": "$200\u2013$500/month for clear ROI",
+          "score": 12
+        },
+        {
+          "value": "D",
+          "label": "Whatever it takes \u2014 I need this problem solved",
+          "score": 17
+        }
+      ],
+      "track": "business"
+    },
+    {
+      "id": "A9",
+      "type": "single_select",
+      "layout": "list",
+      "question": "If you found the right solution, what's your timeline?",
+      "tags": [
+        "scoring",
+        "urgency"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 10
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "I'd want to research and think it over",
+          "tag": "slow",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "A few weeks \u2014 I'd want to see a demo first",
+          "tag": "medium",
+          "score": 3
+        },
+        {
+          "value": "C",
+          "label": "Within a week if it looks right",
+          "tag": "fast",
+          "score": 9
+        },
+        {
+          "value": "D",
+          "label": "I'd start tomorrow if I found the right thing",
+          "tag": "hot",
+          "score": 14
+        }
+      ],
+      "track": "business"
+    }
+  ],
+  "scoring": {
+    "max_score": 100,
+    "inputs": [
+      "A5",
+      "A_TECH",
+      "A4",
+      "A_COMPETE",
+      "A_TRUST",
+      "A8",
+      "A9"
+    ],
+    "context_only": [
+      "A1",
+      "A2",
+      "A6a",
+      "A7"
+    ],
+    "note": "Max 127. Boundaries derived from answer profiles: all-A=1, all-B=26, all-C=84, all-D=127. Tiers sit at natural behavioral divides.",
+    "tiers": [
+      {
+        "id": "ai_ready_operator",
+        "label": "AI-Ready Operator",
+        "range": [
+          84,
+          127
+        ]
+      },
+      {
+        "id": "ai_curious_builder",
+        "label": "AI-Curious Builder",
+        "range": [
+          56,
+          83
+        ]
+      },
+      {
+        "id": "ai_aware_explorer",
+        "label": "AI-Aware Explorer",
+        "range": [
+          27,
+          55
+        ]
+      },
+      {
+        "id": "ai_newcomer",
+        "label": "AI Newcomer",
+        "range": [
+          0,
+          26
+        ]
+      }
+    ]
+  },
+  "lead_scoring": {
+    "method": "separate_from_quiz_score",
+    "inputs": [
+      "A9",
+      "A8",
+      "A4"
+    ],
+    "formula_note": "Computed separately from quiz score. Stored in Supabase quiz_leads table. A9+A8 weight urgency and investment willingness. A4 count signals pain awareness.",
+    "tiers": [
+      {
+        "range": [
+          80,
+          100
+        ],
+        "tag": "hot",
+        "action": "immediate follow-up \u2014 Mack or Patrick directly"
+      },
+      {
+        "range": [
+          50,
+          79
+        ],
+        "tag": "warm",
+        "action": "24h follow-up sequence"
+      },
+      {
+        "range": [
+          0,
+          49
+        ],
+        "tag": "nurture",
+        "action": "drip sequence only"
+      }
+    ]
+  }
+}

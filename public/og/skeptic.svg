@@ -1,0 +1,50 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0d0d1a"/>
+      <stop offset="100%" stop-color="#12101f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Glow blob -->
+  <ellipse cx="600" cy="320" rx="500" ry="300" fill="#F59E0B" opacity="0.08" filter="url(#blur)"/>
+  
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="4" fill="#F59E0B"/>
+  
+  <!-- Left accent bar -->
+  <rect x="80" y="100" width="6" height="400" rx="3" fill="#F59E0B" opacity="0.6"/>
+  
+  <!-- Score ring circle -->
+  <circle cx="980" cy="315" r="140" fill="none" stroke="#F59E0B" stroke-width="3" opacity="0.2"/>
+  <circle cx="980" cy="315" r="110" fill="none" stroke="#F59E0B" stroke-width="2" opacity="0.15"/>
+  <text x="980" y="295" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="52" fill="#F59E0B" font-weight="800" opacity="0.9">AI</text>
+  <text x="980" y="355" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="white" font-weight="500" opacity="0.5">Score</text>
+  
+  <!-- Badge emoji -->
+  <text x="120" y="200" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif" font-size="72">🤔</text>
+  
+  <!-- Category label -->
+  <text x="120" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="58" fill="white" font-weight="800">The Thoughtful Skeptic</text>
+  
+  <!-- Color underline -->
+  <rect x="120" y="308" width="700" height="4" rx="2" fill="#F59E0B" opacity="0.8"/>
+  
+  <!-- Tagline -->
+  <text x="120" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="white" opacity="0.75" font-weight="400">You're aware, cautious — and that's not a bad place to start.</text>
+  
+  <!-- Epiphany Dynamics branding -->
+  <rect x="80" y="520" width="1040" height="1" fill="white" opacity="0.08"/>
+  <text x="120" y="570" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="white" opacity="0.4">Epiphany Dynamics — AI Readiness Quiz</text>
+  <text x="980" y="570" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#F59E0B" opacity="0.7" font-weight="600">epiphany.help</text>
+</svg>

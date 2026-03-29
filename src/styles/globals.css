@@ -1,0 +1,425 @@
+@import "tailwindcss";
+
+/* ============================================================
+   @font-face — League Spartan + Poppins (local files)
+   ============================================================ */
+
+@font-face {
+  font-family: 'League Spartan';
+  src: url('/fonts/LeagueSpartan-300.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'League Spartan';
+  src: url('/fonts/LeagueSpartan-400.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'League Spartan';
+  src: url('/fonts/LeagueSpartan-500.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'League Spartan';
+  src: url('/fonts/LeagueSpartan-700.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-300.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-400.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-500.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-600.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+
+/* ============================================================
+   DESIGN TOKENS — Epiphany Dynamics Brand Kit
+   Dark-first. Premium cinematic. Cream accents.
+   ============================================================ */
+
+:root {
+  /* Backgrounds */
+  --color-bg-base: #050505;
+  --color-bg-card: #0a0a0a;
+  --color-bg-elevated: #111111;
+  --color-bg-overlay: rgba(5, 5, 5, 0.92);
+  --color-bg-cream: #f0efeb;
+  --color-bg-cream-hover: #e8e6e1;
+  --color-bg-section-cream: #f8f7f4;
+
+  /* Text */
+  --color-text-primary: #f0efeb;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-text-inverse: #050505;
+
+  /* Borders */
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-default: rgba(255, 255, 255, 0.15);
+  --color-border-strong: rgba(255, 255, 255, 0.25);
+
+  /* Glass */
+  --color-glass: rgba(0, 0, 0, 0.6);
+
+  /* Accent — cream as the highlight on dark */
+  --color-accent: #f0efeb;
+  --color-accent-muted: rgba(240, 239, 235, 0.15);
+  --color-accent-strong: rgba(240, 239, 235, 0.3);
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* Radii */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-full: 12rem;
+
+  /* Shadows / Glows */
+  --glow-accent: 0 0 20px rgba(240, 239, 235, 0.15);
+  --glow-accent-strong: 0 0 40px rgba(240, 239, 235, 0.25);
+
+  /* Motion — brand easing curves */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --ease-snappy: cubic-bezier(0.2, 0.21, 0, 1);
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* ============================================================
+   BASE RESET & DEFAULTS
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'League Spartan', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   TAILWIND THEME EXTENSION
+   ============================================================ */
+
+@theme {
+  --color-brand: #f0efeb;
+  --color-brand-light: #f8f7f4;
+  --color-brand-dark: #e8e6e1;
+  --color-surface: #0a0a0a;
+  --color-surface-elevated: #111111;
+
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: 'League Spartan', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --shadow-glow-accent: 0 0 20px rgba(240, 239, 235, 0.15);
+  --shadow-glow-strong: 0 0 40px rgba(240, 239, 235, 0.25);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.6);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+}
+
+/* ============================================================
+   GLOBAL UTILITY CLASSES
+   ============================================================ */
+
+.quiz-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.card-interactive {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease-spring),
+              box-shadow 0.25s var(--ease-spring),
+              transform 0.25s var(--ease-spring),
+              background 0.25s var(--ease-spring);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  position: relative;
+}
+
+.card-interactive::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 40%, rgba(240, 239, 235, 0.12) 50%, transparent 60%);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-spring);
+  pointer-events: none;
+}
+
+.card-interactive:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: 0 0 24px rgba(240, 239, 235, 0.08), 0 4px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.card-interactive:hover::before {
+  opacity: 1;
+}
+
+.card-interactive.selected {
+  border-color: rgba(240, 239, 235, 0.4);
+  box-shadow: 0 0 32px rgba(240, 239, 235, 0.12), inset 0 0 20px rgba(240, 239, 235, 0.03);
+  background: rgba(240, 239, 235, 0.06);
+}
+
+/* Progress bar */
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(240, 239, 235, 0.3), var(--color-accent));
+  border-radius: var(--radius-full);
+  transition: width var(--duration-slow) var(--ease-cinematic);
+  box-shadow: 0 0 12px rgba(240, 239, 235, 0.2);
+}
+
+/* Button styles — pill-shaped */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-bg-cream);
+  color: var(--color-text-inverse);
+  font-family: 'League Spartan', 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background 0.25s var(--ease-spring),
+              box-shadow 0.25s var(--ease-spring),
+              transform 0.25s var(--ease-spring);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary:hover {
+  background: #ffffff;
+  box-shadow: 0 0 40px rgba(240, 239, 235, 0.3), 0 4px 20px rgba(240, 239, 235, 0.15);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 0 20px rgba(240, 239, 235, 0.2);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: color var(--duration-fast), border-color var(--duration-fast);
+}
+
+.btn-ghost:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+}
+
+/* Score ring animation */
+@keyframes score-fill {
+  from { stroke-dashoffset: var(--score-start, 314); }
+  to   { stroke-dashoffset: var(--score-end, 0); }
+}
+
+.score-ring-circle {
+  animation: score-fill 1.2s var(--ease-cinematic) forwards;
+}
+
+/* Share card gradient */
+.share-gradient {
+  background: linear-gradient(135deg, #0a0a0a 0%, #050505 50%, #0a0a0a 100%);
+}
+
+/* Floating animation for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse glow — cream accent */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(240, 239, 235, 0.15); }
+  50% { box-shadow: 0 0 30px rgba(240, 239, 235, 0.3); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Ambient radial glow — landing page hero */
+.ambient-glow {
+  position: relative;
+}
+
+.ambient-glow::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240, 239, 235, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Headline text glow — cinematic emphasis */
+.text-glow {
+  text-shadow: 0 0 40px rgba(240, 239, 235, 0.15), 0 0 80px rgba(240, 239, 235, 0.05);
+}
+
+/* Glass card */
+.card-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Shimmer animation for loading/emphasis */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(240, 239, 235, 0.06) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+/* Smooth focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid rgba(240, 239, 235, 0.5);
+  outline-offset: 2px;
+  border-radius: inherit;
+}
+
+/* Film grain overlay — subtle cinematic texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}

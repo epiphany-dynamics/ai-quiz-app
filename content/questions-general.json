@@ -1,0 +1,424 @@
+{
+  "track": "general",
+  "version": "2.0.0",
+  "description": "Track B \u2014 General Public path. 7 adaptive questions. Produces an AI Personality Type based on usage awareness, comfort level, sentiment, and self-identity.",
+  "result_type": "ai_personality_type",
+  "questions": [
+    {
+      "id": "G1",
+      "type": "single_select",
+      "layout": "list",
+      "question": "Quick reality check \u2014 how often do you actually run into AI in your daily life?",
+      "tags": [
+        "scoring",
+        "usage_frequency"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 20
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "Barely ever \u2014 I don't really think about it",
+          "tag": "none",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "Sometimes \u2014 mostly Siri, Google Maps, or Netflix recommendations",
+          "tag": "passive",
+          "score": 4
+        },
+        {
+          "value": "C",
+          "label": "Pretty often \u2014 I use Claude, ChatGPT, or similar tools a few times a week",
+          "tag": "active",
+          "score": 15
+        },
+        {
+          "value": "D",
+          "label": "Constantly \u2014 AI is woven into most of what I do online",
+          "tag": "power",
+          "score": 22
+        }
+      ],
+      "track": "general"
+    },
+    {
+      "id": "G3",
+      "type": "single_select",
+      "layout": "list",
+      "question": "If someone handed you a new AI app and said \"just figure it out\" \u2014 what happens?",
+      "tags": [
+        "scoring",
+        "personalization_token:comfort_level"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 25
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "Hard pass \u2014 I'd need a tutorial and probably some hand-holding",
+          "tag": "low",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "I'd give it a shot but would likely need help along the way",
+          "tag": "medium_low",
+          "score": 5
+        },
+        {
+          "value": "C",
+          "label": "I'd poke around and figure it out on my own, no problem",
+          "tag": "medium_high",
+          "score": 18
+        },
+        {
+          "value": "D",
+          "label": "I'd have a workflow figured out before most people open the homepage",
+          "tag": "high",
+          "score": 25
+        }
+      ],
+      "track": "general"
+    },
+    {
+      "id": "G5",
+      "type": "single_select",
+      "layout": "grid",
+      "question": "If AI could take one annoying thing off your plate starting today, what would you pick?",
+      "tags": [
+        "context",
+        "personalization_token:ai_wish"
+      ],
+      "scoring": false,
+      "options": [
+        {
+          "value": "A",
+          "label": "Managing my inbox and emails",
+          "tag": "email"
+        },
+        {
+          "value": "B",
+          "label": "Meal planning, grocery lists, and recipes",
+          "tag": "lifestyle"
+        },
+        {
+          "value": "C",
+          "label": "Scheduling, calendar coordination, and reminders",
+          "tag": "scheduling"
+        },
+        {
+          "value": "D",
+          "label": "Research \u2014 finding and summarizing information fast",
+          "tag": "research"
+        },
+        {
+          "value": "E",
+          "label": "Creative stuff \u2014 writing, brainstorming, or design",
+          "tag": "creative"
+        }
+      ],
+      "track": "general"
+    },
+    {
+      "id": "G6",
+      "type": "single_select",
+      "layout": "list",
+      "question": "What's your honest reaction when you see a headline about AI?",
+      "tags": [
+        "scoring",
+        "ai_sentiment"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 20
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "Mostly anxiety \u2014 it feels like it's moving too fast",
+          "tag": "anxious",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "Skeptical \u2014 a lot of hype, not enough substance",
+          "tag": "skeptic",
+          "score": 3
+        },
+        {
+          "value": "C",
+          "label": "Interested \u2014 I try to stay informed even when it feels overwhelming",
+          "tag": "curious",
+          "score": 14
+        },
+        {
+          "value": "D",
+          "label": "Excited \u2014 I actually read the article and look for ways to try it",
+          "tag": "excited",
+          "score": 22
+        }
+      ],
+      "track": "general"
+    },
+    {
+      "id": "G7",
+      "type": "single_select",
+      "layout": "list",
+      "question": "What's your biggest hesitation about using AI more in your life?",
+      "show_if": {
+        "G6": [
+          "A",
+          "B"
+        ]
+      },
+      "tags": [
+        "context",
+        "barrier"
+      ],
+      "scoring": false,
+      "options": [
+        {
+          "value": "A",
+          "label": "I'm not sure I can trust what it tells me",
+          "tag": "trust"
+        },
+        {
+          "value": "B",
+          "label": "I'm worried about privacy and where my data goes",
+          "tag": "privacy"
+        },
+        {
+          "value": "C",
+          "label": "It feels too complicated to learn or set up",
+          "tag": "complexity"
+        },
+        {
+          "value": "D",
+          "label": "I'm not convinced it would actually help me",
+          "tag": "value"
+        },
+        {
+          "value": "E",
+          "label": "Honestly, I just haven't made the time to figure it out",
+          "tag": "time"
+        }
+      ],
+      "track": "general"
+    },
+    {
+      "id": "G_RECENT",
+      "type": "single_select",
+      "layout": "list",
+      "question": "When was the last time you tried something new with AI?",
+      "tags": [
+        "scoring",
+        "recency"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 20
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "Never \u2014 I haven't tried AI at all",
+          "tag": "never",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "Months ago \u2014 I tried it once and moved on",
+          "tag": "lapsed",
+          "score": 3
+        },
+        {
+          "value": "C",
+          "label": "In the last few weeks \u2014 I poke around when something catches my eye",
+          "tag": "recent",
+          "score": 14
+        },
+        {
+          "value": "D",
+          "label": "This week \u2014 I'm actively experimenting",
+          "tag": "active",
+          "score": 22
+        }
+      ],
+      "track": "general"
+    },
+    {
+      "id": "G_DECIDE",
+      "type": "single_select",
+      "layout": "list",
+      "question": "Would you trust AI to help you make a real decision \u2014 like where to invest money, what job to take, or how to handle a tough conversation?",
+      "tags": [
+        "scoring",
+        "trust_level"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 15
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "No way \u2014 those decisions are too important for AI",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "I'd ask it for information, but the decision is mine",
+          "score": 3
+        },
+        {
+          "value": "C",
+          "label": "I'd seriously consider its perspective alongside my own",
+          "score": 12
+        },
+        {
+          "value": "D",
+          "label": "I already do this \u2014 AI is one of the first places I go when I need to think something through",
+          "score": 17
+        }
+      ],
+      "track": "general"
+    },
+    {
+      "id": "G8",
+      "type": "single_select",
+      "layout": "list",
+      "question": "You just found an AI tool that could save you an hour a day. How do you learn it?",
+      "tags": [
+        "context",
+        "personalization_token:learning_style"
+      ],
+      "scoring": false,
+      "options": [
+        {
+          "value": "A",
+          "label": "YouTube video \u2014 show me, don't tell me",
+          "tag": "video"
+        },
+        {
+          "value": "B",
+          "label": "Just open it and start clicking around",
+          "tag": "self_directed"
+        },
+        {
+          "value": "C",
+          "label": "Read a guide at my own pace with coffee",
+          "tag": "reader"
+        },
+        {
+          "value": "D",
+          "label": "Have someone walk me through it live",
+          "tag": "guided"
+        },
+        {
+          "value": "E",
+          "label": "Watch a friend use it first, then copy what works",
+          "tag": "observational"
+        }
+      ],
+      "track": "general"
+    },
+    {
+      "id": "G10",
+      "type": "single_select",
+      "layout": "list",
+      "question": "Last one \u2014 which of these sounds most like you right now?",
+      "tags": [
+        "scoring",
+        "personalization_token:self_identity"
+      ],
+      "scoring": {
+        "method": "direct",
+        "max_points": 15
+      },
+      "options": [
+        {
+          "value": "A",
+          "label": "Curious outsider \u2014 I know AI is a thing, I'm just starting to explore",
+          "tag": "newcomer",
+          "score": 0
+        },
+        {
+          "value": "B",
+          "label": "Casual dabbler \u2014 I use a few AI tools but haven't gone deep",
+          "tag": "casual",
+          "score": 3
+        },
+        {
+          "value": "C",
+          "label": "Active learner \u2014 I'm trying new AI tools and staying up on what's changing",
+          "tag": "learner",
+          "score": 11
+        },
+        {
+          "value": "D",
+          "label": "Early adopter \u2014 I'm usually ahead of most people when new tech drops",
+          "tag": "early_adopter",
+          "score": 17
+        }
+      ],
+      "track": "general"
+    }
+  ],
+  "scoring": {
+    "max_score": 100,
+    "inputs": [
+      "G1",
+      "G3",
+      "G6",
+      "G_RECENT",
+      "G_DECIDE",
+      "G10"
+    ],
+    "context_only": [
+      "G5",
+      "G7",
+      "G8"
+    ],
+    "note": "Max 125. Boundaries derived from answer profiles: all-A=0, all-B=21, all-C=84, all-D=125. Tiers sit at natural behavioral divides.",
+    "tiers": [
+      {
+        "id": "trailblazer",
+        "label": "The Trailblazer",
+        "range": [
+          84,
+          125
+        ]
+      },
+      {
+        "id": "explorer",
+        "label": "The Explorer",
+        "range": [
+          56,
+          83
+        ]
+      },
+      {
+        "id": "skeptic",
+        "label": "The Thoughtful Skeptic",
+        "range": [
+          22,
+          55
+        ]
+      },
+      {
+        "id": "fresh_start",
+        "label": "The Fresh Start",
+        "range": [
+          0,
+          21
+        ]
+      }
+    ]
+  }
+}
