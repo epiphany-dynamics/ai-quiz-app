@@ -171,7 +171,7 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
 
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-      <div style={{ display: 'flex', gap: 8 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         <input
           type="email"
           placeholder="you@company.com"
@@ -180,8 +180,8 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
           required
           disabled={status === 'submitting'}
           style={{
-            flex: 1,
-            padding: '10px 14px',
+            width: '100%',
+            padding: '12px 16px',
             borderRadius: 'var(--radius-full)',
             background: 'var(--color-bg-elevated)',
             border: '1px solid var(--color-border-default)',
@@ -196,7 +196,7 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
           className="btn-primary"
           disabled={status === 'submitting' || !email}
           whileTap={{ scale: 0.96 }}
-          style={{ whiteSpace: 'nowrap' }}
+          style={{ width: '100%', justifyContent: 'center' }}
         >
           {status === 'submitting' ? 'Sending...' : 'Send my results'}
         </motion.button>

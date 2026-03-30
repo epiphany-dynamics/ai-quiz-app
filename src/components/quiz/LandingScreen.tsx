@@ -131,13 +131,33 @@ export function LandingScreen() {
         Start the Quiz
       </motion.button>
 
+      {/* Secondary path — book a call */}
+      <motion.a
+        href="https://calendly.com/epiphanydynamics/ai-workflow-review-call"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 text-sm"
+        style={{
+          color: 'var(--color-text-secondary)',
+          textDecoration: 'underline',
+          textUnderlineOffset: '3px',
+          textDecorationColor: 'rgba(240, 239, 235, 0.3)',
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.95 }}
+        whileHover={{ color: '#f0efeb' }}
+      >
+        Rather talk to someone? Book a free call
+      </motion.a>
+
       {/* Social proof */}
       <motion.p
-        className="mt-8 text-sm"
+        className="mt-6 text-sm"
         style={{ color: 'var(--color-text-muted)', letterSpacing: '0.02em' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.7 }}
-        transition={{ delay: 1.0 }}
+        transition={{ delay: 1.05 }}
       >
         No email required · Instant results
       </motion.p>
