@@ -111,9 +111,10 @@ interface EmailFormProps {
   tierTagline: string
   track: string
   insightCards: Array<{ title: string; body: string }>
+  answers: Record<string, string | string[] | number>
 }
 
-function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track, insightCards }: EmailFormProps) {
+function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track, insightCards, answers }: EmailFormProps) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'done' | 'error'>('idle')
 
@@ -138,6 +139,7 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
             tierTagline,
             track,
             insightCards: insightCards.slice(0, 3),
+            answers,
           }),
         })
 
@@ -147,7 +149,7 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
         setStatus('error')
       }
     },
-    [email, resultId, score, categoryId, tierLabel, tierTagline, track, insightCards],
+    [email, resultId, score, categoryId, tierLabel, tierTagline, track, insightCards, answers],
   )
 
   if (status === 'done') {
@@ -227,6 +229,10 @@ export function ResultsScreen() {
   const [burstDone, setBurstDone] = useState(false)
 
   const { score, resultId, track } = state.session
+
+  // Build flat answers map for the email report API
+  const answersMap: Record<string, string | string[] | number> = {}
+  state.session.answers.forEach(a => { answersMap[a.questionId] = a.value })
 
   useEffect(() => {
     if (!track || score === undefined) return
@@ -445,7 +451,7 @@ export function ResultsScreen() {
               <p style={{ fontWeight: 500, fontSize: '0.9rem', marginBottom: 10, marginTop: 0, color: 'var(--color-text-secondary)' }}>
                 Not ready for a call? Get your detailed breakdown by email instead.
               </p>
-              <EmailForm resultId={savedResultId ?? ''} categoryId={category.id} score={score} tierLabel={category.label} tierTagline={category.tagline} track={track!} insightCards={category.insight_cards} />
+              <EmailForm resultId={savedResultId ?? ''} categoryId={category.id} score={score} tierLabel={category.label} tierTagline={category.tagline} track={track!} insightCards={category.insight_cards} answers={answersMap} />
             </motion.div>
           </>
         ) : (
@@ -473,7 +479,7 @@ export function ResultsScreen() {
                   ? "We'll send you 3 specific things to try this week based on your answers — no jargon, no pressure."
                   : "We'll send a custom breakdown of the 3 best AI starting points for your situation — no spam, one email."}
               </p>
-              <EmailForm resultId={savedResultId ?? ''} categoryId={category.id} score={score} tierLabel={category.label} tierTagline={category.tagline} track={track!} insightCards={category.insight_cards} />
+              <EmailForm resultId={savedResultId ?? ''} categoryId={category.id} score={score} tierLabel={category.label} tierTagline={category.tagline} track={track!} insightCards={category.insight_cards} answers={answersMap} />
             </motion.div>
 
             {/* COOL: Soft Calendly nudge as secondary */}
