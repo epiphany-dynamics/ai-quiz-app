@@ -425,9 +425,7 @@ export function ResultsScreen() {
                     : "A free 15-minute AI workflow review finds the one thing that'll save you the most time this month."}
               </p>
               <motion.a
-                href="https://calendly.com/epiphanydynamics/ai-workflow-review-call"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://epiphanydynamics.ai/book"
                 className="btn-primary"
                 style={{ display: 'inline-flex', textDecoration: 'none' }}
                 whileTap={{ scale: 0.97 }}
@@ -496,9 +494,7 @@ export function ResultsScreen() {
                 Want to talk through your results with a real person?
               </p>
               <motion.a
-                href="https://calendly.com/epiphanydynamics/ai-workflow-review-call"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://epiphanydynamics.ai/book"
                 style={{
                   fontSize: '0.85rem',
                   color: 'var(--color-bg-cream)',

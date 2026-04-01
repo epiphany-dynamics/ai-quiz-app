@@ -133,20 +133,14 @@ export function LandingScreen() {
 
       {/* Secondary path — book a call */}
       <motion.a
-        href="https://calendly.com/epiphanydynamics/ai-workflow-review-call"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-5 text-sm"
-        style={{
-          color: 'var(--color-text-secondary)',
-          textDecoration: 'underline',
-          textUnderlineOffset: '3px',
-          textDecorationColor: 'rgba(240, 239, 235, 0.3)',
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.95 }}
-        whileHover={{ color: '#f0efeb' }}
+        href="https://epiphanydynamics.ai/book"
+        className="btn-secondary mt-5"
+        style={{ textDecoration: 'none' }}
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.95, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ scale: 1.02, y: -1 }}
+        whileTap={{ scale: 0.97 }}
       >
         Rather talk to someone? Book a free call
       </motion.a>
