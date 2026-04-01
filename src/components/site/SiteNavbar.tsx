@@ -219,7 +219,7 @@ export function SiteNavbar() {
                     {[
                       { name: 'Newsletter', href: `${SITE}/newsletter` },
                       { name: 'AI Readiness Quiz', href: 'https://quiz.epiphanydynamics.ai' },
-                      { name: 'Book a Call', href: 'https://calendly.com/epiphanydynamics/ai-workflow-review-call' },
+                      { name: 'Book a Call', href: `${SITE}/book` },
                       { name: 'Learn', href: 'https://epiphany.help' },
                     ].map((link) => (
                       <a

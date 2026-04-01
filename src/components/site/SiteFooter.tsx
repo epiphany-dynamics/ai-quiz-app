@@ -57,7 +57,7 @@ export function SiteFooter() {
               <h4 className="text-[#ffffff] font-semibold tracking-[-0.01em] text-sm mb-6">Explore</h4>
               <div className="flex flex-col space-y-3">
                 <FooterLink href="https://quiz.epiphanydynamics.ai" external>AI Readiness Quiz</FooterLink>
-                <FooterLink href="https://calendly.com/epiphanydynamics/ai-workflow-review-call" external>Book a Call</FooterLink>
+                <FooterLink href="https://epiphanydynamics.ai/book">Book a Call</FooterLink>
                 <FooterLink href="/case-studies/jason-fransos">Case Studies</FooterLink>
                 <FooterLink href="/newsletter">Newsletter</FooterLink>
                 <FooterLink href="https://epiphany.help" external>Learn</FooterLink>
