@@ -1,57 +1,7 @@
 @import "tailwindcss";
 
-/* ============================================================
-   @font-face — League Spartan + Poppins (local files)
-   ============================================================ */
-
-@font-face {
-  font-family: 'League Spartan';
-  src: url('/fonts/LeagueSpartan-300.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'League Spartan';
-  src: url('/fonts/LeagueSpartan-400.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'League Spartan';
-  src: url('/fonts/LeagueSpartan-500.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'League Spartan';
-  src: url('/fonts/LeagueSpartan-700.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-300.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-400.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-500.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-600.ttf') format('truetype');
-  font-weight: 600;
-  font-display: swap;
-}
+/* Fonts loaded via Google Fonts <link> in index.html — matches operating-partnerships-offer.pdf
+   Stack: Instrument Serif (display), Geist (sections), Inter (body), Geist Mono (labels) */
 
 /* ============================================================
    DESIGN TOKENS — Epiphany Dynamics Brand Kit
@@ -59,33 +9,35 @@
    ============================================================ */
 
 :root {
-  /* Backgrounds */
-  --color-bg-base: #050505;
-  --color-bg-card: #0a0a0a;
-  --color-bg-elevated: #111111;
-  --color-bg-overlay: rgba(5, 5, 5, 0.92);
-  --color-bg-cream: #f0efeb;
-  --color-bg-cream-hover: #e8e6e1;
-  --color-bg-section-cream: #f8f7f4;
+  /* Backgrounds — pure void per Resend DESIGN.md */
+  --color-bg-base: #000000;
+  --color-bg-card: #000000;
+  --color-bg-elevated: #000000;
+  --color-bg-overlay: rgba(0, 0, 0, 0.92);
+  --color-bg-cream: #f0f0f0;
+  --color-bg-cream-hover: #ffffff;
+  --color-bg-section-cream: #f0f0f0;
 
   /* Text */
-  --color-text-primary: #f0efeb;
-  --color-text-secondary: #a1a1aa;
-  --color-text-muted: #71717a;
-  --color-text-inverse: #050505;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #a1a4a5;
+  --color-text-muted: #5c5c5c;
+  --color-text-inverse: #000000;
 
-  /* Borders */
-  --color-border-subtle: rgba(255, 255, 255, 0.1);
-  --color-border-default: rgba(255, 255, 255, 0.15);
-  --color-border-strong: rgba(255, 255, 255, 0.25);
+  /* Borders — frost (signature Resend ice-blue tint) */
+  --color-border-subtle: rgba(214, 235, 253, 0.19);
+  --color-border-default: rgba(214, 235, 253, 0.19);
+  --color-border-strong: rgba(214, 235, 253, 0.34);
+  --color-frost: rgba(214, 235, 253, 0.19);
+  --color-frost-strong: rgba(214, 235, 253, 0.34);
 
   /* Glass */
   --color-glass: rgba(0, 0, 0, 0.6);
 
-  /* Accent — cream as the highlight on dark */
-  --color-accent: #f0efeb;
-  --color-accent-muted: rgba(240, 239, 235, 0.15);
-  --color-accent-strong: rgba(240, 239, 235, 0.3);
+  /* Accent — near-white highlight */
+  --color-accent: #f0f0f0;
+  --color-accent-muted: rgba(240, 240, 240, 0.15);
+  --color-accent-strong: rgba(240, 240, 240, 0.3);
 
   /* Spacing */
   --space-1: 0.25rem;
@@ -140,7 +92,7 @@ body {
   margin: 0;
   background-color: var(--color-bg-base);
   color: var(--color-text-primary);
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
@@ -151,10 +103,22 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'League Spartan', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: -0.03em;
+  font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.02em;
   line-height: 1.0;
+  font-weight: 400;
+  font-feature-settings: "ss01", "ss03", "ss04", "ss11";
 }
+
+h1 em, h2 em, h3 em, h4 em {
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* Frost utility classes — DESIGN.md universal structural element */
+.border-frost { border-color: var(--color-frost) !important; }
+.border-frost-strong { border-color: var(--color-frost-strong) !important; }
 
 #root {
   min-height: 100dvh;
@@ -167,14 +131,20 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 
 @theme {
-  --color-brand: #f0efeb;
-  --color-brand-light: #f8f7f4;
-  --color-brand-dark: #e8e6e1;
-  --color-surface: #0a0a0a;
-  --color-surface-elevated: #111111;
+  --color-brand: #f0f0f0;
+  --color-brand-light: #ffffff;
+  --color-brand-dark: #ececec;
+  --color-surface: #000000;
+  --color-surface-elevated: #000000;
+  --color-frost: rgba(214, 235, 253, 0.19);
+  --color-frost-strong: rgba(214, 235, 253, 0.34);
 
-  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-heading: 'League Spartan', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-spartan: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-poppins: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
 
   --shadow-glow-accent: 0 0 20px rgba(240, 239, 235, 0.15);
   --shadow-glow-strong: 0 0 40px rgba(240, 239, 235, 0.25);
@@ -279,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: var(--space-3) var(--space-8);
   background: var(--color-bg-cream);
   color: var(--color-text-inverse);
-  font-family: 'League Spartan', 'Poppins', sans-serif;
+  font-family: 'Instrument Serif', Georgia, serif;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -311,7 +281,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: var(--space-2) var(--space-4);
   background: transparent;
   color: var(--color-text-secondary);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   border: 1px solid var(--color-border-subtle);
@@ -337,7 +307,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Share card gradient */
 .share-gradient {
-  background: linear-gradient(135deg, #0a0a0a 0%, #050505 50%, #0a0a0a 100%);
+  background: linear-gradient(135deg, #000000 0%, #000000 50%, #000000 100%);
 }
 
 /* Floating animation for decorative elements */
@@ -418,8 +388,8 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 
 .site-btn-primary {
-  --btn-main: #050505;
-  --btn-bg: #f0efeb;
+  --btn-main: #000000;
+  --btn-bg: #f0f0f0;
   --btn-border: transparent;
   position: relative;
   display: inline-flex;
@@ -432,7 +402,7 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   background: var(--btn-bg);
   color: var(--btn-main);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-weight: 550;
   font-size: 0.875rem;
   letter-spacing: -0.028rem;
@@ -490,7 +460,7 @@ h1, h2, h3, h4, h5, h6 {
 .site-btn-primary:hover .btn-out::before { transform: scaleX(1); }
 
 .site-btn-secondary {
-  --btn-main: #f0efeb;
+  --btn-main: #f0f0f0;
   --btn-bg: transparent;
   --btn-border: rgba(255, 255, 255, 0.25);
   position: relative;
@@ -504,7 +474,7 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   background: transparent;
   color: var(--btn-main);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-weight: 550;
   font-size: 0.875rem;
   letter-spacing: -0.028rem;
@@ -541,7 +511,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: 0.8rem;
   padding: 1.1rem 2.2rem;
-  color: #050505;
+  color: #000000;
   transform: translateY(calc(100% + 4px));
   transition: transform 0.3s cubic-bezier(0.35, 0.2, 0, 1);
 }

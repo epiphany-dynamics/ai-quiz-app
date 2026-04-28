@@ -1,8 +1,8 @@
 const SITE = 'https://epiphanydynamics.ai'
 
 function FooterLink({ href, children, external }: { href: string; children: React.ReactNode; external?: boolean }) {
-  const cls = 'group relative text-[#ffffff]/50 hover:text-[#f0efeb] hover:translate-x-1 transition-all duration-300 text-sm w-fit'
-  const underline = <span className="absolute left-0 -bottom-0.5 h-px w-full bg-[#f0efeb] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+  const cls = 'group relative text-[#ffffff]/50 hover:text-[#f0f0f0] hover:translate-x-1 transition-all duration-300 text-sm w-fit'
+  const underline = <span className="absolute left-0 -bottom-0.5 h-px w-full bg-[#f0f0f0] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
 
   return (
     <a
