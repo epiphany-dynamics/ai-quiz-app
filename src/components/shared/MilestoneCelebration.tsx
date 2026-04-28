@@ -83,9 +83,9 @@ export function MilestoneCelebration({
                 style={{
                   fontSize: 18,
                   fontWeight: 700,
-                  color: '#f0efeb',
+                  color: '#f0f0f0',
                   letterSpacing: '-0.01em',
-                  fontFamily: 'League Spartan, sans-serif',
+                  fontFamily: 'Instrument Serif, Georgia, serif',
                 }}
               >
                 {msg.text}

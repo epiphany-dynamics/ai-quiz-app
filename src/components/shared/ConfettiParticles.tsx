@@ -12,12 +12,12 @@ interface Particle {
 }
 
 const COLORS = [
-  '#f0efeb', // cream
-  '#e8e6e1', // cream hover
+  '#f0f0f0', // cream
+  '#ececec', // cream hover
   '#a1a1aa', // muted grey
   '#ffffff', // white
   '#d4d4d8', // light grey
-  '#f8f7f4', // section cream
+  '#f0f0f0', // section cream
 ]
 
 function randomBetween(min: number, max: number) {

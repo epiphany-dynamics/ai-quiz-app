@@ -39,40 +39,17 @@ export function LandingScreen() {
       <motion.h1
         className="text-glow mb-5 leading-none"
         style={{
-          fontSize: 'clamp(2.5rem, 8vw, 3.75rem)',
-          fontWeight: 700,
+          fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
+          fontWeight: 400,
           textWrap: 'balance',
-          letterSpacing: '-0.04em',
+          letterSpacing: '-0.02em',
         }}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         What's Your{' '}
-        <span
-          style={{
-            position: 'relative',
-            display: 'inline-block',
-          }}
-        >
-          <span style={{ position: 'relative', zIndex: 1 }}>AI Readiness</span>
-          <motion.span
-            style={{
-              position: 'absolute',
-              bottom: '0.05em',
-              left: '-2%',
-              right: '-2%',
-              height: '0.12em',
-              background: 'linear-gradient(90deg, rgba(240, 239, 235, 0.4), rgba(240, 239, 235, 0.1))',
-              borderRadius: '0.1em',
-              zIndex: 0,
-            }}
-            initial={{ scaleX: 0, originX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.8, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          />
-        </span>{' '}
-        Score?
+        <em style={{ fontStyle: 'italic', opacity: 0.85 }}>AI Readiness Score?</em>
       </motion.h1>
 
       {/* Sub */}

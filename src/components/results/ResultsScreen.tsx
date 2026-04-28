@@ -87,7 +87,7 @@ function InsightCard({ title, body, color, index, icon }: InsightCardProps) {
       <div style={{ flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
           <span style={{ fontSize: 18 }}>{icon}</span>
-          <h3 style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--color-text-primary)', margin: 0, fontFamily: 'League Spartan, sans-serif' }}>
+          <h3 style={{ fontWeight: 400, fontSize: '1.1rem', color: 'var(--color-text-primary)', margin: 0, fontFamily: 'Instrument Serif, Georgia, serif', letterSpacing: '-0.02em' }}>
             {title}
           </h3>
         </div>
