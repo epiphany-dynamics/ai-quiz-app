@@ -382,7 +382,8 @@ export function buildReportHtml(data) {
     <div style="text-align:center;margin:36px 0 24px 0;padding:28px 20px;background:${S.cardBg};border-radius:12px;border:1px solid ${S.border};">
       <h3 style="font-size:18px;font-weight:700;color:${S.text};margin:0 0 10px 0;">Want to go deeper?</h3>
       <p style="color:${S.muted};font-size:14px;line-height:1.6;margin:0 0 20px 0;">This report is based on your quiz answers, but a 15-minute conversation can go much further. We'll map AI specifically to your situation -- your industry, your team, your biggest time drain -- and give you a prioritized action plan.</p>
-      <a href="https://epiphanydynamics.ai/book" style="display:inline-block;background:${S.text};color:${S.bg};padding:14px 32px;border-radius:100px;text-decoration:none;font-weight:700;font-size:15px;">Book your free call</a>
+      <a href="https://epiphanydynamics.ai/book" style="display:inline-block;background:${S.text};color:${S.bg};padding:14px 32px;border-radius:100px;text-decoration:none;font-weight:700;font-size:15px;">Free AI Operations Audit</a>
+      <p style="margin:14px 0 0 0;font-size:13px;color:${S.muted};"><a href="https://epiphanydynamics.ai/pricing" style="color:${S.muted};">See our services &amp; pricing →</a></p>
     </div>
   `)
 
