@@ -1,8 +1,8 @@
 const SITE = 'https://epiphanydynamics.ai'
 
 function FooterLink({ href, children, external }: { href: string; children: React.ReactNode; external?: boolean }) {
-  const cls = 'group relative text-[#ffffff]/50 hover:text-[#f0f0f0] hover:translate-x-1 transition-all duration-300 text-sm w-fit'
-  const underline = <span className="absolute left-0 -bottom-0.5 h-px w-full bg-[#f0f0f0] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+  const cls = 'group relative text-[#ffffff]/50 hover:text-[#f0efeb] hover:translate-x-1 transition-all duration-300 text-sm w-fit'
+  const underline = <span className="absolute left-0 -bottom-0.5 h-px w-full bg-[#f0efeb] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
 
   return (
     <a
@@ -28,12 +28,7 @@ export function SiteFooter() {
         <div className="max-w-7xl mx-auto pt-24 pb-16 px-6 md:px-10 lg:px-16 w-full flex flex-col flex-1">
           {/* Top section: Logo */}
           <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20">
-            <a href={SITE} className="flex items-center space-x-3 group shrink-0">
-              <img
-                src="/images/logos/new_geometric_mark.png"
-                alt="Epiphany Dynamics"
-                className="w-12 h-12 transition-transform duration-300 group-hover:scale-110"
-              />
+            <a href={SITE} className="flex items-center group shrink-0">
               <div className="flex flex-col">
                 <span className="font-bold tracking-tight leading-none text-[#ffffff] text-xl">EPIPHANY</span>
                 <span className="tracking-[0.3em] leading-none text-[#ffffff]/40 text-[10px]">DYNAMICS</span>

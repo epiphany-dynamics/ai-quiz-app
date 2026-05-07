@@ -71,10 +71,10 @@ export function SiteNavbar() {
   }, [isMenuOpen])
 
   const overlayLayers = [
-    { color: '#000000', height: '100%', delay: 0 },
+    { color: '#0a0a0a', height: '100%', delay: 0 },
     { color: '#1a1510', height: '100%', delay: 0.08 },
     { color: '#0d0b09', height: '85%', delay: 0.16 },
-    { color: '#f0f0f0', height: '50%', delay: 0.24 },
+    { color: '#f0efeb', height: '50%', delay: 0.24 },
   ]
 
   return (
@@ -112,7 +112,7 @@ export function SiteNavbar() {
                 className="flex items-center gap-2 transition-colors duration-200 min-h-[44px] min-w-[44px]"
               >
                 <HamburgerIcon isOpen={isMenuOpen} />
-                <span className="hidden md:inline text-xs font-mono tracking-[0.15em] uppercase transition-colors duration-300 text-white">
+                <span className="hidden md:inline text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300 text-white">
                   Menu
                 </span>
               </button>
@@ -123,11 +123,6 @@ export function SiteNavbar() {
               href={SITE}
               className="absolute left-1/2 -translate-x-1/2 flex items-center space-x-2.5 group z-20 cursor-pointer"
             >
-              <img
-                src="/images/logos/new_geometric_mark.png"
-                alt="Epiphany Dynamics"
-                className="w-8 h-8 md:w-9 md:h-9 transition-transform duration-300 group-hover:scale-110"
-              />
               <div className="flex flex-col">
                 <span className="font-bold tracking-tight leading-none text-sm md:text-base transition-colors duration-300 text-white">
                   EPIPHANY
@@ -184,17 +179,16 @@ export function SiteNavbar() {
                   type="button"
                   aria-label="Close menu"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center gap-2 text-white hover:text-[#f0f0f0] transition-colors duration-200"
+                  className="flex items-center gap-2 text-white hover:text-[#f0efeb] transition-colors duration-200"
                 >
                   <HamburgerIcon isOpen={true} />
-                  <span className="hidden md:inline text-xs font-mono tracking-[0.15em] uppercase">Close</span>
+                  <span className="hidden md:inline text-xs font-bold tracking-[0.15em] uppercase">Close</span>
                 </button>
 
                 <a
                   href={SITE}
                   className="absolute left-1/2 -translate-x-1/2 flex items-center space-x-2.5"
                 >
-                  <img src="/images/logos/new_geometric_mark.png" alt="Epiphany Dynamics" className="w-8 h-8 md:w-9 md:h-9" />
                   <div className="flex flex-col">
                     <span className="font-bold tracking-tight leading-none text-white text-sm md:text-base">EPIPHANY</span>
                     <span className="tracking-[0.3em] leading-none text-white/40 text-[9px] md:text-[10px]">DYNAMICS</span>
@@ -256,7 +250,7 @@ export function SiteNavbar() {
                       </a>
                     ))}
                   </div>
-                  <div className="flex flex-col space-y-2 pt-6 border-t border-frost">
+                  <div className="flex flex-col space-y-2 pt-6 border-t border-white/[0.06]">
                     {[
                       { name: 'Privacy Policy', href: `${SITE}/privacy` },
                       { name: 'Terms of Service', href: `${SITE}/terms` },
@@ -285,12 +279,12 @@ export function SiteNavbar() {
                         transition={{ duration: 0.4, delay: 0.25 + index * 0.06, ease: [0.65, 0, 0.35, 1] }}
                       >
                         <a href={link.href} className="group flex items-baseline gap-4 py-3">
-                          <span className="text-[#f0f0f0]/40 font-mono text-sm tracking-wider transition-colors duration-300 group-hover:text-[#f0f0f0]">
+                          <span className="text-[#f0efeb]/40 font-mono text-sm tracking-wider transition-colors duration-300 group-hover:text-[#f0efeb]">
                             {String(index + 1).padStart(2, '0')}
                           </span>
-                          <span className="relative inline-block text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] leading-[1.0] transition-colors duration-300 text-white group-hover:text-[#f0f0f0]" style={{ fontFamily: 'Instrument Serif, Georgia, serif' }}>
+                          <span className="relative inline-block text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.03em] leading-[1.0] transition-colors duration-300 text-white group-hover:text-[#f0efeb]" style={{ fontFamily: 'League Spartan, sans-serif' }}>
                             {link.name}
-                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#f0f0f0] origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100" />
+                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#f0efeb] origin-right scale-x-0 transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100" />
                           </span>
                         </a>
                       </motion.div>

@@ -87,7 +87,7 @@ function InsightCard({ title, body, color, index, icon }: InsightCardProps) {
       <div style={{ flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
           <span style={{ fontSize: 18 }}>{icon}</span>
-          <h3 style={{ fontWeight: 400, fontSize: '1.1rem', color: 'var(--color-text-primary)', margin: 0, fontFamily: 'Instrument Serif, Georgia, serif', letterSpacing: '-0.02em' }}>
+          <h3 style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--color-text-primary)', margin: 0, fontFamily: 'League Spartan, sans-serif' }}>
             {title}
           </h3>
         </div>
@@ -167,6 +167,32 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
         <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginTop: 4 }}>
           Sent to {email}
         </p>
+        <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <motion.a
+            href="https://epiphanydynamics.ai/book"
+            style={{
+              fontSize: '0.85rem',
+              color: 'var(--color-bg-cream)',
+              textDecoration: 'underline',
+              textUnderlineOffset: '3px',
+            }}
+            whileHover={{ opacity: 0.8 }}
+          >
+            Free AI Operations Audit
+          </motion.a>
+          <motion.a
+            href="https://epiphanydynamics.ai/pricing"
+            style={{
+              fontSize: '0.8rem',
+              color: 'var(--color-text-muted)',
+              textDecoration: 'underline',
+              textUnderlineOffset: '3px',
+            }}
+            whileHover={{ opacity: 0.8 }}
+          >
+            See our services &amp; pricing →
+          </motion.a>
+        </div>
       </motion.div>
     )
   }
@@ -430,8 +456,22 @@ export function ResultsScreen() {
                 style={{ display: 'inline-flex', textDecoration: 'none' }}
                 whileTap={{ scale: 0.97 }}
               >
-                Book free call
+                Free AI Operations Audit
               </motion.a>
+              <div style={{ marginTop: 12 }}>
+                <motion.a
+                  href="https://epiphanydynamics.ai/pricing"
+                  style={{
+                    fontSize: '0.85rem',
+                    color: 'var(--color-text-muted)',
+                    textDecoration: 'underline',
+                    textUnderlineOffset: '3px',
+                  }}
+                  whileHover={{ opacity: 0.8 }}
+                >
+                  See our services &amp; pricing →
+                </motion.a>
+              </div>
             </motion.div>
 
             {/* WARM: Email as secondary */}
@@ -502,8 +542,21 @@ export function ResultsScreen() {
                   textUnderlineOffset: '3px',
                 }}
               >
-                Book a free 15-min chat
+                Free AI Operations Audit
               </motion.a>
+              <div style={{ marginTop: 8 }}>
+                <motion.a
+                  href="https://epiphanydynamics.ai/pricing"
+                  style={{
+                    fontSize: '0.85rem',
+                    color: 'var(--color-text-muted)',
+                    textDecoration: 'underline',
+                    textUnderlineOffset: '3px',
+                  }}
+                >
+                  See our services &amp; pricing →
+                </motion.a>
+              </div>
             </motion.div>
           </>
         )}
