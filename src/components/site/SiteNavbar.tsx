@@ -6,9 +6,10 @@ const SITE = 'https://epiphanydynamics.ai'
 const navLinks = [
   { name: 'About', href: `${SITE}/about` },
   { name: 'Services', href: `${SITE}/services` },
-  { name: 'Case Studies', href: `${SITE}/case-studies/jason-fransos` },
+  { name: 'By City', href: `${SITE}/locations` },
+  { name: 'By Industry', href: `${SITE}/industries` },
+  { name: 'Pricing', href: `${SITE}/pricing` },
   { name: 'Blog', href: `${SITE}/blog` },
-  { name: 'Testimonials', href: `${SITE}/testimonials` },
 ]
 
 const HamburgerIcon = ({ isOpen }: { isOpen: boolean }) => (
@@ -123,6 +124,11 @@ export function SiteNavbar() {
               href={SITE}
               className="absolute left-1/2 -translate-x-1/2 flex items-center space-x-2.5 group z-20 cursor-pointer"
             >
+              <img
+                src="/images/logos/new_geometric_mark.png"
+                alt="Epiphany Dynamics"
+                className="w-8 h-8 md:w-9 md:h-9 transition-transform duration-300 group-hover:scale-110"
+              />
               <div className="flex flex-col">
                 <span className="font-bold tracking-tight leading-none text-sm md:text-base transition-colors duration-300 text-white">
                   EPIPHANY
@@ -189,6 +195,11 @@ export function SiteNavbar() {
                   href={SITE}
                   className="absolute left-1/2 -translate-x-1/2 flex items-center space-x-2.5"
                 >
+                  <img
+                    src="/images/logos/new_geometric_mark.png"
+                    alt="Epiphany Dynamics"
+                    className="w-8 h-8 md:w-9 md:h-9"
+                  />
                   <div className="flex flex-col">
                     <span className="font-bold tracking-tight leading-none text-white text-sm md:text-base">EPIPHANY</span>
                     <span className="tracking-[0.3em] leading-none text-white/40 text-[9px] md:text-[10px]">DYNAMICS</span>
@@ -211,21 +222,27 @@ export function SiteNavbar() {
                 >
                   <div className="flex flex-col space-y-3 mb-10">
                     {[
+                      { name: 'By City', href: `${SITE}/locations` },
+                      { name: 'By Industry', href: `${SITE}/industries` },
                       { name: 'Newsletter', href: `${SITE}/newsletter` },
-                      { name: 'AI Readiness Quiz', href: 'https://quiz.epiphanydynamics.ai' },
+                      { name: 'Pricing', href: `${SITE}/pricing` },
+                      { name: 'Our Work', href: `${SITE}/portfolio` },
+                      { name: 'Case Studies', href: `${SITE}/case-studies/jason-fransos` },
+                      { name: 'AI Quiz', href: 'https://quiz.epiphanydynamics.ai', external: true },
+                      { name: 'AI Calculator', href: 'https://ai4bizcalculator.online', external: true },
                       { name: 'Book a Call', href: `${SITE}/book` },
-                      { name: 'Learn', href: 'https://epiphany.help' },
+                      { name: 'Learn', href: 'https://epiphany.help', external: true },
                     ].map((link) => (
                       <a
                         key={link.name}
                         href={link.href}
-                        target={link.href.startsWith(SITE) ? undefined : '_blank'}
-                        rel={link.href.startsWith(SITE) ? undefined : 'noopener noreferrer'}
+                        target={link.external ? '_blank' : undefined}
+                        rel={link.external ? 'noopener noreferrer' : undefined}
                         className="text-white/40 hover:text-white text-sm tracking-[-0.01em] transition-colors duration-300 w-fit inline-flex items-center gap-1.5"
                         style={{ fontFamily: 'Poppins, sans-serif' }}
                       >
                         {link.name}
-                        {!link.href.startsWith(SITE) && (
+                        {link.external && (
                           <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
                             <path d="M4.5 1.5H10.5V7.5M10.5 1.5L1.5 10.5" />
                           </svg>

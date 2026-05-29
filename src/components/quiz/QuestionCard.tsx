@@ -369,7 +369,7 @@ export function QuestionCard({
             <div className="text-center mb-4">
               <motion.span
                 className="text-4xl font-bold"
-                style={{ color: 'var(--color-bg-cream)', fontFamily: 'Instrument Serif, Georgia, serif' }}
+                style={{ color: 'var(--color-bg-cream)', fontFamily: 'League Spartan, sans-serif' }}
                 key={Array.isArray(selected) ? selected.join(',') : (selected ?? scaleDefault)}
                 initial={{ scale: 0.85, opacity: 0.6 }}
                 animate={{ scale: 1, opacity: 1 }}
