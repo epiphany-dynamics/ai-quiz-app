@@ -18,6 +18,15 @@ export function LandingScreen() {
       exit={{ opacity: 0, y: -24 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
+      {/* Watermark logo background */}
+      <div className="watermark-bg-container">
+        <img
+          src="/images/logos/new_geometric_mark.png"
+          alt=""
+          className="watermark-logo"
+        />
+      </div>
+
       {/* Badge */}
       <motion.div
         className="mb-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium card-glass"
@@ -131,23 +140,9 @@ export function LandingScreen() {
         Start the Quiz
       </motion.button>
 
-      {/* Secondary path — free audit */}
-      <motion.a
-        href="https://epiphanydynamics.ai/book"
-        className="btn-secondary mt-5"
-        style={{ textDecoration: 'none' }}
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.95, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        whileHover={{ scale: 1.02, y: -1 }}
-        whileTap={{ scale: 0.97 }}
-      >
-        Rather talk to someone? Free AI Operations Audit
-      </motion.a>
-
       {/* Social proof */}
       <motion.p
-        className="mt-6 text-sm"
+        className="mt-4 text-sm"
         style={{ color: 'var(--color-text-muted)', letterSpacing: '0.02em' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.7 }}
@@ -155,6 +150,20 @@ export function LandingScreen() {
       >
         No email required · Instant results
       </motion.p>
+
+      {/* Secondary path — free audit */}
+      <motion.a
+        href="https://epiphanydynamics.ai/book"
+        className="btn-secondary mt-6"
+        style={{ textDecoration: 'none' }}
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.95, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ scale: 1.02, y: -1 }}
+        whileTap={{ scale: 0.97 }}
+      >
+        Rather talk to someone? Book a Free AI Audit →
+      </motion.a>
     </motion.div>
   )
 }
