@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useQuiz } from '@/context/QuizContext'
-import { loadResults } from '@/data'
+import { loadResults, loadQuestionsForTrack } from '@/data'
 import { getResultCategory, saveEmailCapture, saveQuizResult } from '@/lib'
-import type { ResultCategory } from '@/types'
+import type { ResultCategory, Answer, Question } from '@/types'
 import { ScoreRing } from './ScoreRing'
 import { SharePanel } from './SharePanel'
 import { ConfettiParticles } from '@/components/shared'
@@ -100,6 +100,43 @@ function InsightCard({ title, body, color, index, icon }: InsightCardProps) {
 }
 
 // ============================================================
+// LEAD CONTEXT — readable answers + traffic source for Patrick's notification
+// ============================================================
+
+// Capture where the lead came from. document.referrer holds the URL that linked
+// them to the SPA (stable for the page session); UTM/click params come off the URL.
+function captureSource(): Record<string, string> {
+  const src: Record<string, string> = {}
+  if (typeof window === 'undefined') return src
+  try {
+    if (document.referrer) src.referrer = document.referrer
+    src.landing_page = window.location.href
+    const params = new URLSearchParams(window.location.search)
+    for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid']) {
+      const v = params.get(k)
+      if (v) src[k] = v
+    }
+  } catch {
+    /* non-blocking — source is best-effort */
+  }
+  return src
+}
+
+// Join raw answers (questionId + option value) with the question copy so Patrick's
+// notification shows human-readable "Question -> chosen answer" instead of letter codes.
+function buildReadableAnswers(questions: Question[], answers: Answer[]): Array<{ question: string; answer: string }> {
+  const byId = new Map(questions.map(q => [q.id, q]))
+  return answers.map(a => {
+    const q = byId.get(a.questionId)
+    if (!q) return { question: a.questionId, answer: String(a.value) }
+    const optLabel = new Map((q.options ?? []).map(o => [String(o.value), o.label]))
+    const vals = Array.isArray(a.value) ? a.value : [a.value]
+    const answer = vals.map(v => optLabel.get(String(v)) ?? String(v)).join(', ')
+    return { question: q.question, answer }
+  })
+}
+
+// ============================================================
 // EMAIL CAPTURE FORM
 // ============================================================
 
@@ -112,9 +149,11 @@ interface EmailFormProps {
   track: string
   insightCards: Array<{ title: string; body: string }>
   answers: Record<string, string | string[] | number>
+  readableAnswers: Array<{ question: string; answer: string }>
+  source: Record<string, string>
 }
 
-function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track, insightCards, answers }: EmailFormProps) {
+function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track, insightCards, answers, readableAnswers, source }: EmailFormProps) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'done' | 'error'>('idle')
 
@@ -140,6 +179,8 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
             track,
             insightCards: insightCards.slice(0, 3),
             answers,
+            readableAnswers,
+            source,
           }),
         })
 
@@ -149,7 +190,7 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
         setStatus('error')
       }
     },
-    [email, resultId, score, categoryId, tierLabel, tierTagline, track, insightCards, answers],
+    [email, resultId, score, categoryId, tierLabel, tierTagline, track, insightCards, answers, readableAnswers, source],
   )
 
   if (status === 'done') {
@@ -260,6 +301,17 @@ export function ResultsScreen() {
   const answersMap: Record<string, string | string[] | number> = {}
   state.session.answers.forEach(a => { answersMap[a.questionId] = a.value })
 
+  // Lead context for Patrick's notification: human-readable answers + traffic source.
+  const [readableAnswers, setReadableAnswers] = useState<Array<{ question: string; answer: string }>>([])
+  const [source] = useState<Record<string, string>>(() => captureSource())
+
+  useEffect(() => {
+    if (!track) return
+    loadQuestionsForTrack(track)
+      .then(qs => setReadableAnswers(buildReadableAnswers(qs, state.session.answers)))
+      .catch(() => { /* non-blocking — email still sends without readable answers */ })
+  }, [track, state.session.answers])
+
   useEffect(() => {
     if (!track || score === undefined) return
     loadResults().then(async results => {
@@ -279,11 +331,12 @@ export function ResultsScreen() {
           result_category_id: cat.id,
           result_category_label: cat.label,
           answers: state.session.answers,
+          metadata: source,
         })
         setSavedResultId(dbId)
       }
     })
-  }, [track, score, resultId, state.session.answers])
+  }, [track, score, resultId, state.session.answers, source])
 
   useEffect(() => {
     const t = setTimeout(() => setBurstDone(true), 1500)
@@ -489,7 +542,7 @@ export function ResultsScreen() {
               <p style={{ fontWeight: 500, fontSize: '0.9rem', marginBottom: 10, marginTop: 0, color: 'var(--color-text-secondary)' }}>
                 Not ready for a call? Get your detailed breakdown by email instead.
               </p>
-              <EmailForm resultId={savedResultId ?? ''} categoryId={category.id} score={score} tierLabel={category.label} tierTagline={category.tagline} track={track!} insightCards={category.insight_cards} answers={answersMap} />
+              <EmailForm resultId={savedResultId ?? ''} categoryId={category.id} score={score} tierLabel={category.label} tierTagline={category.tagline} track={track!} insightCards={category.insight_cards} answers={answersMap} readableAnswers={readableAnswers} source={source} />
             </motion.div>
           </>
         ) : (
@@ -517,7 +570,7 @@ export function ResultsScreen() {
                   ? "We'll send you 3 specific things to try this week based on your answers — no jargon, no pressure."
                   : "We'll send a custom breakdown of the 3 best AI starting points for your situation — no spam, one email."}
               </p>
-              <EmailForm resultId={savedResultId ?? ''} categoryId={category.id} score={score} tierLabel={category.label} tierTagline={category.tagline} track={track!} insightCards={category.insight_cards} answers={answersMap} />
+              <EmailForm resultId={savedResultId ?? ''} categoryId={category.id} score={score} tierLabel={category.label} tierTagline={category.tagline} track={track!} insightCards={category.insight_cards} answers={answersMap} readableAnswers={readableAnswers} source={source} />
             </motion.div>
 
             {/* COOL: Soft Calendly nudge as secondary */}

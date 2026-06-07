@@ -3,12 +3,16 @@
 
 import { buildReportHtml } from './report-templates.js'
 
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { email, score, tier, tierLabel, tierTagline, track, insightCards, answers } = req.body
+  const { email, score, tier, tierLabel, tierTagline, track, insightCards, answers, readableAnswers, source } = req.body
 
   if (!email || !tier || score === undefined) {
     return res.status(400).json({ error: 'Missing required fields' })
@@ -41,7 +45,23 @@ export default async function handler(req, res) {
     html: reportHtml,
   }
 
-  // Notification email to Patrick (unchanged — just the summary table)
+  // Their actual quiz answers, human-readable (Q -> chosen answer)
+  const answerRows = (readableAnswers || [])
+    .map(a => `<tr><td style="padding:6px 14px 6px 0; font-weight:600; vertical-align:top; color:#111;">${escapeHtml(a.question)}</td><td style="padding:6px 0; color:#333;">${escapeHtml(a.answer)}</td></tr>`)
+    .join('')
+  const answersBlock = answerRows
+    ? `<h3 style="margin:24px 0 8px;">Their answers</h3><table style="border-collapse:collapse; font-size:14px; max-width:640px;">${answerRows}</table>`
+    : ''
+
+  // Where the lead came from (referrer / UTM / click ids)
+  const sourceEntries = Object.entries(source || {})
+  const sourceBlock = sourceEntries.length
+    ? `<h3 style="margin:24px 0 8px;">Where they came from</h3><table style="border-collapse:collapse; font-size:14px; max-width:640px;">${sourceEntries
+        .map(([k, v]) => `<tr><td style="padding:4px 14px 4px 0; font-weight:600; color:#111;">${escapeHtml(k)}</td><td style="padding:4px 0; color:#333; word-break:break-all;">${escapeHtml(v)}</td></tr>`)
+        .join('')}</table>`
+    : `<p style="font-size:13px; color:#888; margin:24px 0 0;">Where they came from: direct / not captured</p>`
+
+  // Notification email to Patrick — summary + their answers + traffic source
   const notifyEmail = {
     from: 'Quiz Alert <patrick@epiphany.help>',
     to: 'patrick@epiphanydynamics.ai',
@@ -50,11 +70,13 @@ export default async function handler(req, res) {
     <div style="font-family: -apple-system, sans-serif; padding: 20px;">
       <h2>New quiz submission</h2>
       <table style="border-collapse: collapse;">
-        <tr><td style="padding: 4px 12px 4px 0; font-weight: 600;">Email</td><td>${email}</td></tr>
-        <tr><td style="padding: 4px 12px 4px 0; font-weight: 600;">Track</td><td>${track}</td></tr>
+        <tr><td style="padding: 4px 12px 4px 0; font-weight: 600;">Email</td><td>${escapeHtml(email)}</td></tr>
+        <tr><td style="padding: 4px 12px 4px 0; font-weight: 600;">Track</td><td>${escapeHtml(track)}</td></tr>
         <tr><td style="padding: 4px 12px 4px 0; font-weight: 600;">Score</td><td>${score}</td></tr>
-        <tr><td style="padding: 4px 12px 4px 0; font-weight: 600;">Tier</td><td>${tierLabel}</td></tr>
+        <tr><td style="padding: 4px 12px 4px 0; font-weight: 600;">Tier</td><td>${escapeHtml(tierLabel)}</td></tr>
       </table>
+      ${answersBlock}
+      ${sourceBlock}
     </div>
     `,
   }
