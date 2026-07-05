@@ -2,10 +2,37 @@ import { motion } from 'framer-motion'
 import { useQuiz } from '@/context/QuizContext'
 
 const FEATURES = [
-  { emoji: '⚡', text: '3 minutes or less' },
-  { emoji: '🎯', text: 'Personalized to your situation' },
-  { emoji: '📊', text: 'Actionable score & insights' },
+  { icon: 'bolt', text: 'Fast diagnostic' },
+  { icon: 'target', text: 'Personalized roadmap' },
+  { icon: 'chart', text: 'Actionable next steps' },
 ]
+
+function FeatureIcon({ type }: { type: string }) {
+  if (type === 'target') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="w-4 h-4 feature-icon">
+        <circle cx="12" cy="12" r="8.5" />
+        <circle cx="12" cy="12" r="4.25" />
+        <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+      </svg>
+    )
+  }
+
+  if (type === 'chart') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="w-4 h-4 feature-icon">
+        <path d="M5 19V9M12 19V5M19 19v-7" />
+        <path d="M4 19h16" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="w-4 h-4 feature-icon">
+      <path d="M13 2L5 13h6l-1 9 8-12h-6l1-8z" />
+    </svg>
+  )
+}
 
 export function LandingScreen() {
   const { startQuiz } = useQuiz()
@@ -41,7 +68,7 @@ export function LandingScreen() {
             boxShadow: '0 0 8px rgba(240, 239, 235, 0.5)',
           }}
         />
-        <span style={{ color: 'var(--color-text-secondary)' }}>Free · Takes 3 minutes</span>
+        <span style={{ color: 'var(--color-text-readable)' }}>Free AI readiness check</span>
       </motion.div>
 
       {/* Headline */}
@@ -68,11 +95,11 @@ export function LandingScreen() {
           <motion.span
             style={{
               position: 'absolute',
-              bottom: '0.05em',
+              bottom: '0.04em',
               left: '-2%',
               right: '-2%',
-              height: '0.12em',
-              background: 'linear-gradient(90deg, rgba(240, 239, 235, 0.4), rgba(240, 239, 235, 0.1))',
+              height: '0.1em',
+              background: 'linear-gradient(90deg, rgba(240, 239, 235, 0.62), rgba(240, 239, 235, 0.18))',
               borderRadius: '0.1em',
               zIndex: 0,
             }}
@@ -88,7 +115,7 @@ export function LandingScreen() {
       <motion.p
         className="text-lg mb-10 max-w-md"
         style={{
-          color: 'var(--color-text-secondary)',
+          color: 'var(--color-text-readable)',
           lineHeight: 1.7,
           textWrap: 'pretty',
         }}
@@ -96,13 +123,12 @@ export function LandingScreen() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        Find out exactly where AI fits in your business or daily life
-        and get a personalized roadmap in under 3 minutes.
+        Find out where AI fits in your business and get a personalized roadmap for your next automation win.
       </motion.p>
 
       {/* Feature pills — staggered entry */}
       <motion.div
-        className="flex flex-wrap justify-center gap-3 mb-12"
+        className="flex flex-wrap justify-center gap-3 mb-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -113,15 +139,15 @@ export function LandingScreen() {
         {FEATURES.map(f => (
           <motion.span
             key={f.text}
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-sm card-glass"
-            style={{ color: 'var(--color-text-secondary)' }}
+            className="feature-pill flex items-center gap-2 px-4 py-2 rounded-full text-sm card-glass"
+            style={{ color: 'var(--color-text-readable)' }}
             variants={{
               hidden: { opacity: 0, y: 12, scale: 0.95 },
               visible: { opacity: 1, y: 0, scale: 1 },
             }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span>{f.emoji}</span>
+            <FeatureIcon type={f.icon} />
             {f.text}
           </motion.span>
         ))}
@@ -129,6 +155,7 @@ export function LandingScreen() {
 
       {/* CTA — pill-shaped cream button */}
       <motion.button
+        id="start-quiz"
         className="btn-primary text-lg px-12 py-4"
         onClick={startQuiz}
         initial={{ opacity: 0, y: 16 }}
@@ -143,9 +170,9 @@ export function LandingScreen() {
       {/* Social proof */}
       <motion.p
         className="mt-4 text-sm"
-        style={{ color: 'var(--color-text-muted)', letterSpacing: '0.02em' }}
+        style={{ color: 'var(--color-text-readable)', letterSpacing: '0.02em' }}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.7 }}
+        animate={{ opacity: 0.82 }}
         transition={{ delay: 1.05 }}
       >
         No email required · Instant results
@@ -154,7 +181,7 @@ export function LandingScreen() {
       {/* Secondary path — free audit */}
       <motion.a
         href="https://epiphanydynamics.ai/book"
-        className="btn-secondary mt-6"
+        className="quiz-secondary-link mt-5"
         style={{ textDecoration: 'none' }}
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -162,7 +189,7 @@ export function LandingScreen() {
         whileHover={{ scale: 1.02, y: -1 }}
         whileTap={{ scale: 0.97 }}
       >
-        Rather talk to someone? Book a Free AI Audit →
+        Prefer a call? Book a free audit →
       </motion.a>
     </motion.div>
   )
