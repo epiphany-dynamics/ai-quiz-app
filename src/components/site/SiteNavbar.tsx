@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const SITE = 'https://epiphanydynamics.ai'
@@ -133,7 +133,7 @@ export function SiteNavbar() {
                 <span className="font-bold tracking-tight leading-none text-sm md:text-base transition-colors duration-300 text-white">
                   EPIPHANY
                 </span>
-                <span className="tracking-[0.3em] leading-none text-[9px] md:text-[10px] transition-colors duration-300 text-white/40">
+                <span className="tracking-[0.3em] leading-none text-[9px] md:text-[10px] transition-colors duration-300 text-white/70">
                   DYNAMICS
                 </span>
               </div>
@@ -141,15 +141,15 @@ export function SiteNavbar() {
 
             {/* Right: CTA */}
             <div className="z-10 hidden md:block">
-              <a href="https://quiz.epiphanydynamics.ai" className="site-btn-secondary nav-cta">
-                <span className="btn-in">Get started</span>
-                <span className="btn-out" aria-hidden="true">Get started</span>
+              <a href="#start-quiz" className="site-btn-secondary nav-cta">
+                <span className="btn-in">Start quiz</span>
+                <span className="btn-out" aria-hidden="true">Start quiz</span>
               </a>
             </div>
             <div className="z-10 md:hidden">
-              <a href="https://quiz.epiphanydynamics.ai" className="site-btn-secondary nav-cta nav-cta-mobile">
-                <span className="btn-in">Start</span>
-                <span className="btn-out" aria-hidden="true">Start</span>
+              <a href="#start-quiz" className="site-btn-secondary nav-cta nav-cta-mobile">
+                <span className="btn-in">Quiz</span>
+                <span className="btn-out" aria-hidden="true">Quiz</span>
               </a>
             </div>
           </div>
@@ -202,7 +202,7 @@ export function SiteNavbar() {
                   />
                   <div className="flex flex-col">
                     <span className="font-bold tracking-tight leading-none text-white text-sm md:text-base">EPIPHANY</span>
-                    <span className="tracking-[0.3em] leading-none text-white/40 text-[9px] md:text-[10px]">DYNAMICS</span>
+                    <span className="tracking-[0.3em] leading-none text-white/70 text-[9px] md:text-[10px]">DYNAMICS</span>
                   </div>
                 </a>
 
@@ -319,8 +319,8 @@ export function SiteNavbar() {
                       onClick={() => setIsMenuOpen(false)}
                       className="site-btn-primary"
                     >
-                      <span className="btn-in">Get started</span>
-                      <span className="btn-out" aria-hidden="true">Get started</span>
+                      <span className="btn-in">Start quiz</span>
+                      <span className="btn-out" aria-hidden="true">Start quiz</span>
                     </a>
                   </motion.div>
                 </div>
