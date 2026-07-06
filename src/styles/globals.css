@@ -71,6 +71,7 @@
   /* Text */
   --color-text-primary: #f0efeb;
   --color-text-secondary: #a1a1aa;
+  --color-text-readable: #d4d4d8;
   --color-text-muted: #71717a;
   --color-text-inverse: #050505;
 
@@ -335,6 +336,48 @@ h1, h2, h3, h4, h5, h6 {
 .btn-secondary:active {
   transform: translateY(0);
   background: rgba(255, 255, 255, 0.05);
+}
+
+.quiz-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: calc(100vw - 2rem);
+  padding: 0.7rem 1.35rem;
+  color: var(--color-text-readable);
+  font-family: 'League Spartan', 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.025);
+  transition: color 0.25s var(--ease-spring),
+              border-color 0.25s var(--ease-spring),
+              background 0.25s var(--ease-spring),
+              transform 0.25s var(--ease-spring);
+}
+
+.quiz-secondary-link:hover {
+  color: var(--color-text-primary);
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.feature-pill {
+  cursor: default;
+  border-color: rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.feature-icon {
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
 }
 
 .btn-ghost {
