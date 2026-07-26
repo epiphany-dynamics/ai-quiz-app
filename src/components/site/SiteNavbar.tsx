@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ThemeToggle } from './ThemeToggle'
 
 const SITE = 'https://epiphanydynamics.ai'
 
@@ -12,17 +13,17 @@ const navLinks = [
   { name: 'Blog', href: `${SITE}/blog` },
 ]
 
-const HamburgerIcon = ({ isOpen }: { isOpen: boolean }) => (
+const HamburgerIcon = ({ isOpen, barClassName = 'bg-white light:bg-[#1a1814]' }: { isOpen: boolean; barClassName?: string }) => (
   <div className="w-5 h-3.5 relative flex flex-col justify-between">
     <span
-      className="block w-full h-[2px] rounded-full bg-white origin-center transition-transform duration-300"
+      className={`block w-full h-[2px] rounded-full ${barClassName} origin-center transition-transform duration-300`}
       style={{
         transform: isOpen ? 'translateY(5px) rotate(45deg)' : 'none',
         transitionTimingFunction: 'cubic-bezier(0.65, 0, 0.35, 1)',
       }}
     />
     <span
-      className="block w-full h-[2px] rounded-full bg-white origin-center transition-transform duration-300"
+      className={`block w-full h-[2px] rounded-full ${barClassName} origin-center transition-transform duration-300`}
       style={{
         transform: isOpen ? 'translateY(-5px) rotate(-45deg)' : 'none',
         transitionTimingFunction: 'cubic-bezier(0.65, 0, 0.35, 1)',
@@ -91,12 +92,12 @@ export function SiteNavbar() {
           <div
             className="absolute inset-x-3 md:inset-x-5 inset-y-2.5 pointer-events-none transition-all"
             style={{
-              backgroundColor: isScrolled ? 'rgba(0,0,0,0.85)' : 'transparent',
+              backgroundColor: isScrolled ? 'var(--color-nav-pill-bg)' : 'transparent',
               backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
               WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
               borderRadius: isScrolled ? '56px' : '0px',
-              border: isScrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
-              boxShadow: isScrolled ? '0 4px 30px rgba(0,0,0,0.3)' : 'none',
+              border: isScrolled ? '1px solid var(--color-nav-pill-border)' : '1px solid transparent',
+              boxShadow: isScrolled ? 'var(--shadow-nav-pill)' : 'none',
               opacity: isScrolled ? 1 : 0,
               transitionDuration: '400ms',
               transitionTimingFunction: 'cubic-bezier(0.65, 0, 0.35, 1)',
@@ -113,7 +114,7 @@ export function SiteNavbar() {
                 className="flex items-center gap-2 transition-colors duration-200 min-h-[44px] min-w-[44px]"
               >
                 <HamburgerIcon isOpen={isMenuOpen} />
-                <span className="hidden md:inline text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300 text-white">
+                <span className="hidden md:inline text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300 text-white light:text-[#1a1814]">
                   Menu
                 </span>
               </button>
@@ -127,26 +128,28 @@ export function SiteNavbar() {
               <img
                 src="/images/logos/new_geometric_mark.png"
                 alt="Epiphany Dynamics"
-                className="w-8 h-8 md:w-9 md:h-9 transition-transform duration-300 group-hover:scale-110"
+                className="w-8 h-8 md:w-9 md:h-9 transition-transform duration-300 group-hover:scale-110 light:invert"
               />
               <div className="flex flex-col">
-                <span className="font-bold tracking-tight leading-none text-sm md:text-base transition-colors duration-300 text-white">
+                <span className="font-bold tracking-tight leading-none text-sm md:text-base transition-colors duration-300 text-white light:text-[#1a1814]">
                   EPIPHANY
                 </span>
-                <span className="tracking-[0.3em] leading-none text-[9px] md:text-[10px] transition-colors duration-300 text-white/40">
+                <span className="tracking-[0.3em] leading-none text-[9px] md:text-[10px] transition-colors duration-300 text-white/40 light:text-[#1a1814]/60">
                   DYNAMICS
                 </span>
               </div>
             </a>
 
-            {/* Right: CTA */}
-            <div className="z-10 hidden md:block">
+            {/* Right: theme toggle + CTA */}
+            <div className="z-10 hidden md:flex items-center gap-1">
+              <ThemeToggle className="text-white/70 hover:text-white light:text-[#1a1814]/70 light:hover:text-[#1a1814]" />
               <a href="https://quiz.epiphanydynamics.ai" className="site-btn-secondary nav-cta">
                 <span className="btn-in">Get started</span>
                 <span className="btn-out" aria-hidden="true">Get started</span>
               </a>
             </div>
-            <div className="z-10 md:hidden">
+            <div className="z-10 md:hidden flex items-center">
+              <ThemeToggle className="text-white/70 hover:text-white light:text-[#1a1814]/70 light:hover:text-[#1a1814]" />
               <a href="https://quiz.epiphanydynamics.ai" className="site-btn-secondary nav-cta nav-cta-mobile">
                 <span className="btn-in">Start</span>
                 <span className="btn-out" aria-hidden="true">Start</span>
@@ -187,7 +190,7 @@ export function SiteNavbar() {
                   onClick={() => setIsMenuOpen(false)}
                   className="flex items-center gap-2 text-white hover:text-[#f0efeb] transition-colors duration-200"
                 >
-                  <HamburgerIcon isOpen={true} />
+                  <HamburgerIcon isOpen={true} barClassName="bg-white" />
                   <span className="hidden md:inline text-xs font-bold tracking-[0.15em] uppercase">Close</span>
                 </button>
 
@@ -206,7 +209,10 @@ export function SiteNavbar() {
                   </div>
                 </a>
 
-                <div className="w-20" />
+                <div className="w-20 flex justify-end">
+                  {/* Overlay is a pinned-dark composition — keep the icon white in both themes */}
+                  <ThemeToggle className="text-white/70 hover:text-white" />
+                </div>
               </div>
 
               {/* Menu body */}

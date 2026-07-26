@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { SharedResult } from '@/hooks/useSharedResult'
+import { useTheme } from '@/hooks/useTheme'
+import { accentTextColor } from '@/lib/theme'
 
 const CATEGORY_META: Record<string, { label: string; emoji: string; color: string }> = {
   ai_ready_operator:  { label: 'AI-Ready Operator',      emoji: '🚀', color: '#10B981' },
@@ -20,6 +22,7 @@ interface SharedResultBannerProps {
 
 export function SharedResultBanner({ shared, onDismiss }: SharedResultBannerProps) {
   const [visible, setVisible] = useState(true)
+  const theme = useTheme()
   const meta = CATEGORY_META[shared.categoryId]
 
   if (!meta) return null
@@ -44,7 +47,7 @@ export function SharedResultBanner({ shared, onDismiss }: SharedResultBannerProp
             transform: 'translateX(-50%)',
             zIndex: 100,
             width: 'min(calc(100vw - 32px), 480px)',
-            background: 'rgba(5, 5, 5, 0.92)',
+            background: 'var(--color-banner-bg)',
             border: `1px solid ${meta.color}40`,
             borderRadius: 'var(--radius-lg)',
             padding: '12px 16px',
@@ -77,7 +80,7 @@ export function SharedResultBanner({ shared, onDismiss }: SharedResultBannerProp
                 Someone shared their result with you 👀
               </p>
               <p style={{ margin: 0, marginTop: 2, fontSize: '0.88rem', fontWeight: 700, color: 'var(--color-text-primary)', lineHeight: 1.3 }}>
-                <span style={{ color: meta.color }}>{shared.score}/100</span>
+                <span style={{ color: accentTextColor(meta.color, theme) }}>{shared.score}/100</span>
                 {' — '}
                 {meta.label} {meta.emoji}
               </p>

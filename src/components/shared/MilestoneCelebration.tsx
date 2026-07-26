@@ -62,9 +62,9 @@ export function MilestoneCelebration({
                 gap: 8,
                 padding: '20px 32px',
                 borderRadius: 20,
-                background: 'rgba(5, 5, 5, 0.9)',
-                border: '1px solid rgba(240, 239, 235, 0.2)',
-                boxShadow: '0 0 40px rgba(240, 239, 235, 0.15)',
+                background: 'var(--color-milestone-bg)',
+                border: '1px solid var(--color-milestone-border)',
+                boxShadow: 'var(--shadow-milestone)',
                 backdropFilter: 'blur(12px)',
               }}
               initial={{ scale: 0.4, opacity: 0 }}
@@ -83,7 +83,7 @@ export function MilestoneCelebration({
                 style={{
                   fontSize: 18,
                   fontWeight: 700,
-                  color: '#f0efeb',
+                  color: 'var(--color-accent-ink)',
                   letterSpacing: '-0.01em',
                   fontFamily: 'League Spartan, sans-serif',
                 }}

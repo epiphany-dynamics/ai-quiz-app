@@ -166,7 +166,7 @@ export function resolveVariantQuestion(
  */
 function scoreQuestion(question: Question, answer: Answer | undefined): number | null {
   const scoring = question.scoring
-  if (!scoring || scoring === false) return null
+  if (!scoring) return null
 
   // If this question was never answered (skipped via branching)
   if (!answer) {

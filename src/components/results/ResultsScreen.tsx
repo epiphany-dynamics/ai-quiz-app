@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useQuiz } from '@/context/QuizContext'
 import { loadResults, loadQuestionsForTrack } from '@/data'
 import { getResultCategory, saveEmailCapture, saveQuizResult } from '@/lib'
+import { useTheme } from '@/hooks/useTheme'
+import { accentTextColor } from '@/lib/theme'
 import type { ResultCategory, Answer, Question } from '@/types'
 import { ScoreRing } from './ScoreRing'
 import { SharePanel } from './SharePanel'
@@ -213,7 +215,7 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
             href="https://epiphanydynamics.ai/book"
             style={{
               fontSize: '0.85rem',
-              color: 'var(--color-bg-cream)',
+              color: 'var(--color-accent-ink)',
               textDecoration: 'underline',
               textUnderlineOffset: '3px',
             }}
@@ -271,7 +273,7 @@ function EmailForm({ resultId, categoryId, score, tierLabel, tierTagline, track,
         </motion.button>
       </div>
       {status === 'error' && (
-        <p style={{ fontSize: '0.8rem', color: '#f87171', margin: 0 }}>
+        <p style={{ fontSize: '0.8rem', color: 'var(--color-error)', margin: 0 }}>
           Something went wrong — try again.
         </p>
       )}
@@ -290,6 +292,7 @@ const CARD_ICONS = ['💡', '⚡', '🎯', '🚀', '🔥', '🧠']
 
 export function ResultsScreen() {
   const { state, resetQuiz } = useQuiz()
+  const theme = useTheme()
   const [category, setCategory] = useState<ResultCategory | null>(null)
   const [savedResultId, setSavedResultId] = useState<string | null>(null)
   const [showShare, setShowShare] = useState(false)
@@ -393,7 +396,7 @@ export function ResultsScreen() {
               </motion.span>
               <h1 style={{ fontSize: '1.75rem', fontWeight: 800, margin: 0 }}>{category.label}</h1>
             </div>
-            <p style={{ fontSize: '1.1rem', fontWeight: 600, color: category.color, margin: 0 }}>
+            <p style={{ fontSize: '1.1rem', fontWeight: 600, color: accentTextColor(category.color, theme), margin: 0 }}>
               {category.tagline}
             </p>
           </motion.div>
@@ -478,12 +481,12 @@ export function ResultsScreen() {
             {/* WARM: Calendly CTA first */}
             <motion.div
               style={{
-                background: 'linear-gradient(135deg, rgba(240,239,235,0.06) 0%, rgba(240,239,235,0.02) 100%)',
-                border: '1px solid rgba(255,255,255,0.12)',
+                background: 'var(--gradient-cta-card)',
+                border: '1px solid var(--color-cta-border)',
                 borderRadius: 'var(--radius-lg)',
                 padding: '24px 20px',
                 textAlign: 'center',
-                boxShadow: '0 0 30px rgba(240,239,235,0.04)',
+                boxShadow: 'var(--shadow-cta-card)',
               }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -530,8 +533,8 @@ export function ResultsScreen() {
             {/* WARM: Email as secondary */}
             <motion.div
               style={{
-                background: 'rgba(240, 239, 235, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: 'var(--color-panel-bg)',
+                border: '1px solid var(--color-panel-border)',
                 borderRadius: 'var(--radius-lg)',
                 padding: '18px 20px',
               }}
@@ -550,11 +553,11 @@ export function ResultsScreen() {
             {/* COOL: Email capture first */}
             <motion.div
               style={{
-                background: 'linear-gradient(135deg, rgba(240,239,235,0.06) 0%, rgba(240,239,235,0.02) 100%)',
-                border: '1px solid rgba(255,255,255,0.12)',
+                background: 'var(--gradient-cta-card)',
+                border: '1px solid var(--color-cta-border)',
                 borderRadius: 'var(--radius-lg)',
                 padding: '24px 20px',
-                boxShadow: '0 0 30px rgba(240,239,235,0.04)',
+                boxShadow: 'var(--shadow-cta-card)',
               }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -590,7 +593,7 @@ export function ResultsScreen() {
                 href="https://epiphanydynamics.ai/book"
                 style={{
                   fontSize: '0.85rem',
-                  color: 'var(--color-bg-cream)',
+                  color: 'var(--color-accent-ink)',
                   textDecoration: 'underline',
                   textUnderlineOffset: '3px',
                 }}
@@ -647,7 +650,7 @@ export function ResultsScreen() {
               href="https://epiphanydynamics.ai"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: 'var(--color-bg-cream)', textDecoration: 'none' }}
+              style={{ color: 'var(--color-accent-ink)', textDecoration: 'none' }}
             >
               Epiphany Dynamics
             </a>{' '}

@@ -37,8 +37,8 @@ export function LandingScreen() {
         <span
           className="w-2 h-2 rounded-full inline-block"
           style={{
-            background: 'var(--color-bg-cream)',
-            boxShadow: '0 0 8px rgba(240, 239, 235, 0.5)',
+            background: 'var(--color-accent-ink)',
+            boxShadow: 'var(--shadow-dot-glow)',
           }}
         />
         <span style={{ color: 'var(--color-text-secondary)' }}>Free · Takes 3 minutes</span>
@@ -72,7 +72,7 @@ export function LandingScreen() {
               left: '-2%',
               right: '-2%',
               height: '0.12em',
-              background: 'linear-gradient(90deg, rgba(240, 239, 235, 0.4), rgba(240, 239, 235, 0.1))',
+              background: 'var(--gradient-underline)',
               borderRadius: '0.1em',
               zIndex: 0,
             }}

@@ -207,14 +207,14 @@ export function QuestionCard({
                     style={
                       isConfirming
                         ? {
-                            borderColor: 'rgba(240, 239, 235, 0.6)',
-                            boxShadow: '0 0 32px rgba(240, 239, 235, 0.2)',
-                            background: 'rgba(240, 239, 235, 0.06)',
+                            borderColor: 'var(--color-selection-border-strong)',
+                            boxShadow: 'var(--shadow-selection-strong)',
+                            background: 'var(--color-selection-bg-strong)',
                           }
                         : isSelected && !isEntryGate
                           ? {
-                              borderColor: 'rgba(240, 239, 235, 0.4)',
-                              boxShadow: '0 0 20px rgba(240, 239, 235, 0.12)',
+                              borderColor: 'var(--color-selection-border)',
+                              boxShadow: 'var(--shadow-selection)',
                             }
                           : {}
                     }
@@ -243,7 +243,7 @@ export function QuestionCard({
                       <AnimatePresence>
                         {isSelected && !isEntryGate && (
                           <motion.span
-                            style={{ color: 'var(--color-bg-cream)' }}
+                            style={{ color: 'var(--color-accent-ink)' }}
                             initial={{ scale: 0, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0, opacity: 0 }}
@@ -330,9 +330,9 @@ export function QuestionCard({
                       isSelected || isConfirming
                         ? {
                             borderColor: isConfirming
-                              ? 'rgba(240, 239, 235, 0.6)'
-                              : 'rgba(240, 239, 235, 0.35)',
-                            background: 'rgba(240, 239, 235, 0.04)',
+                              ? 'var(--color-selection-border-strong)'
+                              : 'var(--color-selection-border-soft)',
+                            background: 'var(--color-selection-bg)',
                           }
                         : {}
                     }
@@ -347,9 +347,9 @@ export function QuestionCard({
                         }
                         style={{
                           background: isSelected
-                            ? 'rgba(240, 239, 235, 0.15)'
+                            ? 'var(--color-selection-chip)'
                             : 'var(--color-bg-elevated)',
-                          color: isSelected ? 'var(--color-bg-cream)' : 'var(--color-text-muted)',
+                          color: isSelected ? 'var(--color-accent-ink)' : 'var(--color-text-muted)',
                         }}
                       >
                         {letter}
@@ -369,7 +369,7 @@ export function QuestionCard({
             <div className="text-center mb-4">
               <motion.span
                 className="text-4xl font-bold"
-                style={{ color: 'var(--color-bg-cream)', fontFamily: 'League Spartan, sans-serif' }}
+                style={{ color: 'var(--color-accent-ink)', fontFamily: 'League Spartan, sans-serif' }}
                 key={Array.isArray(selected) ? selected.join(',') : (selected ?? scaleDefault)}
                 initial={{ scale: 0.85, opacity: 0.6 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -389,7 +389,7 @@ export function QuestionCard({
               value={selected !== null ? Number(selected) : Number(scaleDefault)}
               onChange={e => setSelected(e.target.value)}
               className="w-full"
-              style={{ accentColor: 'var(--color-bg-cream)' }}
+              style={{ accentColor: 'var(--color-accent-ink)' }}
             />
             {question.scale.labels && (
               <div
