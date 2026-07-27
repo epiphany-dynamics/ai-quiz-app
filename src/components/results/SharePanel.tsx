@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Track } from '@/types'
+import { useTheme } from '@/hooks/useTheme'
+import { accentTextColor } from '@/lib/theme'
 
 // ============================================================
 // SHARE URL BUILDER
@@ -44,7 +46,7 @@ function ShareBtn({ icon, label, onClick, color, highlight }: ShareBtnProps) {
         gap: 6,
         padding: '14px 10px',
         borderRadius: 'var(--radius-lg)',
-        background: highlight ? (color ? `${color}20` : 'rgba(240,239,235,0.08)') : 'var(--color-bg-card)',
+        background: highlight ? (color ? `${color}20` : 'var(--color-highlight-bg)') : 'var(--color-bg-card)',
         border: `1px solid ${highlight && color ? `${color}40` : 'var(--color-border-default)'}`,
         cursor: 'pointer',
         flex: 1,
@@ -74,6 +76,7 @@ interface SharePanelProps {
 export function SharePanel({ categoryId, categoryLabel, score, track, color }: SharePanelProps) {
   const [copied, setCopied] = useState(false)
   const [status, setStatus] = useState<string | null>(null)
+  const theme = useTheme()
 
   const shareUrl = buildShareUrl(categoryId, score, track)
   const shareText = buildShareText(score, categoryLabel, track)
@@ -151,7 +154,7 @@ export function SharePanel({ categoryId, categoryLabel, score, track, color }: S
           color: 'var(--color-text-secondary)',
         }}
       >
-        <span style={{ fontWeight: 700, color }}>📊 {score}/100</span>
+        <span style={{ fontWeight: 700, color: accentTextColor(color, theme) }}>📊 {score}/100</span>
         <span style={{ opacity: 0.5 }}>·</span>
         <span>{categoryLabel}</span>
         <span style={{ opacity: 0.5, marginLeft: 'auto', fontSize: '0.75rem', maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -186,7 +189,7 @@ export function SharePanel({ categoryId, categoryLabel, score, track, color }: S
             exit={{ opacity: 0 }}
             style={{
               fontSize: '0.8rem',
-              color,
+              color: accentTextColor(color, theme),
               textAlign: 'center',
               margin: 0,
               fontWeight: 500,

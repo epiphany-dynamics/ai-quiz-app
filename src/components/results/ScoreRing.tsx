@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { useTheme } from '@/hooks/useTheme'
+import { accentTextColor } from '@/lib/theme'
 
 interface ScoreRingProps {
   score: number
@@ -7,6 +9,7 @@ interface ScoreRingProps {
 }
 
 export function ScoreRing({ score, color, size = 140 }: ScoreRingProps) {
+  const theme = useTheme()
   const radius = (size - 16) / 2
   const circumference = 2 * Math.PI * radius
   const strokeDashoffset = circumference - (score / 100) * circumference
@@ -20,7 +23,7 @@ export function ScoreRing({ score, color, size = 140 }: ScoreRingProps) {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="rgba(255,255,255,0.08)"
+          stroke="var(--color-score-track)"
           strokeWidth={8}
         />
         {/* Fill */}
@@ -46,7 +49,7 @@ export function ScoreRing({ score, color, size = 140 }: ScoreRingProps) {
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <motion.span
           className="text-4xl font-bold"
-          style={{ color, fontFamily: 'League Spartan, sans-serif' }}
+          style={{ color: accentTextColor(color, theme), fontFamily: 'League Spartan, sans-serif' }}
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.8, type: 'spring', stiffness: 200 }}

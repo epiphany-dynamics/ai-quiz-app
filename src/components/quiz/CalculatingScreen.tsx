@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useQuiz } from '@/context/QuizContext'
 import { loadQuestionsForTrack, loadResults } from '@/data'
-import { computeBusinessScore, computeGeneralScore, getResultCategory } from '@/lib'
+import { computeBusinessScore, computeGeneralScore, getResultCategory, trackQuizCompleted } from '@/lib'
 
 const STEPS = [
   'Analyzing your responses…',
@@ -13,8 +13,11 @@ const STEPS = [
 
 export function CalculatingScreen() {
   const { state, completeQuiz } = useQuiz()
+  const didTrackCompletion = useRef(false)
 
   useEffect(() => {
+    let cancelled = false
+
     async function calculate() {
       const { session } = state
       if (!session.track) return
@@ -39,10 +42,18 @@ export function CalculatingScreen() {
 
       // Artificial delay for the dramatic effect
       await new Promise(r => setTimeout(r, 2800))
+      if (cancelled) return
+      if (!didTrackCompletion.current) {
+        trackQuizCompleted({ sessionId: session.id, track: session.track, score, resultId })
+        didTrackCompletion.current = true
+      }
       completeQuiz(score, resultId)
     }
 
     calculate()
+    return () => {
+      cancelled = true
+    }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -60,7 +71,7 @@ export function CalculatingScreen() {
             className="absolute inset-0 rounded-full"
             style={{
               border: '2px solid',
-              borderColor: 'rgba(240, 239, 235, 0.25)',
+              borderColor: 'var(--color-ring-track)',
             }}
             animate={{ scale: [1, 1.5 + i * 0.3], opacity: [0.8, 0] }}
             transition={{
@@ -73,7 +84,7 @@ export function CalculatingScreen() {
         ))}
         <div
           className="absolute inset-0 flex items-center justify-center text-4xl rounded-full"
-          style={{ background: 'rgba(240, 239, 235, 0.05)' }}
+          style={{ background: 'var(--color-ring-center)' }}
         >
           🧠
         </div>
