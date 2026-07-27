@@ -58,6 +58,21 @@
   font-display: swap;
 }
 
+/* Geist + Geist Mono (variable, latin subset) — same files the main site
+   serves; used by the navbar to match epiphanydynamics.ai exactly. */
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Variable-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-Variable-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 /* ============================================================
    DESIGN TOKENS — Epiphany Dynamics Brand Kit
    Dark-first. Premium cinematic. Cream accents.
@@ -144,9 +159,6 @@
   --shadow-cta-card: 0 0 30px rgba(240, 239, 235, 0.04);
   --color-panel-bg: rgba(240, 239, 235, 0.03);
   --color-panel-border: rgba(255, 255, 255, 0.08);
-  --color-nav-pill-bg: rgba(0, 0, 0, 0.85);
-  --color-nav-pill-border: rgba(255, 255, 255, 0.08);
-  --shadow-nav-pill: 0 4px 30px rgba(0, 0, 0, 0.3);
   --color-ring-track: rgba(240, 239, 235, 0.25);
   --color-ring-center: rgba(240, 239, 235, 0.05);
   --color-score-track: rgba(255, 255, 255, 0.08);
@@ -157,74 +169,156 @@
   --gradient-underline: linear-gradient(90deg, rgba(240, 239, 235, 0.4), rgba(240, 239, 235, 0.1));
   --shadow-dot-glow: 0 0 8px rgba(240, 239, 235, 0.5);
   --color-footer-divider: rgba(255, 255, 255, 0.1);
+
+  /* === CANONICAL SEMANTIC THEME TOKENS (mirrors main-site global.css) ===
+     These drive the navbar (text-ink, border-line, bg-bg, ...) and flip under
+     [data-theme='light'] in the dedicated blocks further down. Values here
+     are the canonical DARK set, verbatim from origin/main. */
+  --color-bg: #000000;
+  --color-bg-elev: #0a0a0a;
+  --color-surface: #0a0a0a;
+  --color-surface-2: rgba(255, 255, 255, 0.04);
+  --color-surface-2-strong: rgba(255, 255, 255, 0.08);
+  --color-ink: #ffffff;
+  --color-ink-muted: rgba(255, 255, 255, 0.55);
+  --color-ink-faint: rgba(255, 255, 255, 0.4);
+  --color-line: rgba(214, 235, 253, 0.19);
+  --color-line-strong: rgba(214, 235, 253, 0.34);
+  --color-brand-cream: #f0efeb;
+  --color-brand-ink: #050505;
+
+  /* Canonical shadow scale — dark fallbacks (the light scope replaces these
+     with the layered paper-elevation scale). */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24), 0 4px 12px -2px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.2), 0 8px 24px -6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.24), 0 18px 44px -10px rgba(0, 0, 0, 0.52);
+  --shadow-focus: 0 0 0 4px rgba(214, 235, 253, 0.2);
 }
 
 /* ============================================================
-   LIGHT THEME — warm paper, matches epiphanydynamics.ai
-   ([data-theme='light']: bg #ece8de, ink #1a1814)
+   LIGHT THEME — warm paper, canonical match to epiphanydynamics.ai
+   Solid black ink (#000000), NO alpha text: hierarchy in light mode
+   comes from size, weight, and tracking, never from gray text.
    ============================================================ */
 
 html[data-theme='light'] {
-  /* Backgrounds — paper canvas, cards lift toward white */
+  /* Backgrounds — paper canvas, cards lift to pure white */
   --color-bg-base: #ece8de;
-  --color-bg-card: #f5f2eb;
+  --color-bg-card: #ffffff;
   --color-bg-elevated: #ffffff;
   --color-bg-overlay: rgba(236, 232, 222, 0.92);
-  /* --color-bg-cream stays: cream buttons read as brand chips on paper */
+  /* --color-bg-cream stays: cream is the constant brand chip */
 
-  /* Text — ink alphas, WCAG AA on the paper */
-  --color-text-primary: #1a1814;
-  --color-text-secondary: rgba(26, 24, 20, 0.75);
-  --color-text-muted: rgba(26, 24, 20, 0.6);
+  /* Text — solid black at every step (canonical: no alpha ink) */
+  --color-text-primary: #000000;
+  --color-text-secondary: #000000;
+  --color-text-muted: #000000;
   /* --color-text-inverse stays #050505: ink on cream buttons */
 
-  /* Borders — hairline black alphas */
+  /* Borders — canonical hairlines */
   --color-border-subtle: rgba(26, 24, 20, 0.12);
-  --color-border-default: rgba(26, 24, 20, 0.18);
-  --color-border-strong: rgba(26, 24, 20, 0.32);
+  --color-border-default: rgba(26, 24, 20, 0.12);
+  --color-border-strong: rgba(26, 24, 20, 0.22);
 
   /* Glass */
   --color-glass: rgba(255, 255, 255, 0.7);
 
-  /* Accent flips from cream to ink */
-  --color-accent: #1a1814;
+  /* Accent flips from cream to solid ink */
+  --color-accent: #000000;
   --color-accent-muted: rgba(26, 24, 20, 0.12);
-  --color-accent-strong: rgba(26, 24, 20, 0.28);
+  --color-accent-strong: rgba(26, 24, 20, 0.22);
 
-  /* Cream glows become soft ink shadows */
-  --glow-accent: 0 1px 8px rgba(26, 24, 20, 0.12);
-  --glow-accent-strong: 0 4px 20px rgba(26, 24, 20, 0.16);
+  /* Cream glows become the canonical paper-elevation shadows */
+  --glow-accent: 0 1px 2px rgba(26, 24, 20, 0.08), 0 4px 12px -2px rgba(26, 24, 20, 0.08);
+  --glow-accent-strong: 0 2px 4px rgba(26, 24, 20, 0.06), 0 8px 24px -6px rgba(26, 24, 20, 0.12);
 
   /* Semantic tokens */
-  --color-accent-ink: #1a1814;
+  --color-accent-ink: #000000;
   --color-error: #b91c1c;
-  --color-selection-border-strong: rgba(26, 24, 20, 0.55);
-  --color-selection-border: rgba(26, 24, 20, 0.4);
-  --color-selection-border-soft: rgba(26, 24, 20, 0.32);
+  --color-selection-border-strong: rgba(0, 0, 0, 0.45);
+  --color-selection-border: rgba(0, 0, 0, 0.35);
+  --color-selection-border-soft: rgba(0, 0, 0, 0.25);
   --color-selection-bg-strong: rgba(26, 24, 20, 0.05);
   --color-selection-bg: rgba(26, 24, 20, 0.035);
   --color-selection-chip: rgba(26, 24, 20, 0.1);
   --color-highlight-bg: rgba(26, 24, 20, 0.08);
-  --shadow-selection: 0 4px 16px rgba(26, 24, 20, 0.12);
-  --shadow-selection-strong: 0 8px 28px rgba(26, 24, 20, 0.18);
-  --gradient-cta-card: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.45) 100%);
-  --color-cta-border: rgba(26, 24, 20, 0.14);
-  --shadow-cta-card: 0 8px 28px rgba(26, 24, 20, 0.1);
-  --color-panel-bg: rgba(255, 255, 255, 0.55);
-  --color-panel-border: rgba(26, 24, 20, 0.1);
-  --color-nav-pill-bg: rgba(255, 255, 255, 0.85);
-  --color-nav-pill-border: rgba(26, 24, 20, 0.1);
-  --shadow-nav-pill: 0 4px 30px rgba(26, 24, 20, 0.12);
+  --shadow-selection: 0 1px 2px rgba(26, 24, 20, 0.08), 0 4px 12px -2px rgba(26, 24, 20, 0.08);
+  --shadow-selection-strong: 0 2px 4px rgba(26, 24, 20, 0.06), 0 8px 24px -6px rgba(26, 24, 20, 0.12);
+  --gradient-cta-card: #ffffff;
+  --color-cta-border: rgba(26, 24, 20, 0.12);
+  --shadow-cta-card: 0 2px 4px rgba(26, 24, 20, 0.06), 0 8px 24px -6px rgba(26, 24, 20, 0.12);
+  --color-panel-bg: #ffffff;
+  --color-panel-border: rgba(26, 24, 20, 0.12);
   --color-ring-track: rgba(26, 24, 20, 0.22);
   --color-ring-center: rgba(26, 24, 20, 0.05);
   --color-score-track: rgba(26, 24, 20, 0.12);
-  --color-banner-bg: rgba(255, 255, 255, 0.92);
-  --color-milestone-bg: rgba(255, 255, 255, 0.94);
-  --color-milestone-border: rgba(26, 24, 20, 0.15);
-  --shadow-milestone: 0 12px 40px rgba(26, 24, 20, 0.18);
-  --gradient-underline: linear-gradient(90deg, rgba(26, 24, 20, 0.45), rgba(26, 24, 20, 0.12));
+  --color-banner-bg: #ffffff;
+  --color-milestone-bg: #ffffff;
+  --color-milestone-border: rgba(26, 24, 20, 0.12);
+  --shadow-milestone: 0 4px 8px rgba(26, 24, 20, 0.08), 0 18px 44px -10px rgba(26, 24, 20, 0.16);
+  --gradient-underline: linear-gradient(90deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.12));
   --shadow-dot-glow: 0 0 8px rgba(26, 24, 20, 0.3);
   --color-footer-divider: rgba(26, 24, 20, 0.12);
+}
+
+/* === CANONICAL LIGHT TOKENS (verbatim from main-site global.css) === */
+[data-theme='light'] {
+  --color-bg: #ece8de;
+  --color-bg-elev: #f5f2eb;
+  --color-surface: #ffffff;
+  --color-surface-2: rgba(255, 255, 255, 0.72);
+  --color-surface-2-strong: rgba(255, 255, 255, 0.92);
+  --color-ink: #000000;
+  --color-ink-muted: #000000;
+  --color-ink-faint: #000000;
+  --color-line: rgba(26, 24, 20, 0.12);
+  --color-line-strong: rgba(26, 24, 20, 0.22);
+  --color-brand-cream: #f0efeb; /* unchanged */
+  --color-brand-ink: #1a1814;
+  --shadow-xs: 0 1px 2px rgba(26, 24, 20, 0.06), 0 1px 1px rgba(26, 24, 20, 0.04);
+  --shadow-sm: 0 1px 2px rgba(26, 24, 20, 0.08), 0 4px 12px -2px rgba(26, 24, 20, 0.08);
+  --shadow-md: 0 2px 4px rgba(26, 24, 20, 0.06), 0 8px 24px -6px rgba(26, 24, 20, 0.12);
+  --shadow-lg: 0 4px 8px rgba(26, 24, 20, 0.08), 0 18px 44px -10px rgba(26, 24, 20, 0.16);
+  --shadow-focus: 0 0 0 4px rgba(240, 239, 235, 0.45);
+}
+
+/* PINNED-DARK SECTIONS — re-assert the dark palette inside any element tagged
+   data-theme="dark", even when the page (<html>) is in light mode. */
+[data-theme='dark'] {
+  --color-bg: #000000;
+  --color-bg-elev: #0a0a0a;
+  --color-surface: #0a0a0a;
+  --color-surface-2: rgba(255, 255, 255, 0.04);
+  --color-surface-2-strong: rgba(255, 255, 255, 0.08);
+  --color-ink: #ffffff;
+  --color-ink-muted: rgba(255, 255, 255, 0.55);
+  --color-ink-faint: rgba(255, 255, 255, 0.4);
+  --color-line: rgba(214, 235, 253, 0.19);
+  --color-line-strong: rgba(214, 235, 253, 0.34);
+  --color-brand-cream: #f0efeb;
+  --color-brand-ink: #050505;
+}
+
+/* LIGHT-MODE LEGIBILITY OVERRIDES (canonical, verbatim) — alpha-stepped
+   text-ink/* utilities collapse to solid ink in light; .font-light renders
+   at 400. Pinned-dark subtrees are excluded. */
+[data-theme='light']
+  [class*='text-ink/']:not([class*='text-ink/[']):not([data-theme='dark']):not(
+    [data-theme='dark'] *
+  ) {
+  color: var(--color-ink);
+}
+
+[data-theme='light'] .font-light:not([data-theme='dark']):not([data-theme='dark'] *) {
+  font-weight: 400;
+}
+
+/* === THEME-AWARE LOGO MARK (canonical) — the brand mark is a white glyph
+   on transparent, invisible on light backgrounds; invert it in light. */
+[data-theme='light'] .theme-mark,
+[data-theme='light'] .nav-logo-mark {
+  filter: invert(100%);
 }
 
 /* ============================================================
@@ -281,6 +375,27 @@ h1, h2, h3, h4, h5, h6 {
 
   --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-heading: 'League Spartan', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Canonical semantic tokens as utilities (bg-bg, text-ink, text-ink-muted,
+     text-ink-faint, border-line, border-line-strong, bg-brand-cream,
+     text-brand-cream, bg-surface-2) — resolve to the CSS vars above so they
+     flip with [data-theme]. Used by the navbar, matching the main site. */
+  --color-bg: var(--color-bg);
+  --color-bg-elev: var(--color-bg-elev);
+  --color-surface-2: var(--color-surface-2);
+  --color-surface-2-strong: var(--color-surface-2-strong);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-line: var(--color-line);
+  --color-line-strong: var(--color-line-strong);
+  --color-brand-cream: var(--color-brand-cream);
+  --color-brand-ink: var(--color-brand-ink);
+
+  /* Geist stack for navbar parity (scoped names so the quiz's own
+     font-sans/font-mono rendering is untouched) */
+  --font-geist: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-geist-mono: 'Geist Mono', ui-monospace, monospace;
 
   --shadow-glow-accent: 0 0 20px rgba(240, 239, 235, 0.15);
   --shadow-glow-strong: 0 0 40px rgba(240, 239, 235, 0.25);
@@ -600,8 +715,8 @@ h1, h2, h3, h4, h5, h6 {
    ============================================================ */
 
 .site-btn-primary {
-  --btn-main: #050505;
-  --btn-bg: #f0efeb;
+  --btn-main: #000000;
+  --btn-bg: #f0f0f0;
   --btn-border: transparent;
   position: relative;
   display: inline-flex;
@@ -614,7 +729,7 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   background: var(--btn-bg);
   color: var(--btn-main);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
   font-weight: 550;
   font-size: 0.875rem;
   letter-spacing: -0.028rem;
@@ -671,8 +786,35 @@ h1, h2, h3, h4, h5, h6 {
 .site-btn-primary:hover .btn-out { transform: translate(0, 0); }
 .site-btn-primary:hover .btn-out::before { transform: scaleX(1); }
 
-.site-btn-secondary {
+/* FILLED VARIANT — LIGHT MODE OVERRIDE (canonical): the cream fill vanishes
+   on the warm-paper bg, so in light theme the pill inverts to a dark
+   warm-ink fill (#1a1814) with cream text. */
+[data-theme='light'] .site-btn-primary {
   --btn-main: #f0efeb;
+  --btn-bg: #1a1814;
+  --btn-border: transparent;
+}
+[data-theme='light'] .site-btn-primary .btn-out {
+  color: #1a1814;
+}
+[data-theme='light'] .site-btn-primary .btn-out::before {
+  background: #f0efeb;
+}
+/* Nested pinned-dark sections must beat the page-level light button override. */
+[data-theme='dark'] .site-btn-primary {
+  --btn-main: #000000;
+  --btn-bg: #f0f0f0;
+  --btn-border: transparent;
+}
+[data-theme='dark'] .site-btn-primary .btn-out {
+  color: #f0f0f0;
+}
+[data-theme='dark'] .site-btn-primary .btn-out::before {
+  background: #000000;
+}
+
+.site-btn-secondary {
+  --btn-main: #f0f0f0;
   --btn-bg: transparent;
   --btn-border: rgba(255, 255, 255, 0.25);
   position: relative;
@@ -684,15 +826,41 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   cursor: pointer;
   border: none;
-  background: transparent;
+  background: var(--btn-bg);
   color: var(--btn-main);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
   font-weight: 550;
   font-size: 0.875rem;
   letter-spacing: -0.028rem;
   padding: 0;
   transition: color 0.3s var(--ease-out-cubic);
   text-decoration: none;
+}
+
+/* OUTLINED VARIANT (theme-aware, canonical): under [data-theme="light"] the
+   --btn-main / --btn-border vars flip to dark ink so the outline reads on
+   a light page. */
+[data-theme='light'] .site-btn-secondary {
+  --btn-main: #050505;
+  --btn-border: rgba(0, 0, 0, 0.25);
+}
+[data-theme='light'] .site-btn-secondary .btn-out {
+  color: #f0f0f0;
+}
+[data-theme='light'] .site-btn-secondary .btn-out::before {
+  background: #050505;
+}
+/* Nested pinned-dark sections must beat the page-level light outline override. */
+[data-theme='dark'] .site-btn-secondary {
+  --btn-main: #f0f0f0;
+  --btn-bg: rgba(0, 0, 0, 0.38);
+  --btn-border: rgba(255, 255, 255, 0.48);
+}
+[data-theme='dark'] .site-btn-secondary .btn-out {
+  color: #000000;
+}
+[data-theme='dark'] .site-btn-secondary .btn-out::before {
+  background: #f0f0f0;
 }
 
 .site-btn-secondary::before {
@@ -723,7 +891,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: 0.8rem;
   padding: 1.1rem 2.2rem;
-  color: #050505;
+  color: #000000;
   transform: translateY(calc(100% + 4px));
   transition: transform 0.3s cubic-bezier(0.35, 0.2, 0, 1);
 }
@@ -757,6 +925,22 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.75rem;
 }
 
+@media (max-width: 639px) {
+  .nav-cta-mobile.site-btn-secondary .btn-in,
+  .nav-cta-mobile.site-btn-secondary .btn-out {
+    min-width: 52px;
+    padding: 0.6rem 0.55rem;
+  }
+}
+
+@media (max-width: 379px) {
+  .nav-cta-mobile.site-btn-secondary .btn-in,
+  .nav-cta-mobile.site-btn-secondary .btn-out {
+    min-width: 44px;
+    padding: 0.6rem 0.3rem;
+  }
+}
+
 /* Film grain overlay — subtle cinematic texture */
 body::after {
   content: '';
@@ -780,9 +964,9 @@ html[data-theme='light'] body::after {
   opacity: 0.02;
 }
 
-/* Interactive option cards — white lift instead of white-alpha tint */
+/* Interactive option cards — pure white surfaces on the paper (canonical) */
 html[data-theme='light'] .card-interactive {
-  background: rgba(255, 255, 255, 0.55);
+  background: #ffffff;
 }
 
 html[data-theme='light'] .card-interactive::before {
@@ -790,8 +974,8 @@ html[data-theme='light'] .card-interactive::before {
 }
 
 html[data-theme='light'] .card-interactive:hover {
-  box-shadow: 0 8px 24px rgba(26, 24, 20, 0.12);
-  background: rgba(255, 255, 255, 0.75);
+  box-shadow: var(--shadow-md);
+  background: #ffffff;
 }
 
 html[data-theme='light'] .card-interactive.selected {
@@ -810,32 +994,37 @@ html[data-theme='light'] .progress-fill {
   box-shadow: 0 0 12px rgba(26, 24, 20, 0.15);
 }
 
-/* Primary button — cream pill on paper needs a hairline + shadow to read */
+/* Primary button — canonical light treatment: the cream fill vanishes on
+   paper, so the pill inverts to a dark warm-ink fill with cream text. */
 html[data-theme='light'] .btn-primary {
-  box-shadow: 0 0 0 1px rgba(26, 24, 20, 0.15), 0 2px 8px rgba(26, 24, 20, 0.1);
+  background: #1a1814;
+  color: #f0efeb;
+  box-shadow: var(--shadow-sm);
 }
 
 html[data-theme='light'] .btn-primary:hover {
-  background: #ffffff;
-  box-shadow: 0 0 0 1px rgba(26, 24, 20, 0.15), 0 8px 24px rgba(26, 24, 20, 0.16);
+  background: #000000;
+  box-shadow: var(--shadow-md);
 }
 
 html[data-theme='light'] .btn-primary:active {
-  box-shadow: 0 0 0 1px rgba(26, 24, 20, 0.15), 0 2px 8px rgba(26, 24, 20, 0.1);
+  background: #1a1814;
+  box-shadow: var(--shadow-xs);
 }
 
-/* Secondary button */
+/* Secondary button — canonical outlined: transparent, black-alpha border */
 html[data-theme='light'] .btn-secondary {
-  background: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  border-color: rgba(0, 0, 0, 0.25);
 }
 
 html[data-theme='light'] .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 4px 16px rgba(26, 24, 20, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-sm);
 }
 
 html[data-theme='light'] .btn-secondary:active {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.35);
 }
 
 /* Hero ambient glow — ink instead of cream */
@@ -857,8 +1046,8 @@ html[data-theme='light'] .text-glow {
 /* Glass cards — frosted white instead of dark glass */
 html[data-theme='light'] .card-glass {
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(26, 24, 20, 0.1);
-  box-shadow: 0 1px 2px rgba(26, 24, 20, 0.06);
+  border: 1px solid rgba(26, 24, 20, 0.12);
+  box-shadow: var(--shadow-xs);
 }
 
 /* Shimmer */
@@ -870,20 +1059,4 @@ html[data-theme='light'] .animate-shimmer {
 /* Focus ring */
 html[data-theme='light'] :focus-visible {
   outline: 2px solid rgba(26, 24, 20, 0.5);
-}
-
-/* Site buttons — cream primary keeps its look with a hairline;
-   secondary flips to ink text/border, and its hover-reveal layer
-   (dark pill) needs cream text. */
-html[data-theme='light'] .site-btn-primary {
-  --btn-border: rgba(26, 24, 20, 0.15);
-}
-
-html[data-theme='light'] .site-btn-secondary {
-  --btn-main: #1a1814;
-  --btn-border: rgba(26, 24, 20, 0.3);
-}
-
-html[data-theme='light'] .site-btn-secondary .btn-out {
-  color: #f0efeb;
 }
