@@ -147,7 +147,7 @@ export function SiteNavbar() {
                 className="flex items-center gap-2 transition-colors duration-200 min-h-[44px] min-w-[44px]"
               >
                 <HamburgerIcon isOpen={isMenuOpen} />
-                <span className="hidden md:inline text-xs font-geist-mono tracking-[0.15em] uppercase transition-colors duration-300 text-ink">
+                <span className="hidden md:inline text-xs font-geist tracking-[0.15em] uppercase transition-colors duration-300 text-ink">
                   Menu
                 </span>
               </button>
@@ -178,7 +178,7 @@ export function SiteNavbar() {
               <ThemeToggle />
               <a
                 href={BOOK}
-                className="text-xs font-geist-mono tracking-[0.15em] uppercase text-ink-muted hover:text-ink transition-colors"
+                className="text-xs font-geist tracking-[0.3px] uppercase text-ink-muted hover:text-ink transition-colors"
               >
                 Book your free audit
               </a>
@@ -192,7 +192,7 @@ export function SiteNavbar() {
               <ThemeToggle />
               <a
                 href={BOOK}
-                className="hidden sm:inline-flex text-[10px] font-geist-mono tracking-[0.12em] uppercase text-ink-muted hover:text-ink transition-colors min-h-[44px] items-center"
+                className="hidden sm:inline-flex text-[10px] font-geist tracking-[0.12em] uppercase text-ink-muted hover:text-ink transition-colors min-h-[44px] items-center"
               >
                 Book
               </a>
@@ -238,7 +238,7 @@ export function SiteNavbar() {
                   className="flex items-center gap-2 text-ink hover:opacity-70 transition-opacity duration-200 min-h-[44px] min-w-[44px]"
                 >
                   <HamburgerIcon isOpen={true} />
-                  <span className="hidden md:inline text-xs font-geist-mono tracking-[0.15em] uppercase">
+                  <span className="hidden md:inline text-xs font-geist tracking-[0.15em] uppercase">
                     Close
                   </span>
                 </button>
