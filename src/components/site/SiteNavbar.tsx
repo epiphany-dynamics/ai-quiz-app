@@ -360,8 +360,8 @@ export function SiteNavbar() {
                       onClick={() => setIsMenuOpen(false)}
                       className="site-btn-primary"
                     >
-                      <span className="btn-in">Start quiz</span>
-                      <span className="btn-out" aria-hidden="true">Start quiz</span>
+                      <span className="btn-in">Get started</span>
+                      <span className="btn-out" aria-hidden="true">Get started</span>
                     </a>
                   </motion.div>
 
