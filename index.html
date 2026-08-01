@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <script>
       // No-flash theme bootstrap — runs before paint, mirrors epiphanydynamics.ai.
-      // localStorage.theme: only 'light' is special; everything else is dark.
+      // Resolution order: explicit localStorage.theme choice wins; otherwise the
+      // OS prefers-color-scheme setting; dark fallback on error.
       (function () {
         var theme = 'dark';
         try {
-          theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+          var stored = localStorage.getItem('theme');
+          if (stored === 'light' || stored === 'dark') {
+            theme = stored;
+          } else {
+            theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          }
         } catch (_e) {
           // Storage blocked (private mode etc.) — keep the dark default.
         }
