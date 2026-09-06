@@ -8,17 +8,17 @@
 
 ---
 
-### Tier 1: AI-Ready Operator (score 84-127)
+### Tier 1: AI-Ready Operator (score 84-100)
 
 **Headline:** You're ready to run AI. Here's your playbook.
 
 **Summary paragraph:**
-You scored in the top tier of AI readiness. You already use AI tools, your operations are systematized, you see competitors moving, and you'd trust AI with customer interactions. Most businesses in your position are weeks away from a fully automated front-of-house operation. This report breaks down exactly where to start.
+You scored in the top tier of AI readiness. You already use AI tools, your operations are systematized, you see competitors moving, and you'd trust AI with customer interactions. Choose one workflow, define the handoff, and test it with the people who'll use it.
 
 **Section: Your top 3 opportunities**
 *(These are the insight cards — already exist in results.json. Included here for completeness.)*
 
-1. **Deploy a 24/7 AI front desk** — A trained AI voice + chat receptionist handles inbound calls, books appointments, answers FAQs, and qualifies leads around the clock without adding a single staff hour. Most operators see a measurable lift in booked appointments within the first 30 days.
+1. **Deploy a 24/7 AI front desk** — A trained AI voice + chat receptionist can handle inbound calls, book appointments, answer FAQs, and qualify leads around the clock. Track response time, booked appointments, and human handoffs during a pilot so you can judge whether it fits your operation.
 
 2. **Automate your entire lead follow-up** — Every cold lead, no-show, and ghosted inquiry is a revenue leak. Pair AI with your CRM to trigger personalized follow-up sequences automatically -- the right message, the right timing, zero manual effort.
 
@@ -28,9 +28,9 @@ You scored in the top tier of AI readiness. You already use AI tools, your opera
 
 *[Shown based on A1 answer. One of these blocks appears.]*
 
-- **Med spa / wellness:** Your industry is one of the fastest adopters of AI front desk systems. The highest-impact move right now is automated after-hours booking. Patients who call at 9pm and get a voicemail go to your competitor. An AI receptionist that books them instantly recovers 15-25% of those lost appointments. Pair that with automated recall messaging for lapsed patients and you're looking at a measurable revenue lift within 30 days.
+- **Med spa / wellness:** Automated after-hours booking is a practical place to start. An AI receptionist can answer common questions and route booking requests while your team is away. Review the handoffs and booking quality before expanding it to recall messaging.
 
-- **Dental:** Dental practices lose the most revenue to two things: no-shows and overdue recall patients. AI-powered appointment reminders reduce no-shows by 20-35%, and automated reactivation sequences bring back overdue patients without your front desk making a single call. The second move is automating insurance verification and intake paperwork so your chair time is 100% patient time.
+- **Dental:** Appointment reminders and recall workflows are practical places to start. Map the current handoffs, choose one workflow, and compare no-show or reactivation results before expanding it. Insurance verification and intake paperwork can be considered as a separate workflow.
 
 - **Home services:** The biggest leak in home services is speed-to-lead. A homeowner who requests a quote and doesn't hear back in 30 minutes moves on. AI-powered instant quote responses and automated follow-up sequences keep you in front of every lead. Pair that with AI-assisted crew onboarding (an assistant that answers new hire questions about procedures, routes, and equipment) and you free up your experienced people from training duty.
 
@@ -38,17 +38,17 @@ You scored in the top tier of AI readiness. You already use AI tools, your opera
 
 - **Professional services:** For law firms, accounting practices, and consultants, the highest-ROI AI application is the intake-to-booking pipeline. Prospective clients book discovery calls, receive pre-consult questionnaires, and get intake documents automatically. Your first touchpoint with a new client is polished and immediate instead of "someone will get back to you."
 
-- **E-commerce:** Your highest-leverage AI move is cart abandonment recovery. Personalized sequences that trigger when someone leaves items in their cart typically recover 5-15% of lost sales. Second priority: automating customer support for returns, order status, and FAQs so your team only handles escalations.
+- **E-commerce:** Cart abandonment recovery is a practical place to start. Test a personalized follow-up workflow against your existing process, then review the results before expanding customer support automation for returns, order status, and FAQs.
 
-- **Other:** The universal starting point for any business is automating your most repetitive customer interaction. For most businesses, that's answering the same 10-15 questions over and over. An AI chat or voice system trained on your FAQs can handle 80% of routine inquiries, freeing your team for work that actually requires a human.
+- **Other:** A practical starting point for any business is the customer interaction your team repeats most often. List the questions, train an AI chat or voice system on approved answers, and keep a clear path to a human for anything it can't handle.
 
 **Section: Personalized by pain points**
 
 *[Shown based on A4 answers. Up to 3 of these appear, matching their selections.]*
 
-- **"Answering the same questions over and over"** — This is the easiest win in AI. Train an AI chat widget on your top 15-20 FAQs, deploy it on your website and phone system, and you'll eliminate hours of repetitive work per week. Setup takes a few hours. The time savings start the same day.
+- **"Answering the same questions over and over"** — Train an AI chat widget on your top FAQs, deploy it on your website or phone system, and review the answers and handoffs before expanding it. Keep a clear path to a human for anything it can't handle.
 
-- **"Scheduling, rescheduling, no-shows"** — AI scheduling automation handles the entire loop: booking, confirmation, reminders, rescheduling, and waitlist management. Businesses using this typically see no-show rates drop 20-35%. The key is the reminder cadence -- AI sends the right number of reminders at the right intervals without being annoying.
+- **"Scheduling, rescheduling, no-shows"** — AI scheduling automation can handle booking, confirmations, reminders, rescheduling, and waitlist management. Start with the handoff your team spends the most time on, then compare no-show and staff-time results before expanding it.
 
 - **"Following up with leads who go cold"** — This is where most businesses lose the most money silently. AI-powered follow-up sequences re-engage cold leads with personalized messages on a smart cadence. Not spam, not generic blasts -- messages that reference what the lead originally asked about and offer a specific next step.
 
@@ -56,13 +56,13 @@ You scored in the top tier of AI readiness. You already use AI tools, your opera
 
 - **"Manual data entry or reporting"** — AI can extract, organize, and report on your business data without you touching a spreadsheet. The first step is usually connecting your existing tools (CRM, calendar, accounting) to an AI that generates weekly summaries of what's actually happening in your business.
 
-- **"Social media / content creation"** — AI content tools generate on-brand social posts, email campaigns, and client communications at 10x the speed of doing it manually. Set it up once with your voice, tone, and brand guidelines, and your content calendar fills itself.
+- **"Social media / content creation"** — AI content tools can help draft on-brand social posts, email campaigns, and client communications. Give them your voice, tone, and brand guidelines, review the drafts, and keep the parts that fit your content process.
 
 - **"I don't know -- that's kind of the problem"** — The fact that you can't pinpoint the bottleneck is actually the most important signal. It usually means the problem is operational visibility -- you're too deep in the day-to-day to see where time is actually going. An AI operations audit maps this for you in one conversation.
 
 **Section: What to do this week**
 
-1. Book a 15-minute AI workflow review. We'll identify the single highest-ROI automation for your specific business -- not a generic recommendation, a specific one based on everything you told us in this quiz.
+1. Book a 15-minute AI workflow review. We'll use your quiz answers to identify one practical workflow to examine first.
 2. While you wait for the call, write down the 3 tasks your team spends the most time on that don't directly generate revenue. That's your automation target list.
 3. Ask yourself: if you could clone one employee's work, whose would it be and what would they do? That's usually where AI fits first.
 
@@ -78,11 +78,11 @@ You're not starting from zero. You've used AI tools, you have real business syst
 **Section: Your top 3 opportunities**
 *(Insight cards from results.json)*
 
-1. **Run a 30-day AI pilot on your biggest bottleneck** — Don't try to automate everything at once. Pick your single most expensive bottleneck and prove the ROI on that one thing first. A focused 30-day pilot gives you the numbers to justify scaling everything else.
+1. **Run a focused AI pilot on your biggest bottleneck** — Don't try to automate everything at once. Pick your single most expensive bottleneck and test one workflow first. Set the review window around the scope, tools, and dependencies, then use what you learn to decide whether to expand.
 
-2. **Produce 10x more content without hiring anyone** — AI can generate on-brand social posts, email campaigns, and client communications at a pace no staff hire can match. Set it up once with your voice and style guidelines, and your content calendar fills itself.
+2. **Build a repeatable content workflow** — AI can help draft on-brand social posts, email campaigns, and client communications. Give it your voice and style guidelines, review the drafts, and keep the parts that fit your content process.
 
-3. **Eliminate scheduling back-and-forth entirely** — Every minute spent coordinating appointments is a minute not spent on revenue-generating work. Smart scheduling automation syncs to your calendar, sends confirmations and reminders, handles rescheduling, and reduces no-shows by 20-35%.
+3. **Reduce scheduling back-and-forth** — Every minute spent coordinating appointments is a minute not spent on revenue-generating work. Smart scheduling automation can sync to your calendar, send confirmations and reminders, and handle rescheduling. Compare your no-show rate before and after the change to see whether it helps.
 
 **Section: Personalized by industry**
 *[Same industry blocks as Tier 1 but with this intro sentence instead:]*
@@ -97,7 +97,7 @@ You're not starting from zero. You've used AI tools, you have real business syst
 **Section: What to do this week**
 
 1. Pick ONE pain point from this report that hit closest to home. Don't try to solve three things at once.
-2. Book a free 15-minute AI workflow review. We'll map that one problem to a specific, tested solution that works for your industry and team size.
+2. Book a free 15-minute AI workflow review. We'll map that one problem to a practical next step for your industry, team size, and current tools.
 3. Before the call, check if the tool you currently use for that task has AI features you haven't turned on yet. Many CRMs and scheduling platforms already have AI built in -- you might be sitting on a solution you're already paying for.
 
 ---
@@ -114,7 +114,7 @@ You're aware that AI is changing how businesses operate, but the path from "I kn
 
 1. **Get a free AI strategy call first** — Before buying any tool or building anything, a 45-minute strategy call that maps AI specifically to your business type, team size, and biggest pain points is worth more than months of trial-and-error.
 
-2. **Start with a $50/month starter stack** — You don't need enterprise software to get real value from AI. Claude, ChatGPT, Notion AI, and a Zapier automation can eliminate 20-30% of your repetitive weekly tasks for under $50 a month. Start there, then scale up.
+2. **Start with a small AI workflow** — You don't need enterprise software to test a useful workflow. Claude, ChatGPT, Notion AI, and Zapier can each help with different parts of the process. Check their current plans and usage terms, then start with one repeatable task.
 
 3. **Automate your top 10 customer FAQs** — An AI chat widget trained on your most common questions can free up hours of staff time every week and make your business look more professional and responsive to every new prospect who visits your site.
 
@@ -125,11 +125,11 @@ You're aware that AI is changing how businesses operate, but the path from "I kn
 
 *[Then a simplified version of the industry paragraph focused on the single easiest first step.]*
 
-- **Med spa / wellness:** The easiest first step is automated appointment reminders. You don't need to overhaul anything. Just connect an AI reminder system to your existing booking software. It sends confirmations and reminders automatically, and most med spas see no-show rates drop within the first two weeks.
+- **Med spa / wellness:** The easiest first step is automated appointment reminders. Connect an AI reminder system to your existing booking software, review the messages and handoffs, and compare no-show results before expanding the workflow.
 
-- **Dental:** Start with recall automation. AI identifies patients overdue for checkups and sends personalized messages to bring them back. It runs in the background without your staff touching anything, and it typically reactivates 8-12% of lapsed patients in the first month.
+- **Dental:** Start with recall automation. AI can identify patients overdue for checkups and draft personalized messages for review. Track responses and staff time before you decide whether to expand it.
 
-- **Home services:** Start with automated quote follow-up. When someone requests a quote and doesn't respond, AI sends a personalized nudge 24 and 72 hours later. Simple to set up, typically converts 15-25% of cold leads back into booked jobs.
+- **Home services:** Start with automated quote follow-up. When someone requests a quote and doesn't respond, AI can draft a personalized nudge for review. Test the timing with a small group and compare booked jobs with your usual process.
 
 - **Restaurant:** Start with automated Google review responses. AI that responds to every review within minutes -- personalized, on-brand, not generic -- improves your local search ranking and takes a tedious task off your plate entirely.
 
@@ -142,9 +142,9 @@ You're aware that AI is changing how businesses operate, but the path from "I kn
 **Section: Personalized by barrier**
 *[Shown if A6a was answered -- only for users who said they've never used AI]*
 
-- **"I don't know where to start"** — That's exactly what the free AI audit solves. In 30 minutes, we map your specific business to 2-3 AI tools that are already proven in your industry. You leave with a ranked list, not a sales pitch.
+- **"I don't know where to start"** — That's exactly what the free AI audit is for. In 30 minutes, we'll map your business, current tools, and biggest time drain to a few practical starting points. You'll leave with a ranked list, not a sales pitch.
 
-- **"I'm worried about the cost"** — Most AI tools for small business are $0-50/month. Claude and ChatGPT are free to start. The real cost isn't the software -- it's the time you're currently spending on tasks AI could handle. A single automation that saves you 5 hours a week pays for itself instantly.
+- **"I'm worried about the cost"** — Start with a small, low-risk workflow. Claude, ChatGPT, Notion AI, and Zapier can each help with different parts of the process. Check the current plans and usage terms, then decide whether the time saved justifies a wider rollout.
 
 - **"I'm not sure it's right for my type of business"** — If your business involves answering customer questions, scheduling appointments, following up with leads, or creating content, AI is relevant. Those four tasks exist in every industry.
 
@@ -155,7 +155,7 @@ You're aware that AI is changing how businesses operate, but the path from "I kn
 **Section: What to do this week**
 
 1. Book a free 30-minute AI audit. You'll leave with a specific, prioritized list of what to automate first -- tailored to your business, not generic advice.
-2. Try one thing before the call: go to claude.ai and describe your biggest operational headache in plain English. Ask it to suggest three ways to solve it. The response will surprise you.
+2. Try one thing before the call: go to claude.ai and describe your biggest operational headache in plain English. Ask it to suggest a few ways to approach it, then review the response.
 3. Write down how many hours per week you or your team spend on tasks that don't directly generate revenue. That number is your automation ROI.
 
 ---
@@ -165,16 +165,16 @@ You're aware that AI is changing how businesses operate, but the path from "I kn
 **Headline:** You're starting at the perfect time. Here's your first move.
 
 **Summary paragraph:**
-You haven't started with AI yet, and that's actually fine. The early adopters spent the last two years figuring out what works and what doesn't. You get to skip straight to what's proven. This report gives you the three things worth doing first, in plain language, with zero jargon.
+You haven't started with AI yet, and that's actually fine. Start with a small task, review the result, and learn what fits your situation before taking on anything larger. This report gives you a few practical places to begin, in plain language, with zero jargon.
 
 **Section: Your top 3 opportunities**
 *(Insight cards from results.json)*
 
-1. **Get a plain-English AI breakdown for your industry** — There are 3-5 AI tools already working in businesses exactly like yours. Tested, proven, and priced for small business budgets. The right starting point is the one that solves the problem costing you the most time right now.
+1. **Get a plain-English AI breakdown for your industry** — Several tools may fit businesses like yours, but the right starting point is the one that addresses the problem costing you the most time. Compare the current plans and test the smallest useful workflow first.
 
-2. **Book a free 30-minute AI audit** — A no-pressure conversation that maps exactly where AI could save you the most time and money before you spend a single dollar. You'll leave with a ranked list of specific automations tailored to your business.
+2. **Book a free 30-minute AI audit** — A no-pressure conversation that maps where AI could fit your business before you commit to a tool. You'll leave with a ranked list of practical starting points tailored to your situation, not a generic sales pitch.
 
-3. **Try one small thing this week** — Claude and ChatGPT are both free. Use either to draft one client email or one social post this week. That single 10-minute experience reframes how you see the entire opportunity.
+3. **Try one small thing this week** — Claude and ChatGPT can both be useful places to start. Check the current account and plan terms, then use one of them to draft a low-risk client email or social post and review the result before you use it.
 
 **Section: Personalized by industry**
 *[Same simplified industry blocks as Tier 3.]*
@@ -194,9 +194,9 @@ You haven't started with AI yet, and that's actually fine. The early adopters sp
 
 ---
 
-### Tier 1: The Trailblazer (score 84-125)
+### Tier 1: The Trailblazer (score 84-100)
 
-**Headline:** You're in the top 10%. Here's how to stay ahead.
+**Headline:** You've built real confidence with AI. Here's how to keep going.
 
 **Summary paragraph:**
 AI isn't new to you. You use it regularly, you experiment with new tools, you trust it for real decisions, and you're comfortable figuring things out on your own. This report isn't about convincing you AI is useful -- you already know that. It's about the next level: personal AI workflows, custom assistants, and compounding the advantage you already have.
@@ -208,7 +208,7 @@ AI isn't new to you. You use it regularly, you experiment with new tools, you tr
 
 2. **Create an AI that actually knows you** — Custom GPTs and Claude Projects let you build a personal AI assistant that knows your context, communication style, and preferences. Stop re-explaining yourself every conversation.
 
-3. **Teach one person something this month** — You're in the 5% who genuinely understand how to get value from AI. Teaching someone else one concrete use case accelerates your own learning faster than any tutorial.
+3. **Teach one person something this month** — You already know how to get value from AI. Teaching someone else one concrete use case can sharpen your own understanding and show you where your workflow still needs work.
 
 **Section: Personalized by wishlist (G5)**
 
@@ -254,9 +254,9 @@ You're not a beginner. You use AI tools, you're interested in what's new, and yo
 
 1. **Solve one weekly task completely with AI** — Stop spreading attention across ten tools. Pick the single thing that costs you the most time every week and go all-in on automating just that.
 
-2. **Build a personal prompt library** — Start saving the prompts that actually work for you. A personal library of 15-20 reliable prompts makes every AI tool three times more useful overnight.
+2. **Build a personal prompt library** — Start saving the prompts that actually work for you. A small personal library gives you a set of starting points you can refine as your needs change.
 
-3. **Try AI by voice for three days** — If you haven't explored Claude on mobile or ChatGPT voice mode, spend three days using voice instead of typing. It unlocks a completely different, faster way of working.
+3. **Try AI by voice** — If you haven't explored Claude on mobile or ChatGPT voice mode, try voice instead of typing for a few tasks. It gives you another way to work through ideas and drafts.
 
 **Section: Personalized by wishlist (G5)**
 *[Same wishlist blocks as Trailblazer but with simpler, more actionable framing.]*
@@ -294,7 +294,7 @@ You're not sold on AI, and that's a reasonable position given the amount of hype
 
 1. **Start with something genuinely tedious** — AI handles boring tasks like summarizing long articles, drafting awkward emails, or organizing messy to-do lists. Start there, with something that already annoys you.
 
-2. **Use it without creating an account** — Both Claude and ChatGPT let you have a full conversation without creating an account or handing over personal data. Give it one real task anonymously.
+2. **Try it with privacy in mind** — Review the current account, data-use, and plan terms for Claude or ChatGPT before you use a real task. Start with low-risk material and keep sensitive information out of the prompt.
 
 3. **Give it one actual task this week** — Not a test. An actual task you were already going to do. Let AI help. Then form your opinion based on real experience.
 
@@ -303,20 +303,20 @@ You're not sold on AI, and that's a reasonable position given the amount of hype
 
 - **"I'm not sure I can trust what it tells me"** — Valid concern. Here's the thing: AI is most useful for tasks where accuracy is easy to verify. Drafting an email (you read it before sending), summarizing a document (you skim to confirm), brainstorming ideas (you pick the good ones). Start with tasks where you're the quality check, not the AI.
 
-- **"I'm worried about privacy"** — Both Claude and ChatGPT offer modes where your conversations aren't stored or used for training. Claude's privacy settings are straightforward. You can use AI productively without sharing anything sensitive.
+- **"I'm worried about privacy"** — Review the current account, data-use, and plan terms for Claude or ChatGPT before you use a real task. Start with low-risk material and keep sensitive information out of the prompt.
 
 - **"It feels too complicated"** — Open claude.ai. Type a question in plain English. That's it. There's no setup, no configuration, no learning curve. If you can send a text message, you can use AI. The complexity is in advanced use cases you don't need to worry about yet.
 
-- **"I'm not convinced it would help me"** — Try this one experiment: take the most tedious task you did this week and describe it to Claude. Ask it to help. If it saves you 10 minutes, that's your answer. If it doesn't, you lost 2 minutes.
+- **"I'm not convinced it would help me"** — Try this one experiment: take the most tedious task you did this week and describe it to Claude. Ask it to help, review the result, and decide whether the workflow is worth another try.
 
-- **"I just haven't had time"** — It takes less time to try AI than to read this report. Go to claude.ai, paste something you need to write or summarize, and see what happens. Two minutes. If it works, you just saved yourself hours going forward.
+- **"I just haven't had time"** — Choose a small task you already need to finish. Go to claude.ai, describe it in plain English, and review the response when your schedule allows.
 
 **Section: Personalized by wishlist (G5)**
 *[Same simplified blocks as Explorer.]*
 
 **Section: What to do this week**
 
-1. Go to claude.ai (no account needed). Paste something you need to write, summarize, or figure out. See what happens. Two minutes, zero commitment.
+1. Review the current account and data-use terms for Claude or ChatGPT, then try a low-risk task with the option that fits. Paste something you need to write, summarize, or figure out, and review the result before using it.
 2. If that works, try it again tomorrow with a different task. The second time is always faster.
 3. If you want guidance from a real person, book a free 15-minute chat. No sales pitch -- just someone who can show you the one thing worth trying for your specific situation.
 
@@ -334,7 +334,7 @@ You're at the very beginning with AI, and that's genuinely a great place to be r
 
 1. **Have one real conversation first** — Go to claude.ai right now. Type one thing you're curious about. That's the whole first step. Everything after gets easier fast.
 
-2. **Forget the robots. Think about your time.** — AI isn't futuristic technology. It's a faster way to draft, research, plan, and brainstorm things you already need to do. Think of it as a capable assistant who never sleeps and never judges a question.
+2. **Forget the robots. Think about your time.** — AI is a way to draft, research, plan, and brainstorm things you already need to do. Think of it as a capable assistant, then review its work before you use it.
 
 3. **Try three specific things before you decide** — Summarize one long article. Draft one email. Plan one meal or trip. Three concrete, low-stakes tasks this week. Then decide what you think.
 

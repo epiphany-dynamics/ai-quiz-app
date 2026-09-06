@@ -1,7 +1,7 @@
 {
   "track": "business",
   "version": "2.0.0",
-  "description": "Track A \u2014 Business Owner / Entrepreneur path. 8\u201310 adaptive questions. Produces an AI Readiness Score (0\u2013100) and tier label. Doubles as a soft lead funnel without feeling like a sales form.",
+  "description": "Track A \u2014 Business Owner / Entrepreneur path. An adaptive assessment that produces an AI Readiness Score (0\u2013100) and tier label. Doubles as a soft lead funnel without feeling like a sales form.",
   "result_type": "ai_readiness_score",
   "questions": [
     {
@@ -299,7 +299,7 @@
           "options": [
             {
               "value": "A",
-              "label": "A patient calls at 11pm, books themselves, and you wake up to a full calendar"
+              "label": "A patient calls at 11pm, books an appointment, and you wake up to a new booking"
             },
             {
               "value": "B",
@@ -307,7 +307,7 @@
             },
             {
               "value": "C",
-              "label": "Your front desk handles 80% of FAQs without involving a single staff member"
+              "label": "Your front desk gets help handling common FAQs without involving a staff member each time"
             },
             {
               "value": "D",
@@ -327,7 +327,7 @@
             },
             {
               "value": "C",
-              "label": "Insurance and intake paperwork gets handled automatically, so your chair time is 100% patient time"
+              "label": "Insurance and intake paperwork gets organized automatically, so your team can spend more time with patients"
             },
             {
               "value": "D",
@@ -363,7 +363,7 @@
             },
             {
               "value": "B",
-              "label": "Every Google review gets a smart, personalized response within minutes"
+              "label": "Google reviews get smart, personalized responses without adding another manual task"
             },
             {
               "value": "C",
@@ -403,7 +403,7 @@
             },
             {
               "value": "B",
-              "label": "Cart abandoners get personalized recovery sequences that bring back 10\u201315% of lost sales"
+              "label": "Cart abandoners get personalized recovery sequences that can bring some lost sales back"
             },
             {
               "value": "C",
@@ -608,14 +608,14 @@
       "A6a",
       "A7"
     ],
-    "note": "Max 127. Boundaries derived from answer profiles: all-A=1, all-B=26, all-C=84, all-D=127. Tiers sit at natural behavioral divides.",
+    "note": "Score is capped at 100. Tier boundaries are derived from answer profiles before the cap: all-A=1, all-B=26, all-C=84, all-D=127.",
     "tiers": [
       {
         "id": "ai_ready_operator",
         "label": "AI-Ready Operator",
         "range": [
           84,
-          127
+          100
         ]
       },
       {

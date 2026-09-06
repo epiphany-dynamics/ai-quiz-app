@@ -7,6 +7,7 @@ import { SharedResultBanner } from '@/components/shared/SharedResultBanner'
 import { useSharedResult } from '@/hooks/useSharedResult'
 import { SiteNavbar } from '@/components/site/SiteNavbar'
 import { SiteFooter } from '@/components/site/SiteFooter'
+import { MagneticCursor } from '@/components/ui/magnetic-cursor'
 
 function QuizApp() {
   const { state } = useQuiz()
@@ -49,7 +50,17 @@ function QuizApp() {
 export default function App() {
   return (
     <QuizProvider>
-      <QuizApp />
+      <MagneticCursor
+        globalTargets
+        scopeSelector="body"
+        cursorSize={37.5}
+        magneticFactor={0.2}
+        hoverPadding={6}
+        contrastBoost={1}
+        blendMode="exclusion"
+      >
+        <QuizApp />
+      </MagneticCursor>
     </QuizProvider>
   )
 }
