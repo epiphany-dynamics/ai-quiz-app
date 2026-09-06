@@ -4,24 +4,24 @@
   "paths": {
     "business": {
       "result_type": "ai_readiness_score",
-      "description": "AI Readiness Score \u2014 0 to 80 effective. Tier ranges adjusted for v2 scoring. Each tier maps to a named category with a tagline, description, and 3 insight cards.",
+      "description": "AI Readiness Score \u2014 scored on a 0 to 100 scale. Tier ranges follow the v2 scoring model. Each tier maps to a named category with a tagline, description, and 3 insight cards.",
       "categories": [
         {
           "id": "ai_ready_operator",
           "label": "AI-Ready Operator",
           "range": [
             84,
-            127
+            100
           ],
           "tagline": "You're not waiting for AI. You're running it.",
           "color": "#10B981",
           "badge_emoji": "\ud83d\ude80",
-          "description": "You're not just AI-aware \u2014 you're positioned to implement and scale. You have the systems, the mindset, and the momentum to move fast. The gap between where you are and a fully automated operation is a matter of weeks, not years.",
+          "description": "You're not just AI-aware \u2014 you're positioned to implement and scale. You have the systems, the mindset, and the momentum to move fast. Choose one workflow, define the handoff, and test it with the people who'll use it.",
           "insight_cards": [
             {
               "id": "ic_b1_1",
               "title": "Deploy a 24/7 AI front desk",
-              "body": "A trained AI voice + chat receptionist handles inbound calls, books appointments, answers FAQs, and qualifies leads around the clock \u2014 without adding a single staff hour. Most operators see a measurable lift in booked appointments within the first 30 days."
+              "body": "A trained AI voice + chat receptionist can handle inbound calls, book appointments, answer FAQs, and qualify leads around the clock. Track response time, booked appointments, and human handoffs during a pilot so you can judge whether it fits your operation."
             },
             {
               "id": "ic_b1_2",
@@ -45,22 +45,22 @@
           "tagline": "You see the value. You just need the right on-ramp.",
           "color": "#3B82F6",
           "badge_emoji": "\u26a1",
-          "description": "You get it \u2014 you're not afraid of AI, and you can see what it would do for your bottom line. You're looking for something that works reliably without a six-month implementation headache. That entry point exists, and it starts with one problem worth solving.",
+          "description": "You get it \u2014 you're not afraid of AI, and you can see what it would do for your bottom line. You're looking for a practical starting point and a workflow your team can evaluate. Start with one problem worth solving.",
           "insight_cards": [
             {
               "id": "ic_b2_1",
-              "title": "Run a 30-day AI pilot on your biggest bottleneck",
-              "body": "Don't try to automate everything at once. Pick your single most expensive bottleneck \u2014 usually appointment booking or lead follow-up \u2014 and prove the ROI on that one thing first. A focused 30-day pilot gives you the numbers to justify scaling everything else."
+              "title": "Run a focused AI pilot on your biggest bottleneck",
+              "body": "Don't try to automate everything at once. Pick your single most expensive bottleneck \u2014 usually appointment booking or lead follow-up \u2014 and test one workflow first. Set the review window around the scope, tools, and dependencies, then use what you learn to decide whether to expand."
             },
             {
               "id": "ic_b2_2",
-              "title": "Produce 10x more content without hiring anyone",
-              "body": "AI can generate on-brand social posts, email campaigns, and client communications at a pace no staff hire can match. Set it up once with your voice and style guidelines, and your content calendar fills itself."
+              "title": "Build a repeatable content workflow",
+              "body": "AI can help draft on-brand social posts, email campaigns, and client communications. Give it your voice and style guidelines, review the drafts, and keep the parts that fit your content process."
             },
             {
               "id": "ic_b2_3",
-              "title": "Eliminate scheduling back-and-forth entirely",
-              "body": "Every minute spent coordinating appointments is a minute not spent on revenue-generating work. Smart scheduling automation syncs to your calendar, sends confirmations and reminders, handles rescheduling, and reduces no-shows by 20-35%."
+              "title": "Reduce scheduling back-and-forth",
+              "body": "Every minute spent coordinating appointments is a minute not spent on revenue-generating work. Smart scheduling automation can sync to your calendar, send confirmations and reminders, and handle rescheduling. Compare your no-show rate before and after the change to see whether it helps."
             }
           ]
         },
@@ -74,7 +74,7 @@
           "tagline": "You know it matters. The path just isn't clear yet.",
           "color": "#F59E0B",
           "badge_emoji": "\ud83d\udd0d",
-          "description": "You know AI is changing the game \u2014 you're still mapping which moves actually apply to your business. Most businesses at your stage are two or three specific automations away from a meaningful time and revenue unlock. The key is knowing which ones to start with.",
+          "description": "You know AI is changing the game \u2014 you're still mapping which moves actually apply to your business. Start by choosing one workflow that could free up time or make follow-up easier, then test it with your existing tools.",
           "insight_cards": [
             {
               "id": "ic_b3_1",
@@ -83,8 +83,8 @@
             },
             {
               "id": "ic_b3_2",
-              "title": "Start with a $50/month starter stack",
-              "body": "You don't need enterprise software to get real value from AI. Claude, ChatGPT, Notion AI, and a Zapier automation can eliminate 20-30% of your repetitive weekly tasks for under $50 a month. Start there, then scale up."
+              "title": "Start with a small AI workflow",
+              "body": "You don't need enterprise software to test a useful workflow. Claude, ChatGPT, Notion AI, and Zapier can each help with different parts of the process. Check their current plans and usage terms, then start with one repeatable task."
             },
             {
               "id": "ic_b3_3",
@@ -103,22 +103,22 @@
           "tagline": "You're starting at exactly the right time.",
           "color": "#8B5CF6",
           "badge_emoji": "\ud83c\udf31",
-          "description": "You're at the beginning of the AI journey \u2014 which is actually a strategic advantage right now. You skip the trial-and-error that burned a lot of early adopters and go straight to what's proven to work. No bad implementations to undo, just a clean slate.",
+          "description": "You're at the beginning of the AI journey, so you can choose a small, low-risk workflow and learn from it before taking on anything larger. No bad implementation to undo, just a clean slate.",
           "insight_cards": [
             {
               "id": "ic_b4_1",
               "title": "Get a plain-English AI breakdown for your industry",
-              "body": "Skip the generic hype. There are 3-5 AI tools already working in businesses exactly like yours \u2014 tested, proven, and priced for small business budgets. The right starting point is the one that solves the problem costing you the most time right now."
+              "body": "Skip the generic hype. Several tools may fit businesses like yours, but the right starting point is the one that addresses the problem costing you the most time. Compare the current plans and test the smallest useful workflow first."
             },
             {
               "id": "ic_b4_2",
               "title": "Book a free 30-minute AI audit",
-              "body": "A no-pressure conversation that maps exactly where AI could save you the most time and money before you spend a single dollar. You'll leave with a ranked list of specific automations tailored to your business \u2014 not a sales pitch, an actual roadmap."
+              "body": "A no-pressure conversation that maps where AI could fit your business before you commit to a tool. You'll leave with a ranked list of practical starting points tailored to your situation, not a generic sales pitch."
             },
             {
               "id": "ic_b4_3",
               "title": "Try one small thing this week",
-              "body": "Claude and ChatGPT are both free. Use either to draft one client email or one social post this week. That single 10-minute experience reframes how you see the entire opportunity."
+              "body": "Claude and ChatGPT can both be useful places to start. Check the current account and plan terms, then use one of them to draft a low-risk client email or social post and review the result before you use it."
             }
           ]
         }
@@ -126,14 +126,14 @@
     },
     "general": {
       "result_type": "ai_personality_type",
-      "description": "AI Personality Type \u2014 scored 0 to 80 effective. Tier ranges adjusted for v2 scoring (4 scored questions). Each type maps to a named category with identity-affirming copy.",
+      "description": "AI Personality Type \u2014 scored on a 0 to 100 scale. Tier ranges follow the v2 scoring model. Each type maps to a named category with identity-affirming copy.",
       "categories": [
         {
           "id": "trailblazer",
           "label": "The Trailblazer",
           "range": [
             84,
-            125
+            100
           ],
           "tagline": "AI is already your co-pilot. You're not waiting for the future.",
           "color": "#10B981",
@@ -153,7 +153,7 @@
             {
               "id": "ic_g1_3",
               "title": "Teach one person something this month",
-              "body": "You're in the 5% who genuinely understand how to get value from AI. Teaching a friend or family member one concrete use case accelerates your own learning faster than any tutorial."
+              "body": "You already know how to get value from AI. Teaching a friend or family member one concrete use case can sharpen your own understanding and show you where your workflow still needs work."
             }
           ]
         },
@@ -177,12 +177,12 @@
             {
               "id": "ic_g2_2",
               "title": "Build a personal prompt library",
-              "body": "Start saving the prompts that actually work for you. A personal library of 15-20 reliable prompts makes every AI tool three times more useful overnight."
+              "body": "Start saving the prompts that actually work for you. A small personal library gives you a set of starting points you can refine as your needs change."
             },
             {
               "id": "ic_g2_3",
               "title": "Try AI by voice for three days",
-              "body": "If you haven't explored AI voice tools \u2014 Claude on mobile, ChatGPT voice mode \u2014 spend three days using voice instead of typing. It unlocks a completely different, faster way of working."
+              "body": "If you haven't explored AI voice tools \u2014 Claude on mobile, ChatGPT voice mode \u2014 try voice instead of typing for a few tasks. It gives you another way to work through ideas and drafts."
             }
           ]
         },
@@ -205,8 +205,8 @@
             },
             {
               "id": "ic_g3_2",
-              "title": "Use it without creating an account",
-              "body": "If privacy is the hesitation, both Claude and ChatGPT let you have a full conversation without creating an account or handing over personal data. Give it one real task anonymously."
+              "title": "Try it with privacy in mind",
+              "body": "If privacy is the hesitation, review the current account, data-use, and plan terms for Claude or ChatGPT before you use a real task. Start with low-risk material and keep sensitive information out of the prompt."
             },
             {
               "id": "ic_g3_3",
@@ -222,15 +222,15 @@
             0,
             21
           ],
-          "tagline": "You're at the beginning \u2014 which means you skip all the bad habits everyone else is unlearning.",
+          "tagline": "You're at the beginning, so you can build good habits from the start.",
           "color": "#8B5CF6",
           "badge_emoji": "\u2728",
-          "description": "You're not behind. The people who started with AI two years ago spent most of that time doing it wrong. You get to start right now \u2014 when the tools are actually good, the use cases are proven, and there are real guides instead of just buzzwords.",
+          "description": "You're not behind. You can start with a small, low-risk task, review what the tool returns, and decide what deserves a second try.",
           "insight_cards": [
             {
               "id": "ic_g4_1",
               "title": "Have one real conversation first",
-              "body": "Go to claude.ai or chat.openai.com right now. Type one thing you're curious about. That's the whole first step. The first conversation is the hardest \u2014 everything after gets easier fast."
+              "body": "Go to claude.ai or chat.openai.com. Type one thing you're curious about, then review the response before you use it. That's a simple first step."
             },
             {
               "id": "ic_g4_2",

@@ -501,10 +501,10 @@ export function ResultsScreen() {
               </p>
               <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', marginBottom: 18, marginTop: 0 }}>
                 {category.id === 'ai_ready_operator'
-                  ? "You're ready to move. A 15-minute call maps the fastest path from where you are to a fully automated operation."
+                  ? "You're ready to move. A 15-minute call can map a practical next step toward automation for your situation."
                   : category.id === 'trailblazer'
-                    ? "You're ahead of 95% of people. A quick chat about advanced AI workflows and personal automation could unlock your next level."
-                    : "A free 15-minute AI workflow review finds the one thing that'll save you the most time this month."}
+                    ? "You've built real confidence with AI. A quick chat about advanced workflows and personal automation could help you choose your next experiment."
+                    : "A free 15-minute AI workflow review can help identify one workflow to examine first."}
               </p>
               <motion.a
                 href="https://epiphanydynamics.ai/book"

@@ -1,7 +1,7 @@
 {
   "track": "general",
   "version": "2.0.0",
-  "description": "Track B \u2014 General Public path. 7 adaptive questions. Produces an AI Personality Type based on usage awareness, comfort level, sentiment, and self-identity.",
+  "description": "Track B \u2014 General Public path. An adaptive assessment that produces an AI Personality Type based on usage awareness, comfort level, sentiment, and self-identity.",
   "result_type": "ai_personality_type",
   "questions": [
     {
@@ -385,14 +385,14 @@
       "G7",
       "G8"
     ],
-    "note": "Max 125. Boundaries derived from answer profiles: all-A=0, all-B=21, all-C=84, all-D=125. Tiers sit at natural behavioral divides.",
+    "note": "Score is capped at 100. Tier boundaries are derived from answer profiles before the cap: all-A=0, all-B=21, all-C=84, all-D=125.",
     "tiers": [
       {
         "id": "trailblazer",
         "label": "The Trailblazer",
         "range": [
           84,
-          125
+          100
         ]
       },
       {

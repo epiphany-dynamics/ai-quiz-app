@@ -51,7 +51,7 @@ const TIER_COPY = {
   // Business tiers
   ai_ready_operator: {
     headline: "You're ready to run AI. Here's your playbook.",
-    summary: "You scored in the top tier of AI readiness. You already use AI tools, your operations are systematized, you see competitors moving, and you'd trust AI with customer interactions. Most businesses in your position are weeks away from a fully automated front-of-house operation. This report breaks down exactly where to start.",
+    summary: "You scored in the top tier of AI readiness. You already use AI tools, your operations are systematized, you see competitors moving, and you'd trust AI with customer interactions. Choose one workflow, define the handoff, and test it with the people who'll use it.",
     industryIntro: null,
   },
   ai_curious_builder: {
@@ -66,12 +66,12 @@ const TIER_COPY = {
   },
   ai_newcomer: {
     headline: "You're starting at the perfect time. Here's your first move.",
-    summary: "You haven't started with AI yet, and that's actually fine. The early adopters spent the last two years figuring out what works and what doesn't. You get to skip straight to what's proven. This report gives you the three things worth doing first, in plain language, with zero jargon.",
+    summary: "You haven't started with AI yet, and that's actually fine. Start with a small task, review the result, and learn what fits your situation before taking on anything larger. This report gives you a few practical places to begin, in plain language, with zero jargon.",
     industryIntro: "Here's what's working for businesses in your industry right now -- no technical knowledge required:",
   },
   // General tiers
   trailblazer: {
-    headline: "You're in the top 10%. Here's how to stay ahead.",
+    headline: "You've built real confidence with AI. Here's how to keep going.",
     summary: "AI isn't new to you. You use it regularly, you experiment with new tools, you trust it for real decisions, and you're comfortable figuring things out on your own. This report isn't about convincing you AI is useful -- you already know that. It's about the next level: personal AI workflows, custom assistants, and compounding the advantage you already have.",
   },
   explorer: {
@@ -91,19 +91,19 @@ const TIER_COPY = {
 // ---- Industry blocks ----
 
 const INDUSTRY_FULL = {
-  medspa: "Your industry is one of the fastest adopters of AI front desk systems. The highest-impact move right now is automated after-hours booking. Patients who call at 9pm and get a voicemail go to your competitor. An AI receptionist that books them instantly recovers 15-25% of those lost appointments. Pair that with automated recall messaging for lapsed patients and you're looking at a measurable revenue lift within 30 days.",
-  dental: "Dental practices lose the most revenue to two things: no-shows and overdue recall patients. AI-powered appointment reminders reduce no-shows by 20-35%, and automated reactivation sequences bring back overdue patients without your front desk making a single call. The second move is automating insurance verification and intake paperwork so your chair time is 100% patient time.",
+  medspa: "For med spas and wellness practices, automated after-hours booking is a practical place to start. An AI receptionist can answer common questions and route booking requests while your team is away. Review the handoffs and booking quality before expanding it to recall messaging.",
+  dental: "For dental practices, appointment reminders and recall workflows are practical places to start. Map the current handoffs, choose one workflow, and compare no-show or reactivation results before expanding it. Insurance verification and intake paperwork can be considered as a separate workflow.",
   home_services: "The biggest leak in home services is speed-to-lead. A homeowner who requests a quote and doesn't hear back in 30 minutes moves on. AI-powered instant quote responses and automated follow-up sequences keep you in front of every lead. Pair that with AI-assisted crew onboarding (an assistant that answers new hire questions about procedures, routes, and equipment) and you free up your experienced people from training duty.",
   restaurant: "Restaurants benefit most from two AI applications: 24/7 reservation and catering inquiry handling (no more phone tag during service), and automated review response. AI that responds to every Google review within minutes with a personalized message dramatically improves your local search ranking and public perception.",
   professional: "For law firms, accounting practices, and consultants, the highest-ROI AI application is the intake-to-booking pipeline. Prospective clients book discovery calls, receive pre-consult questionnaires, and get intake documents automatically. Your first touchpoint with a new client is polished and immediate instead of \"someone will get back to you.\"",
-  ecommerce: "Your highest-leverage AI move is cart abandonment recovery. Personalized sequences that trigger when someone leaves items in their cart typically recover 5-15% of lost sales. Second priority: automating customer support for returns, order status, and FAQs so your team only handles escalations.",
-  other: "The universal starting point for any business is automating your most repetitive customer interaction. For most businesses, that's answering the same 10-15 questions over and over. An AI chat or voice system trained on your FAQs can handle 80% of routine inquiries, freeing your team for work that actually requires a human.",
+  ecommerce: "For e-commerce, cart abandonment recovery is a practical place to start. Test a personalized follow-up workflow against your existing process, then review the results before expanding customer support automation for returns, order status, and FAQs.",
+  other: "A practical starting point for any business is the customer interaction your team repeats most often. List the questions, train an AI chat or voice system on approved answers, and keep a clear path to a human for anything it can't handle.",
 }
 
 const INDUSTRY_SIMPLE = {
-  medspa: "The easiest first step is automated appointment reminders. You don't need to overhaul anything. Just connect an AI reminder system to your existing booking software. It sends confirmations and reminders automatically, and most med spas see no-show rates drop within the first two weeks.",
-  dental: "Start with recall automation. AI identifies patients overdue for checkups and sends personalized messages to bring them back. It runs in the background without your staff touching anything, and it typically reactivates 8-12% of lapsed patients in the first month.",
-  home_services: "Start with automated quote follow-up. When someone requests a quote and doesn't respond, AI sends a personalized nudge 24 and 72 hours later. Simple to set up, typically converts 15-25% of cold leads back into booked jobs.",
+  medspa: "The easiest first step is automated appointment reminders. Connect an AI reminder system to your existing booking software, review the messages and handoffs, and compare no-show results before expanding the workflow.",
+  dental: "Start with recall automation. AI can identify patients overdue for checkups and draft personalized messages for review. Track responses and staff time before you decide whether to expand it.",
+  home_services: "Start with automated quote follow-up. When someone requests a quote and doesn't respond, AI can draft a personalized nudge for review. Test the timing with a small group and compare booked jobs with your usual process.",
   restaurant: "Start with automated Google review responses. AI that responds to every review within minutes -- personalized, on-brand, not generic -- improves your local search ranking and takes a tedious task off your plate entirely.",
   professional: "Start with an AI-powered contact form that qualifies leads and books discovery calls automatically. Prospective clients answer a few questions, get matched to the right service, and book directly on your calendar without back-and-forth emails.",
   ecommerce: "Start with an AI chat widget that handles the top 10 customer questions (shipping times, return policy, order status). It reduces support tickets immediately and makes your store feel more professional.",
@@ -114,19 +114,19 @@ const INDUSTRY_SIMPLE = {
 
 const PAIN_BLOCKS = {
   same_questions: { title: 'Answering the same questions over and over', body: "This is the easiest win in AI. Train an AI chat widget on your top 15-20 FAQs, deploy it on your website and phone system, and you'll eliminate hours of repetitive work per week. Setup takes a few hours. The time savings start the same day." },
-  scheduling: { title: 'Scheduling, rescheduling, no-shows', body: "AI scheduling automation handles the entire loop: booking, confirmation, reminders, rescheduling, and waitlist management. Businesses using this typically see no-show rates drop 20-35%. The key is the reminder cadence -- AI sends the right number of reminders at the right intervals without being annoying." },
+  scheduling: { title: 'Scheduling, rescheduling, no-shows', body: "AI scheduling automation can handle booking, confirmations, reminders, rescheduling, and waitlist management. Start with the handoff your team spends the most time on, then compare no-show and staff-time results before expanding it." },
   cold_leads: { title: 'Following up with leads who go cold', body: "This is where most businesses lose the most money silently. AI-powered follow-up sequences re-engage cold leads with personalized messages on a smart cadence. Not spam, not generic blasts -- messages that reference what the lead originally asked about and offer a specific next step." },
   onboarding: { title: 'Onboarding new clients or staff', body: "AI onboarding assistants answer new hire or new client questions instantly, walk them through procedures, and flag issues to you only when a human is needed. This scales your onboarding capacity without adding headcount." },
   data_entry: { title: 'Manual data entry or reporting', body: "AI can extract, organize, and report on your business data without you touching a spreadsheet. The first step is usually connecting your existing tools (CRM, calendar, accounting) to an AI that generates weekly summaries of what's actually happening in your business." },
-  social_media: { title: 'Social media / content creation', body: "AI content tools generate on-brand social posts, email campaigns, and client communications at 10x the speed of doing it manually. Set it up once with your voice, tone, and brand guidelines, and your content calendar fills itself." },
+  social_media: { title: 'Social media / content creation', body: "AI content tools can help draft on-brand social posts, email campaigns, and client communications. Give them your voice, tone, and brand guidelines, review the drafts, and keep the parts that fit your content process." },
   dont_know: { title: "I don't know -- that's kind of the problem", body: "The fact that you can't pinpoint the bottleneck is actually the most important signal. It usually means the problem is operational visibility -- you're too deep in the day-to-day to see where time is actually going. An AI operations audit maps this for you in one conversation." },
 }
 
 // ---- Barrier blocks ----
 
 const BARRIER_BLOCKS = {
-  dont_know_start: { title: "I don't know where to start", body: "That's exactly what the free AI audit solves. In 30 minutes, we map your specific business to 2-3 AI tools that are already proven in your industry. You leave with a ranked list, not a sales pitch." },
-  cost: { title: "I'm worried about the cost", body: "Most AI tools for small business are $0-50/month. Claude and ChatGPT are free to start. The real cost isn't the software -- it's the time you're currently spending on tasks AI could handle. A single automation that saves you 5 hours a week pays for itself instantly." },
+  dont_know_start: { title: "I don't know where to start", body: "That's exactly what the free AI audit is for. In 30 minutes, we'll map your business, current tools, and biggest time drain to a few practical starting points. You'll leave with a ranked list, not a sales pitch." },
+  cost: { title: "I'm worried about the cost", body: "Start with a small, low-risk workflow. Claude, ChatGPT, Notion AI, and Zapier can each help with different parts of the process. Check the current plans and usage terms, then decide whether the time saved justifies a wider rollout." },
   not_right: { title: "I'm not sure it's right for my type of business", body: "If your business involves answering customer questions, scheduling appointments, following up with leads, or creating content, AI is relevant. Those four tasks exist in every industry." },
   tried_failed: { title: "I tried it once and it didn't work well", body: "The tools have changed dramatically in the last 12 months. What didn't work a year ago probably works now. The difference is usually in the setup -- AI needs to be configured for your specific business, not used out of the box." },
   no_time: { title: "I just haven't had time", body: "That's the most common answer, and it's also the most expensive one. Every week you spend doing tasks AI could handle is a week of lost capacity. The audit call takes 30 minutes and gives you a plan you can act on when you're ready." },
@@ -162,10 +162,10 @@ const WISHLIST_FRESH = {
 
 const HESITATION_BLOCKS = {
   trust: { title: "I'm not sure I can trust what it tells me", body: "Valid concern. Here's the thing: AI is most useful for tasks where accuracy is easy to verify. Drafting an email (you read it before sending), summarizing a document (you skim to confirm), brainstorming ideas (you pick the good ones). Start with tasks where you're the quality check, not the AI." },
-  privacy: { title: "I'm worried about privacy", body: "Both Claude and ChatGPT offer modes where your conversations aren't stored or used for training. Claude's privacy settings are straightforward. You can use AI productively without sharing anything sensitive." },
+  privacy: { title: "I'm worried about privacy", body: "Review the current account, data-use, and plan terms for Claude or ChatGPT before you use a real task. Start with low-risk material and keep sensitive information out of the prompt." },
   complexity: { title: 'It feels too complicated', body: "Open claude.ai. Type a question in plain English. That's it. There's no setup, no configuration, no learning curve. If you can send a text message, you can use AI. The complexity is in advanced use cases you don't need to worry about yet." },
-  value: { title: "I'm not convinced it would help me", body: "Try this one experiment: take the most tedious task you did this week and describe it to Claude. Ask it to help. If it saves you 10 minutes, that's your answer. If it doesn't, you lost 2 minutes." },
-  time: { title: "I just haven't had time", body: "It takes less time to try AI than to read this report. Go to claude.ai, paste something you need to write or summarize, and see what happens. Two minutes. If it works, you just saved yourself hours going forward." },
+  value: { title: "I'm not convinced it would help me", body: "Try this one experiment: take the most tedious task you did this week and describe it to Claude. Ask it to help, review the result, and decide whether the workflow is worth another try." },
+  time: { title: "I just haven't had time", body: "Choose a small task you already need to finish. Go to claude.ai, describe it in plain English, and review the response when your schedule allows." },
 }
 
 // ---- Learning style blocks ----
@@ -190,23 +190,23 @@ const LEARNING_FRESH = {
 
 const WEEK_STEPS = {
   ai_ready_operator: [
-    "Book a 15-minute AI workflow review. We'll identify the single highest-ROI automation for your specific business -- not a generic recommendation, a specific one based on everything you told us in this quiz.",
+    "Book a 15-minute AI workflow review. We'll use your quiz answers to identify one practical workflow to examine first.",
     "While you wait for the call, write down the 3 tasks your team spends the most time on that don't directly generate revenue. That's your automation target list.",
     "Ask yourself: if you could clone one employee's work, whose would it be and what would they do? That's usually where AI fits first.",
   ],
   ai_curious_builder: [
-    "Pick ONE pain point from this report that hit closest to home. Don't try to solve three things at once.",
-    "Book a free 15-minute AI workflow review. We'll map that one problem to a specific, tested solution that works for your industry and team size.",
+    "Pick one pain point from this report that hit closest to home. Don't try to solve three things at once.",
+    "Book a free 15-minute AI workflow review. We'll map that one problem to a practical next step for your industry, team size, and current tools.",
     "Before the call, check if the tool you currently use for that task has AI features you haven't turned on yet. Many CRMs and scheduling platforms already have AI built in -- you might be sitting on a solution you're already paying for.",
   ],
   ai_aware_explorer: [
-    "Book a free 30-minute AI audit. You'll leave with a specific, prioritized list of what to automate first -- tailored to your business, not generic advice.",
-    "Try one thing before the call: go to claude.ai and describe your biggest operational headache in plain English. Ask it to suggest three ways to solve it. The response will surprise you.",
+    "Book a free 30-minute AI audit. We'll map what to automate first around your business, team, and current tools.",
+    "Try one thing before the call: go to claude.ai and describe your biggest operational headache in plain English. Ask it to suggest a few ways to approach it, then review the response.",
     "Write down how many hours per week you or your team spend on tasks that don't directly generate revenue. That number is your automation ROI.",
   ],
   ai_newcomer: [
     "Go to claude.ai right now. Type: \"I run a [your business type]. What are three things AI could help me with today?\" Read the response. That's your starting point.",
-    "Book a free AI audit call. No pressure, no pitch. We'll tell you the 2-3 most impactful things to automate for your specific business, and you decide if and when to act on them.",
+    "Book a free AI audit call. We'll help you identify a few practical starting points for your business, and you can decide if and when to act on them.",
     "Ask one person you know who uses AI in their business what they use it for. One real conversation is worth more than a hundred articles.",
   ],
   trailblazer: [
@@ -220,7 +220,7 @@ const WEEK_STEPS = {
     "If you haven't tried voice mode, download Claude or ChatGPT on your phone and use voice for your next three AI interactions. It changes the experience completely.",
   ],
   skeptic: [
-    "Go to claude.ai (no account needed). Paste something you need to write, summarize, or figure out. See what happens. Two minutes, zero commitment.",
+    "Review the current account and data-use terms for Claude or ChatGPT, then try a low-risk task with the option that fits. Paste something you need to write, summarize, or figure out, and review the result before using it.",
     "If that works, try it again tomorrow with a different task. The second time is always faster.",
     "If you want guidance from a real person, book a free 15-minute chat. No sales pitch -- just someone who can show you the one thing worth trying for your specific situation.",
   ],
@@ -237,7 +237,7 @@ const WEEK_STEPS = {
 
 export function buildReportHtml(data) {
   const { score, track, tier, tierLabel, tierTagline, insightCards, answers } = data
-  const maxScore = track === 'business' ? 127 : 125
+  const maxScore = 100
   const tierCopy = TIER_COPY[tier] || {}
   const isBusiness = track === 'business'
   const isGeneral = track === 'general'
