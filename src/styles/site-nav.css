@@ -6,12 +6,16 @@
   right: 0;
   left: 0;
   z-index: 100;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
   min-height: 4.75rem;
   padding: 0.75rem clamp(1rem, 3.4vw, 3.5rem);
+  overflow: visible;
   background: transparent;
   border-bottom: 0;
   box-shadow: none;
@@ -73,12 +77,15 @@ html[data-theme='dark'] .ed-site-header__nav::before {
 }
 
 .ed-site-header__nav {
+  flex-shrink: 0;
   gap: 0.75rem;
+  max-width: calc(100vw - 7.5rem);
 }
 
 .ed-site-header__menu {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   gap: 0.5rem;
   min-height: 44px;
   min-width: 44px;
@@ -100,10 +107,48 @@ html[data-theme='dark'] .ed-site-header__nav::before {
   white-space: nowrap;
 }
 
+/* One header CTA. Do not set display here: site-btn-secondary already
+   uses inline-flex, and an authored display was overriding the old
+   hidden / md:hidden pair so both Get started and Start painted. */
 .ed-site-header__cta {
-  display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   min-height: 44px;
+}
+
+.ed-site-header__cta-short {
+  display: none;
+}
+
+.ed-site-header__cta .btn-in,
+.ed-site-header__cta .btn-out {
+  padding: 0.55rem 1.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+@media (max-width: 47.999rem) {
+  .ed-site-header__cta-full {
+    display: none;
+  }
+
+  .ed-site-header__cta-short {
+    display: inline;
+  }
+
+  .ed-site-header__cta .btn-in,
+  .ed-site-header__cta .btn-out {
+    padding: 0.6rem 1.3rem;
+  }
+}
+
+@media (max-width: 39.999rem) {
+  .ed-site-header__cta .btn-in,
+  .ed-site-header__cta .btn-out {
+    min-width: 52px;
+    padding: 0.6rem 0.55rem;
+  }
 }
 
 @media (max-width: 29.999rem) {
@@ -120,11 +165,21 @@ html[data-theme='dark'] .ed-site-header__nav::before {
     inset: -0.3rem -0.45rem;
   }
 
+  .ed-site-header__nav {
+    max-width: calc(100vw - 6.25rem);
+  }
+
   .ed-site-header__wordmark {
     font-size: 0.875rem;
   }
 
   .ed-site-header__brand img {
     height: 1.875rem;
+  }
+
+  .ed-site-header__cta .btn-in,
+  .ed-site-header__cta .btn-out {
+    min-width: 44px;
+    padding: 0.6rem 0.3rem;
   }
 }

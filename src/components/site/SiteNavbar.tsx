@@ -92,17 +92,16 @@ export function SiteNavbar() {
           </a>
           <a
             href="https://quiz.epiphanydynamics.ai"
-            className="site-btn-secondary nav-cta ed-site-header__cta hidden md:inline-flex"
+            className="site-btn-secondary nav-cta ed-site-header__cta"
           >
-            <span className="btn-in">Get started</span>
-            <span className="btn-out" aria-hidden="true">Get started</span>
-          </a>
-          <a
-            href="https://quiz.epiphanydynamics.ai"
-            className="site-btn-secondary nav-cta nav-cta-mobile ed-site-header__cta md:hidden"
-          >
-            <span className="btn-in">Start</span>
-            <span className="btn-out" aria-hidden="true">Start</span>
+            <span className="btn-in">
+              <span className="ed-site-header__cta-full">Get started</span>
+              <span className="ed-site-header__cta-short">Start</span>
+            </span>
+            <span className="btn-out" aria-hidden="true">
+              <span className="ed-site-header__cta-full">Get started</span>
+              <span className="ed-site-header__cta-short">Start</span>
+            </span>
           </a>
           <button
             type="button"
