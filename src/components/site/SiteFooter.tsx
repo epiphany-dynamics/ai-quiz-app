@@ -1,91 +1,114 @@
+import { useEffect, useState } from 'react'
+import '@/styles/site-footer.css'
+
 const SITE = 'https://epiphanydynamics.ai'
+const BOOK = 'https://book.epiphanydynamics.ai'
 
-function FooterLink({ href, children, external }: { href: string; children: React.ReactNode; external?: boolean }) {
-  const cls = 'group relative text-[#ffffff]/50 light:text-black hover:text-[#f0efeb] light:hover:text-black hover:translate-x-1 transition-all duration-300 text-sm w-fit'
-  const underline = <span className="absolute left-0 -bottom-0.5 h-px w-full bg-[#f0efeb] light:bg-black origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+const columns = [
+  [
+    'Services',
+    [
+      ['AI Front Desk', `${SITE}/services/ai-voice-assistants/`],
+      ['CRM & Workflow Automation', `${SITE}/services/crm-integration/`],
+      ['AI Agent Deployment', `${SITE}/services/ai-agents/`],
+      ['AI Rescue', `${SITE}/services/ai-rescue/`],
+      ['Custom Web Apps', `${SITE}/services/web-apps/`],
+      ['AI-Ready Websites', `${SITE}/services/websites/`],
+      ['Pricing', `${SITE}/pricing/`],
+    ],
+  ],
+  [
+    'Proof',
+    [
+      ['Case Studies', `${SITE}/case-studies/`],
+      ['Testimonials', `${SITE}/testimonials/`],
+      ['Our Work', `${SITE}/portfolio/`],
+      ['Press', `${SITE}/press/`],
+      ['Patrick Gibbs', `${SITE}/team/patrick-gibbs/`],
+      ['Kim Gibbs', `${SITE}/team/kim-gibbs/`],
+    ],
+  ],
+  [
+    'Explore',
+    [
+      ['Industries', `${SITE}/industries/`],
+      ['Locations', `${SITE}/locations/`],
+      ['Nashville', `${SITE}/locations/ai-automation-nashville/`],
+      ['Integrations', `${SITE}/integrations/`],
+      ['Alternatives', `${SITE}/alternatives/`],
+      ['Compare', `${SITE}/compare/`],
+      ['Guides', `${SITE}/guides/`],
+    ],
+  ],
+  [
+    'Company',
+    [
+      ['About', `${SITE}/about/`],
+      ['Blog', `${SITE}/blog/`],
+      ['Newsletter', `${SITE}/newsletter/`],
+      ['Book a Free Audit', BOOK],
+      ['Privacy', `${SITE}/privacy/`],
+      ['Terms', `${SITE}/terms/`],
+    ],
+  ],
+] as const
 
-  return (
-    <a
-      href={external ? href : `${SITE}${href}`}
-      target={external ? '_blank' : undefined}
-      rel={external ? 'noopener noreferrer' : undefined}
-      className={cls}
-    >
-      {children}
-      {underline}
-    </a>
-  )
+function NashvilleClock() {
+  const [value, setValue] = useState('--:-- Nashville')
+
+  useEffect(() => {
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZone: 'America/Chicago',
+    })
+    const tick = () => setValue(`${formatter.format(new Date())} Nashville`)
+    tick()
+    const id = window.setInterval(tick, 15000)
+    return () => window.clearInterval(id)
+  }, [])
+
+  return <time dateTime={value.slice(0, 5)} data-hero-time>{value}</time>
 }
 
 export function SiteFooter() {
   return (
-    <footer className="relative">
-      <div className="bg-[#000000] light:bg-[#f5f2eb] relative overflow-hidden border-t border-[#ffffff]/[0.06] light:border-black/[0.12] flex flex-col">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
-          backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%)',
-        }} />
-
-        <div className="max-w-7xl mx-auto pt-24 pb-16 px-6 md:px-10 lg:px-16 w-full flex flex-col flex-1">
-          {/* Top section: Logo */}
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-16 mb-20">
-            <a href={SITE} className="flex items-center group shrink-0">
-              <div className="flex flex-col">
-                <span className="font-bold tracking-tight leading-none text-[#ffffff] light:text-black text-xl">EPIPHANY</span>
-                <span className="tracking-[0.3em] leading-none text-[#ffffff]/40 light:text-black text-[10px]">DYNAMICS</span>
-              </div>
-            </a>
-          </div>
-
-          {/* Link columns */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-16 mb-20">
-            <div className="flex flex-col">
-              <h4 className="text-[#ffffff] light:text-black font-semibold tracking-[-0.01em] text-sm mb-6">Discover</h4>
-              <div className="flex flex-col space-y-3">
-                <FooterLink href="/about">About</FooterLink>
-                <FooterLink href="/services">Services</FooterLink>
-                <FooterLink href="/blog">Blog</FooterLink>
-                <FooterLink href="/testimonials">Testimonials</FooterLink>
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <h4 className="text-[#ffffff] light:text-black font-semibold tracking-[-0.01em] text-sm mb-6">Explore</h4>
-              <div className="flex flex-col space-y-3">
-                <FooterLink href="https://quiz.epiphanydynamics.ai" external>AI Readiness Quiz</FooterLink>
-                <FooterLink href="https://epiphanydynamics.ai/book">Book a Call</FooterLink>
-                <FooterLink href="/case-studies/jason-fransos">Case Studies</FooterLink>
-                <FooterLink href="/newsletter">Newsletter</FooterLink>
-                <FooterLink href="https://epiphany.help" external>Learn</FooterLink>
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <h4 className="text-[#ffffff] light:text-black font-semibold tracking-[-0.01em] text-sm mb-6">Connect</h4>
-              <div className="flex flex-col space-y-3">
-                <FooterLink href="https://www.linkedin.com/company/epiphany-dynamics" external>LinkedIn</FooterLink>
-                <FooterLink href="https://www.instagram.com/epiphanydynamics" external>Instagram</FooterLink>
-                <FooterLink href="mailto:patrick@epiphanydynamics.ai" external>Email Us</FooterLink>
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <h4 className="text-[#ffffff] light:text-black font-semibold tracking-[-0.01em] text-sm mb-6">Legal</h4>
-              <div className="flex flex-col space-y-3">
-                <FooterLink href="/privacy">Privacy Policy</FooterLink>
-                <FooterLink href="/terms">Terms of Service</FooterLink>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom bar */}
-          <div className="pt-8 mt-12 border-t border-[#ffffff]/10 light:border-black/[0.12] flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-[#ffffff]/35 light:text-black text-sm tracking-[0.15em] uppercase">&copy; 2026 Epiphany Dynamics. All rights reserved.</p>
-            <p className="text-[#ffffff]/25 light:text-black text-sm tracking-[0.2em] uppercase">Nashville, TN</p>
-          </div>
-        </div>
+    <footer className="site-footer ed-shell-footer">
+      <span className="ed-chat-entry">
+        <a href="mailto:patrick@epiphanydynamics.ai">Email us</a>
+      </span>
+      <div className="ed-footer-columns">
+        {columns.map(([heading, links]) => (
+          <nav key={heading} className="ed-footer-column" aria-label={heading}>
+            <h2>{heading}</h2>
+            {links.map(([label, href]) => {
+              const booking = href === BOOK
+              return (
+                <a
+                  key={label}
+                  className={booking ? 'ed-footer-book' : undefined}
+                  href={href}
+                  {...(booking ? { 'data-analytics-label': 'Book the free audit' } : {})}
+                >
+                  {label}
+                </a>
+              )
+            })}
+          </nav>
+        ))}
       </div>
-
-      <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent 0%, var(--color-footer-divider) 50%, transparent 100%)' }} aria-hidden="true" />
+      <p className="site-footer__legal">
+        <span>Epiphany Dynamics</span>
+        <span>© 2026</span>
+      </p>
+      <p className="site-footer__meta">
+        <span className="site-footer__location">
+          <span className="site-footer__marker" aria-hidden="true" />
+          <span>Nashville, TN</span>
+        </span>
+        <NashvilleClock />
+      </p>
     </footer>
   )
 }

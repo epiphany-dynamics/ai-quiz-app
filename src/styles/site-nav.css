@@ -1,0 +1,130 @@
+/* Same transparent editorial bar as the marketing site: no full-width
+   strip, no divider, readable chips behind the left brand and right controls. */
+.ed-site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 4.75rem;
+  padding: 0.75rem clamp(1rem, 3.4vw, 3.5rem);
+  background: transparent;
+  border-bottom: 0;
+  box-shadow: none;
+  color: var(--color-ink, #050505);
+}
+
+.ed-site-header__brand,
+.ed-site-header__nav {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  z-index: 1;
+}
+
+.ed-site-header__brand::before,
+.ed-site-header__nav::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -0.45rem -0.7rem;
+  background: rgba(240, 239, 235, 0.88);
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.ed-site-header__brand::before {
+  inset: -0.65rem -0.95rem;
+}
+
+html[data-theme='dark'] .ed-site-header__brand::before,
+html[data-theme='dark'] .ed-site-header__nav::before {
+  background: rgba(5, 5, 5, 0.78);
+}
+
+.ed-site-header__brand {
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ed-site-header__brand img {
+  width: auto;
+  height: 2.125rem;
+  object-fit: contain;
+}
+
+.ed-site-header__wordmark {
+  font-family: Geist, ui-sans-serif, sans-serif;
+  font-size: clamp(0.9375rem, calc(0.87rem + 0.28vw), 1.0625rem);
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  line-height: 1;
+  color: inherit;
+}
+
+.ed-site-header__nav {
+  gap: 0.75rem;
+}
+
+.ed-site-header__menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.ed-site-header__book {
+  color: inherit;
+  font-family: Geist, ui-sans-serif, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ed-site-header__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+@media (max-width: 29.999rem) {
+  .ed-site-header {
+    min-height: 4.25rem;
+    padding-inline: 0.85rem;
+  }
+
+  .ed-site-header__brand::before {
+    inset: -0.48rem -0.55rem;
+  }
+
+  .ed-site-header__nav::before {
+    inset: -0.3rem -0.45rem;
+  }
+
+  .ed-site-header__wordmark {
+    font-size: 0.875rem;
+  }
+
+  .ed-site-header__brand img {
+    height: 1.875rem;
+  }
+}
