@@ -6,21 +6,19 @@ const SITE = 'https://epiphanydynamics.ai'
 const BOOK = 'https://book.epiphanydynamics.ai'
 
 const navLinks = [
-  { name: 'About', href: `${SITE}/about` },
-  { name: 'Services', href: `${SITE}/services` },
-  { name: 'By City', href: `${SITE}/locations` },
-  { name: 'By Industry', href: `${SITE}/industries` },
-  { name: 'Pricing', href: `${SITE}/pricing` },
-  { name: 'Blog', href: `${SITE}/blog` },
+  { name: 'Services', href: `${SITE}/services/` },
+  { name: 'Case studies', href: `${SITE}/case-studies/` },
+  { name: 'Pricing', href: `${SITE}/pricing/` },
+  { name: 'Blog', href: `${SITE}/blog/` },
+  { name: 'About', href: `${SITE}/about/` },
 ]
-
 const secondaryLinks = [
-  { name: 'By City', href: `${SITE}/locations` },
-  { name: 'By Industry', href: `${SITE}/industries` },
-  { name: 'Newsletter', href: `${SITE}/newsletter` },
-  { name: 'Pricing', href: `${SITE}/pricing` },
-  { name: 'Our Work', href: `${SITE}/portfolio` },
-  { name: 'Case Studies', href: `${SITE}/case-studies/jason-fransos` },
+  { name: 'By City', href: `${SITE}/locations/` },
+  { name: 'By Industry', href: `${SITE}/industries/` },
+  { name: 'Newsletter', href: `${SITE}/newsletter/` },
+  { name: 'Pricing', href: `${SITE}/pricing/` },
+  { name: 'Our Work', href: `${SITE}/portfolio/` },
+  { name: 'Case Studies', href: `${SITE}/case-studies/` },
   { name: 'AI Quiz', href: 'https://quiz.epiphanydynamics.ai', external: true },
   { name: 'AI Calculator', href: 'https://ai4bizcalculator.online', external: true },
   { name: 'Book your free audit', href: BOOK },
