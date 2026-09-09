@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ThemeToggle } from './ThemeToggle'
+import '@/styles/site-nav.css'
 
 const SITE = 'https://epiphanydynamics.ai'
 const BOOK = 'https://book.epiphanydynamics.ai'
@@ -56,39 +57,7 @@ const HamburgerIcon = ({ isOpen }: { isOpen: boolean }) => (
 )
 
 export function SiteNavbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isHidden, setIsHidden] = useState(false)
-
-  useEffect(() => {
-    let lastY = window.scrollY
-    let ticking = false
-
-    const handleScroll = () => {
-      if (ticking) return
-      ticking = true
-      requestAnimationFrame(() => {
-        const currentY = window.scrollY
-        const delta = currentY - lastY
-
-        setIsScrolled(currentY > 80)
-
-        if (currentY < 100) {
-          setIsHidden(false)
-        } else if (delta > 8) {
-          setIsHidden(true)
-        } else if (delta < -5) {
-          setIsHidden(false)
-        }
-
-        lastY = currentY
-        ticking = false
-      })
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : ''
@@ -106,104 +75,50 @@ export function SiteNavbar() {
 
   return (
     <>
-      <nav
-        className="fixed top-0 left-0 w-full z-[100] flex flex-col"
-        style={{
-          transform: isHidden && !isMenuOpen ? 'translateY(-100%)' : 'translateY(0)',
-          transition: 'transform 0.4s cubic-bezier(0.65, 0, 0.35, 1)',
-        }}
-      >
-        {/* Frosted bar — always carries a readable backdrop that follows the
-            active theme via --color-bg; scroll just tightens opacity and
-            rounds it into a floating pill (canonical main-site behavior). */}
-        <div className="relative px-3 max-[379px]:px-0 md:px-5 py-2.5">
-          <div
-            className="absolute inset-x-3 max-[379px]:inset-x-1 md:inset-x-5 inset-y-2.5 pointer-events-none transition-all"
-            style={{
-              backgroundColor: isScrolled
-                ? 'color-mix(in srgb, var(--color-bg) 88%, transparent)'
-                : 'color-mix(in srgb, var(--color-bg) 55%, transparent)',
-              backdropFilter: 'blur(20px) saturate(180%)',
-              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-              borderRadius: isScrolled ? '56px' : '32px',
-              border: '1px solid var(--color-line)',
-              boxShadow: isScrolled
-                ? '0 8px 32px -8px rgba(0,0,0,0.18), 0 2px 8px -2px rgba(0,0,0,0.10)'
-                : '0 1px 2px rgba(0,0,0,0.06)',
-              opacity: 1,
-              transitionDuration: '400ms',
-              transitionTimingFunction: 'cubic-bezier(0.65, 0, 0.35, 1)',
-            }}
+      <header className="ed-site-header">
+        <a className="ed-site-header__brand" href={SITE} aria-label="Epiphany Dynamics home">
+          <img
+            src="/images/logos/new_geometric_mark.png"
+            alt=""
+            width={122}
+            height={189}
           />
-
-          {/* Top bar — 3-part layout: hamburger left | centered logo | CTA right */}
-          <div className="relative flex items-center justify-between px-4 max-[379px]:px-0 md:px-6 h-[68px] md:h-[76px]">
-            {/* Left: Hamburger + "Menu" label */}
-            <div className="flex items-center gap-3 relative z-10">
-              <button
-                type="button"
-                aria-label="Toggle menu"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="flex items-center gap-2 transition-colors duration-200 min-h-[44px] min-w-[44px]"
-              >
-                <HamburgerIcon isOpen={isMenuOpen} />
-                <span className="hidden md:inline text-xs font-geist tracking-[0.15em] uppercase transition-colors duration-300 text-ink">
-                  Menu
-                </span>
-              </button>
-            </div>
-
-            {/* Center: Logo — always centered */}
-            <a
-              href={SITE}
-              className="absolute left-1/2 -translate-x-1/2 flex items-center space-x-2.5 group z-20 cursor-pointer"
-            >
-              <img
-                src="/images/logos/new_geometric_mark.png"
-                alt="Epiphany Dynamics"
-                className="nav-logo-mark w-8 h-8 md:w-9 md:h-9 transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="flex flex-col">
-                <span className="font-geist font-bold tracking-tight leading-none text-sm md:text-base transition-colors duration-300 text-ink">
-                  EPIPHANY
-                </span>
-                <span className="font-geist tracking-[0.3em] leading-none text-[9px] md:text-[10px] transition-colors duration-300 text-ink">
-                  DYNAMICS
-                </span>
-              </div>
-            </a>
-
-            {/* Right: Theme toggle + CTA button (desktop) */}
-            <div className="z-10 hidden md:flex items-center gap-4">
-              <ThemeToggle />
-              <a
-                href={BOOK}
-                className="text-xs font-geist tracking-[0.3px] uppercase text-ink-muted hover:text-ink transition-colors"
-              >
-                Book your free audit
-              </a>
-              <a href="https://quiz.epiphanydynamics.ai" className="site-btn-secondary nav-cta">
-                <span className="btn-in">Get started</span>
-                <span className="btn-out" aria-hidden="true">Get started</span>
-              </a>
-            </div>
-            {/* Right: Theme toggle + CTA (mobile) */}
-            <div className="z-10 md:hidden flex items-center gap-1">
-              <ThemeToggle />
-              <a
-                href={BOOK}
-                className="hidden sm:inline-flex text-[10px] font-geist tracking-[0.12em] uppercase text-ink-muted hover:text-ink transition-colors min-h-[44px] items-center"
-              >
-                Book
-              </a>
-              <a href="https://quiz.epiphanydynamics.ai" className="site-btn-secondary nav-cta nav-cta-mobile">
-                <span className="btn-in">Start</span>
-                <span className="btn-out" aria-hidden="true">Start</span>
-              </a>
-            </div>
+          <span className="ed-site-header__wordmark">Epiphany Dynamics</span>
+        </a>
+        <nav className="ed-site-header__nav" aria-label="Primary navigation">
+          <div className="ed-site-header__theme">
+            <ThemeToggle />
           </div>
-        </div>
-      </nav>
+          <a className="ed-site-header__book hidden sm:inline-flex" href={BOOK}>
+            Book your free audit
+          </a>
+          <a
+            href="https://quiz.epiphanydynamics.ai"
+            className="site-btn-secondary nav-cta ed-site-header__cta"
+          >
+            <span className="btn-in">
+              <span className="ed-site-header__cta-full">Get started</span>
+              <span className="ed-site-header__cta-short">Start</span>
+            </span>
+            <span className="btn-out" aria-hidden="true">
+              <span className="ed-site-header__cta-full">Get started</span>
+              <span className="ed-site-header__cta-short">Start</span>
+            </span>
+          </a>
+          <button
+            type="button"
+            className="ed-site-header__menu"
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <HamburgerIcon isOpen={isMenuOpen} />
+            <span className="hidden md:inline text-xs font-geist tracking-[0.15em] uppercase">
+              Menu
+            </span>
+          </button>
+        </nav>
+      </header>
 
       {/* Full-screen menu overlay — follows the active theme (paper + ink
           in light mode), matching the canonical main-site overlay. */}
