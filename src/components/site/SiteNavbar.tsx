@@ -86,7 +86,9 @@ export function SiteNavbar() {
           <span className="ed-site-header__wordmark">Epiphany Dynamics</span>
         </a>
         <nav className="ed-site-header__nav" aria-label="Primary navigation">
-          <ThemeToggle />
+          <div className="ed-site-header__theme">
+            <ThemeToggle />
+          </div>
           <a className="ed-site-header__book hidden sm:inline-flex" href={BOOK}>
             Book your free audit
           </a>
