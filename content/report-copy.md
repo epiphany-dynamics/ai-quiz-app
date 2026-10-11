@@ -142,7 +142,7 @@ You're aware that AI is changing how businesses operate, but the path from "I kn
 **Section: Personalized by barrier**
 *[Shown if A6a was answered -- only for users who said they've never used AI]*
 
-- **"I don't know where to start"** — That's exactly what the free AI audit is for. In 30 minutes, we'll map your business, current tools, and biggest time drain to a few practical starting points. You'll leave with a ranked list, not a sales pitch.
+- **"I don't know where to start"** — That's exactly what the free AI audit is for. In 30 minutes we talk through your workflows, find the biggest bottleneck or greatest opportunity, and you leave with a written map of the systems that can fix it. Not a sales pitch.
 
 - **"I'm worried about the cost"** — Start with a small, low-risk workflow. Claude, ChatGPT, Notion AI, and Zapier can each help with different parts of the process. Check the current plans and usage terms, then decide whether the time saved justifies a wider rollout.
 
@@ -154,7 +154,7 @@ You're aware that AI is changing how businesses operate, but the path from "I kn
 
 **Section: What to do this week**
 
-1. Book a free 30-minute AI audit. You'll leave with a specific, prioritized list of what to automate first -- tailored to your business, not generic advice.
+1. Book a free 30-minute AI audit. We talk through your workflows, find the biggest bottleneck, and you leave with a written map of the systems that can fix it.
 2. Try one thing before the call: go to claude.ai and describe your biggest operational headache in plain English. Ask it to suggest a few ways to approach it, then review the response.
 3. Write down how many hours per week you or your team spend on tasks that don't directly generate revenue. That number is your automation ROI.
 
@@ -172,7 +172,7 @@ You haven't started with AI yet, and that's actually fine. Start with a small ta
 
 1. **Get a plain-English AI breakdown for your industry** — Several tools may fit businesses like yours, but the right starting point is the one that addresses the problem costing you the most time. Compare the current plans and test the smallest useful workflow first.
 
-2. **Book a free 30-minute AI audit** — A no-pressure conversation that maps where AI could fit your business before you commit to a tool. You'll leave with a ranked list of practical starting points tailored to your situation, not a generic sales pitch.
+2. **Book a free 30-minute AI audit** — A no-pressure conversation about your workflows. We find the biggest bottleneck or greatest opportunity, then you leave with a written map of the systems that can fix it.
 
 3. **Try one small thing this week** — Claude and ChatGPT can both be useful places to start. Check the current account and plan terms, then use one of them to draft a low-risk client email or social post and review the result before you use it.
 
@@ -185,7 +185,7 @@ You haven't started with AI yet, and that's actually fine. Start with a small ta
 **Section: What to do this week**
 
 1. Go to claude.ai right now. Type: "I run a [your business type]. What are three things AI could help me with today?" Read the response. That's your starting point.
-2. Book a free AI audit call. No pressure, no pitch. We'll tell you the 2-3 most impactful things to automate for your specific business, and you decide if and when to act on them.
+2. Book a free AI audit call. No pressure, no pitch. We find the biggest bottleneck in your business and send a written map of the kinds of systems that can fix it. You decide if and when to act.
 3. Ask one person you know who uses AI in their business what they use it for. One real conversation is worth more than a hundred articles.
 
 ---

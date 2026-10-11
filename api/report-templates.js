@@ -125,7 +125,7 @@ const PAIN_BLOCKS = {
 // ---- Barrier blocks ----
 
 const BARRIER_BLOCKS = {
-  dont_know_start: { title: "I don't know where to start", body: "That's exactly what the free AI audit is for. In 30 minutes, we'll map your business, current tools, and biggest time drain to a few practical starting points. You'll leave with a ranked list, not a sales pitch." },
+  dont_know_start: { title: "I don't know where to start", body: "That's exactly what the free AI audit is for. In 30 minutes we talk through your workflows, find the biggest bottleneck or greatest opportunity, and you leave with a written map of the systems that can fix it. Not a sales pitch." },
   cost: { title: "I'm worried about the cost", body: "Start with a small, low-risk workflow. Claude, ChatGPT, Notion AI, and Zapier can each help with different parts of the process. Check the current plans and usage terms, then decide whether the time saved justifies a wider rollout." },
   not_right: { title: "I'm not sure it's right for my type of business", body: "If your business involves answering customer questions, scheduling appointments, following up with leads, or creating content, AI is relevant. Those four tasks exist in every industry." },
   tried_failed: { title: "I tried it once and it didn't work well", body: "The tools have changed dramatically in the last 12 months. What didn't work a year ago probably works now. The difference is usually in the setup -- AI needs to be configured for your specific business, not used out of the box." },
@@ -200,13 +200,13 @@ const WEEK_STEPS = {
     "Before the call, check if the tool you currently use for that task has AI features you haven't turned on yet. Many CRMs and scheduling platforms already have AI built in -- you might be sitting on a solution you're already paying for.",
   ],
   ai_aware_explorer: [
-    "Book a free 30-minute AI audit. We'll map what to automate first around your business, team, and current tools.",
+    "Book a free 30-minute AI audit. We talk through your workflows, find the biggest bottleneck, and you leave with a written map of the systems that can fix it.",
     "Try one thing before the call: go to claude.ai and describe your biggest operational headache in plain English. Ask it to suggest a few ways to approach it, then review the response.",
     "Write down how many hours per week you or your team spend on tasks that don't directly generate revenue. That number is your automation ROI.",
   ],
   ai_newcomer: [
     "Go to claude.ai right now. Type: \"I run a [your business type]. What are three things AI could help me with today?\" Read the response. That's your starting point.",
-    "Book a free AI audit call. We'll help you identify a few practical starting points for your business, and you can decide if and when to act on them.",
+    "Book a free AI audit call. We find the biggest bottleneck in your business and send a written map of the kinds of systems that can fix it. You decide if and when to act.",
     "Ask one person you know who uses AI in their business what they use it for. One real conversation is worth more than a hundred articles.",
   ],
   trailblazer: [
